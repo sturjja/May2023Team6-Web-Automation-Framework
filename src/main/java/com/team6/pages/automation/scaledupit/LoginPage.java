@@ -66,4 +66,5 @@ public class LoginPage extends CommonAPI {
         log.info("login page header text is "+loginPageHeaderText);
         return loginPageHeaderText;
     }
+
 }
