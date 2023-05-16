@@ -14,6 +14,16 @@
             <class name="com.automation.scaledupit.CheckoutTest"></class>
         </classes>
     </test>
+    <test name="cart test">
+        <classes>
+            <class name="com.automation.scaledupit.CartTest"></class>
+        </classes>
+    </test>
+    <test name="account details test">
+        <classes>
+            <class name="com.automation.scaledupit.AccountDetailsTest"></class>
+        </classes>
+    </test>
     <test name="login test">
         <classes>
             <class name="com.automation.scaledupit.LoginTest"></class>

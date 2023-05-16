@@ -18,11 +18,11 @@
     </Appenders>
     <Loggers>
         <Logger name="logs" level="info" additivity="false">
-            <!--            <AppenderRef ref="file"/>-->
+                        <AppenderRef ref="file"/>
             <AppenderRef ref="Console"/>
         </Logger>
         <Root level="info">
-            <!--            <AppenderRef ref="file"/>-->
+                        <AppenderRef ref="file"/>
             <AppenderRef ref="Console"/>
         </Root>
     </Loggers>

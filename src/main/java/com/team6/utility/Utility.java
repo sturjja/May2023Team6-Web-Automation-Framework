@@ -26,7 +26,7 @@ public class Utility {
     }
 
     public static void main(String[] args) {
-        String originalInput = "ABCd1234$piit";
+        String originalInput = "ABCd1234$";
         String encodedString = Base64.getEncoder().encodeToString(originalInput.getBytes());
         System.out.println(encodedString);
 
