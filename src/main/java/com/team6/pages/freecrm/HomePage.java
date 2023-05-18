@@ -1,42 +1,73 @@
 package com.team6.pages.freecrm;
 
-import com.team6.base.CommonAPI;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import com.team6.base.CommonAPI;
 
 public class HomePage extends CommonAPI {
     Logger log = LogManager.getLogger(HomePage.class.getName());
     public HomePage(WebDriver driver){
         PageFactory.initElements(driver, this);
     }
+    @FindBy(xpath = "//button[contains(text(), 'Save')]")
+    WebElement clickOnSaveButton;
 
-    //locators
-    @FindBy(xpath = "//span[contains(text(),'Products')]")
-    WebElement mainHeader;
+    @FindBy(xpath = "//body/div[@id='ui']/div[1]/div[2]/div[2]/div[1]/div[2]/form[1]/div[1]/div[1]/div[1]/div[1]/input[1]")
+    WebElement NewTaskTitleField;
 
-    @FindBy(css = "#react-burger-menu-btn")
-    WebElement hamburgerMenu;
+    @FindBy(xpath = "//button[contains(text(), 'Create')]")
+    WebElement clickOnCreateButton;
 
-    @FindBy(css = "#logout_sidebar_link")
-    WebElement logoutLink;
+    @FindBy(xpath = "//span[contains(text(), 'Tasks')]")
+    WebElement clickOnTaskMenuItem;
 
-    //reusable methods
-    public String getHeaderText(){
-        String text = getElementText(mainHeader);
-        log.info("user logged in success");
+
+
+    @FindBy(xpath = "//div[contains(text(),'No items found')]")
+    WebElement homePageHeader;
+
+    @FindBy(xpath = "//body/div[@id='ui']/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/i[1]")
+    WebElement clickOnSettingButton;
+
+    @FindBy(xpath = "//span[contains(text(),'Log Out')]")
+    WebElement clickOnLogoutButton;
+
+    public void ClickOnSaveButton(){
+        clickOn(clickOnSaveButton);
+    }
+
+    public void enterTitle(String newtask){
+        type(NewTaskTitleField, newtask);
+
+    }
+
+
+
+    public void clickOnCreateButton(){
+        clickOn(clickOnCreateButton);
+    }
+
+    public void clickOnSettingButton(){
+        clickOn(clickOnSettingButton);
+    }
+    public void clickOnLogOutButton(){
+        clickOn(clickOnLogoutButton);
+        log.info("Click on logout button success");
+    }
+    public void clickOnTaskMenuItem(){
+        clickOn(clickOnTaskMenuItem);
+    }
+
+
+
+    public String getHomePageHeader(){
+        String text = getElementText(homePageHeader);
+        log.info("User login success");
         return text;
-    }
-    public void clickOnHamburgerMenu(){
-        clickOn(hamburgerMenu);
-        log.info("click on hamburger menu success");
-    }
-    public void hoverOverOnAndClickLogoutLink(){
-        hoverOverAndClickOn(logoutLink);
-        log.info("click on logout link success");
     }
 
 }
