@@ -1,4 +1,4 @@
-package com.team6.pages.placeholder;
+package com.team6.pages.orangehrmlive;
 
 import com.team6.base.CommonAPI;
 import org.apache.logging.log4j.LogManager;
