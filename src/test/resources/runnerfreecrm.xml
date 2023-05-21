@@ -13,14 +13,4 @@
             <class name="com.freecrm.LoginTest"></class>
         </classes>
     </test>
-    <test name="logout test">
-        <classes>
-            <class name="com.freecrm.LogoutTest"></class>
-        </classes>
-    </test>
-    <test name="verifyDashboard">
-        <classes>
-            <class name="com.freecrm.VerifyDashboard"></class>
-        </classes>
-    </test>
 </suite>

@@ -22,7 +22,7 @@ public class LoginPage extends CommonAPI {
     WebElement passwordField;
     @FindBy(xpath = "//div[text()='Login']")
     WebElement loginButton;
-    @FindBy(xpath = "//div[@class='ui error floating icon message']")
+    @FindBy(xpath = "//div[@class=\"header\" and text()=\"Something went wrong...\"]\n")
     WebElement errorMessage;
     @FindBy(xpath = "//a[@class='btn btn-primary btn-xs-2 btn-shadow btn-rect btn-icon btn-icon-left']")
     WebElement clickOnLoginButton;
@@ -30,7 +30,7 @@ public class LoginPage extends CommonAPI {
     @FindBy(xpath = "//a[contains(text(),'Forgot your password?')]")
     WebElement forgotPasswordButton;
 
-    @FindBy(xpath = "//div[contains(text(),'No items found')]")
+    @FindBy(xpath = "//a[@href=\"https://register.cogmento.com/password/reset/request/?lang=en-GB\" and text()=\"Forgot your password?\"]\n")
     WebElement actualPageHeader;
     @FindBy(xpath = "//span[text()='Log In']")
     WebElement clickOnLoginLink;
@@ -39,6 +39,7 @@ public class LoginPage extends CommonAPI {
     //reusable methods
     public void clickOnloginLink(){
         clickOn(clickOnLoginLink);
+        log.info("enter login page");
     }
 
     public boolean checkActualPageHeader(){
