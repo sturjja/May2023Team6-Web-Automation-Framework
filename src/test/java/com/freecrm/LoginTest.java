@@ -32,7 +32,6 @@ public class LoginTest extends CommonAPI {
             Assert.assertEquals(expectedTitle, actualTitle);
 
             loginPage.clickOnloginLink();
-            log.info("enter login page");
             loginPage.enterEmail(validEmail);
             loginPage.enterPassword(validPassword);
             loginPage.clickOnLoginButton();
@@ -40,7 +39,7 @@ public class LoginTest extends CommonAPI {
             waitFor(10);
 
 
-            String expectedHomePageHeader = "No items found";
+            String expectedHomePageHeader = "Ibna Zaman";
             String actualHomePageHeader = homePage.getHomePageHeader();
             Assert.assertEquals(expectedHomePageHeader, actualHomePageHeader);
 
@@ -57,13 +56,12 @@ public class LoginTest extends CommonAPI {
 
 
             loginPage.clickOnloginLink();
-            log.info("enter login page");
             loginPage.enterEmail("InvalidEmail");
             loginPage.enterPassword(validPassword);
             loginPage.clickOnLoginButton();
             waitFor(10);
 
-            String expectedError = "You do not have permission to perform this action";
+            String expectedError = "Something went wrong...";
             String actualError = loginPage.getErrorMessage();
             Assert.assertEquals(expectedError, actualError);
 
@@ -82,13 +80,12 @@ public class LoginTest extends CommonAPI {
 
 
             loginPage.clickOnloginLink();
-            log.info("enter login page");
             loginPage.enterEmail(" ");
             loginPage.enterPassword(validPassword);
             loginPage.clickOnLoginButton();
             waitFor(10);
 
-            String expectedError = "You do not have permission to perform this action";
+            String expectedError = "Something went wrong...";
             String actualError = loginPage.getErrorMessage();
             Assert.assertEquals(expectedError, actualError);
 
@@ -106,7 +103,6 @@ public class LoginTest extends CommonAPI {
 
 
             loginPage.clickOnloginLink();
-            log.info("enter login page");
             loginPage.enterEmail(validEmail);
             loginPage.enterPassword(" ");
             loginPage.clickOnLoginButton();

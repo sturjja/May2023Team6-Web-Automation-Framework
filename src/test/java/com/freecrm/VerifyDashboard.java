@@ -13,6 +13,7 @@ public class VerifyDashboard extends CommonAPI {
     String validEmail = "awafzaman@gmail.com";
     String validPassword = "Takeover2022";
     String titleName = "newtask";
+    String searchContact = "Lionel";
     @Test
     public void testDashboardLoadPage(){
         LoginPage loginPage = new LoginPage(getDriver());
@@ -60,6 +61,31 @@ public class VerifyDashboard extends CommonAPI {
         homePage.ClickOnSaveButton();
 
 
+
+    }
+
+    @Test
+    public void searchContact(){
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+        String expectedTitle = "#1 Free CRM App for every business customer relationship management cloud";
+        String actualTitle = getCurrentTitle();
+        Assert.assertEquals(expectedTitle, actualTitle);
+
+        loginPage.clickOnloginLink();
+        loginPage.enterEmail(validEmail);
+        loginPage.enterPassword(validPassword);
+        loginPage.clickOnLoginButton();
+        String expectedHeader = "Cogmento CRM";
+        String actualHeader = getCurrentTitle();
+        Assert.assertEquals(actualHeader, expectedHeader);
+        log.info("Validate dashboard success");
+
+        homePage.typeOnSearchField(searchContact);
+        String expectedContactName = "Lionel Messi";
+        String actualContactName = homePage.getActualContactNameTitle();
+        Assert.assertEquals(expectedContactName,actualContactName);
+        log.info("desired contact found");
 
     }
 
