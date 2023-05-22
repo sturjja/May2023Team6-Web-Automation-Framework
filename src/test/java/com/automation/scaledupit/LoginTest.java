@@ -85,6 +85,26 @@ public class LoginTest extends CommonAPI {
         Assert.assertEquals(expectedError, actualError);
     }
     @Test
+    public void incorrectPassword() {
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+        //land on home page
+        String expectedTitle = "Automation – Automate eCommerce";
+        String actualTitle = getCurrentTitle();
+        Assert.assertEquals(expectedTitle, actualTitle);
+        waitFor(3);
+        //enter  username, password, and click on login button
+        loginPage.clickOnMyAccountBtn();
+        loginPage.enterUsername(validUsername);
+        loginPage.enterPassword("");
+        loginPage.clickOnLoginBtn();
+
+        //validate the error message
+        String expectedError = "Error: The password you entered for the email address Samtur@example.com gis incorrect. Lost your password?";
+        String actualError = loginPage.getErrorMessage();
+        Assert.assertEquals(expectedError, actualError);
+    }
+    @Test
     public void noCredentials() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
