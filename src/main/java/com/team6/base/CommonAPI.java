@@ -11,6 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.Keys;
 import org.testng.annotations.*;
 import com.team6.utility.Utility;
 import java.net.MalformedURLException;
@@ -103,6 +104,15 @@ public class CommonAPI {
         element.sendKeys(text);
 
     }
+    public void pressEnter(WebElement element){
+        element.sendKeys(Keys.ENTER);
+    }
+    public void arrowDownTwiceAndPressEnter(WebElement element){
+        element.sendKeys(Keys.ARROW_DOWN,Keys.ARROW_DOWN,Keys.ENTER);
+    }
+    public void arrowDownThriceAndPressEnter(WebElement element){
+        element.sendKeys(Keys.ARROW_DOWN,Keys.ARROW_DOWN,Keys.ARROW_DOWN,Keys.ENTER);
+    }
     public void hoverOver(WebElement element){
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();
@@ -118,6 +128,7 @@ public class CommonAPI {
             throw new RuntimeException(e);
         }
     }
+
     public boolean isVisible(WebElement element){
         return element.isDisplayed();
     }

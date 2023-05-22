@@ -22,7 +22,7 @@ public class LoginPage extends CommonAPI {
     @FindBy(css = "#password")
     WebElement passwordField;
 
-    @FindBy(css = "button[name ='login'")
+    @FindBy(css = "button[name ='login']")
     WebElement loginBtn;
 
     @FindBy(css = "a[class='my-account']")
