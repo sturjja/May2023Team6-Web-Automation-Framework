@@ -11,7 +11,7 @@ import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 public class DealsItem extends CommonAPI {
-    Logger log = LogManager.getLogManager().getLogger(DealsItem.class.getName());
+
     String validEmail = "awafzaman@gmail.com";
     String validPassword = "Takeover2022";
     String comission = "$100000";
@@ -30,7 +30,6 @@ public class DealsItem extends CommonAPI {
         Assert.assertEquals(expectedTitle, actualTitle);
 
         loginPage.clickOnloginLink();
-        log.info("enter login page");
         loginPage.enterEmail(validEmail);
         loginPage.enterPassword(validPassword);
         loginPage.clickOnLoginButton();
@@ -58,13 +57,13 @@ public class DealsItem extends CommonAPI {
         Assert.assertEquals(expectedTitle, actualTitle);
 
         loginPage.clickOnloginLink();
-        log.info("enter login page");
         loginPage.enterEmail(validEmail);
         loginPage.enterPassword(validPassword);
         loginPage.clickOnLoginButton();
 
         dealsPage.clickOnDealsButton();
         dealsPage.clickOnUnhideIcon();
+        waitFor(3);
         dealsPage.clickOnAddNotesButton();
         dealsPage.typeOnNotesField(note);
         dealsPage.clickOnSaveNotes();

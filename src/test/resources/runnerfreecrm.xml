@@ -10,7 +10,7 @@
     <parameter name="url" value="https://freecrm.com/"></parameter>
     <test name="VerifyDashboard">
         <classes>
-            <class name="com.freecrm.ForumItem"></class>
+            <class name="com.freecrm.CaseItem"></class>
         </classes>
     </test>
 </suite>
