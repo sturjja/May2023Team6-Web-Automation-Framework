@@ -1,7 +1,6 @@
 package com.team6.reporting;
 
-
-import com.aventstack.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentReports;
 import com.team6.utility.Utility;
 import org.testng.ITestContext;
 import org.testng.Reporter;
