@@ -32,7 +32,7 @@ public class LoginTest extends CommonAPI {
             Assert.assertEquals(expectedTitle, actualTitle);
 
             loginPage.clickOnloginLink();
-            loginPage.enterEmail(validEmail);
+            logigitnPage.enterEmail(validEmail);
             loginPage.enterPassword(validPassword);
             loginPage.clickOnLoginButton();
 
