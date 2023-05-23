@@ -11,7 +11,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class CartTest extends CommonAPI {
-    Logger log = LogManager.getLogger(LoginTest.class.getName());
+    Logger log = LogManager.getLogger(CartTest.class.getName());
     Properties prop = Utility.loadProperties();
     String validUsername = Utility.decode(prop.getProperty("scaledupit.username"));
     String validPassword = Utility.decode(prop.getProperty("scaledupit.password"));
@@ -35,7 +35,7 @@ public class CartTest extends CommonAPI {
         String actualHomePageHeader = homePage.getHeaderText();
         Assert.assertEquals(expectedHomePageHeader, actualHomePageHeader);
         waitFor(3);
-        //go to collection
+        //go to collection, click on belt and add to cart
         homePage.clickOnMenCollectionBtn();
         homePage.clickOnBelt();
         homePage.clickOnAddToCart();

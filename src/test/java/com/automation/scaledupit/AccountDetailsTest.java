@@ -8,11 +8,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import java.util.Properties;
 
 public class AccountDetailsTest extends CommonAPI{
-    Logger log = LogManager.getLogger(LogoutTest.class.getName());
+    Logger log = LogManager.getLogger(AccountDetailsTest.class.getName());
 
     Properties prop = Utility.loadProperties();
     String validUsername = Utility.decode(prop.getProperty("scaledupit.username"));

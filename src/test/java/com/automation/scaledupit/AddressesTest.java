@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 import java.util.Properties;
 
 public class AddressesTest extends CommonAPI{
-    Logger log = LogManager.getLogger(LoginTest.class.getName());
+    Logger log = LogManager.getLogger(AddressesTest.class.getName());
 
     Properties prop = Utility.loadProperties();
     String validUsername = Utility.decode(prop.getProperty("scaledupit.username"));
@@ -53,31 +53,31 @@ public class AddressesTest extends CommonAPI{
         Assert.assertEquals(expectedAddressesPageHeader, actualAddressesPageHeader);
         waitFor(3);
         //click on edit Billing Address button
-        addressesPage.clickOnEditBtn();
+        addressesPage.clickOnEditBtnBilling();
         //click on Country dropdown menu and choose United States
-        addressesPage.clickOnCountryDropdown();
-        addressesPage.enterPartialCountryName(partialCountryName);
+        addressesPage.clickOnCountryDropdownBilling();
+        addressesPage.enterPartialCountryNameBilling(partialCountryName);
         waitFor(3);
-        addressesPage.keyDownTwiceAndSelect();
+        addressesPage.keyDownTwiceAndSelectBilling();
         //enter Street Address
-        addressesPage.clearStreetAddressField();
+        addressesPage.clearStreetAddressFieldBilling();
         addressesPage.enterStreetAddressBilling(streetAddress);
-        addressesPage.clearApartmentNumberField();
+        addressesPage.clearApartmentNumberFieldBilling();
         addressesPage.enterApartmentNumberBilling(apartmentNumber);
         //enter City
-        addressesPage.clearCityField();
+        addressesPage.clearCityFieldBilling();
         waitFor(3);
         addressesPage.enterCityBilling(city);
         //click on State dropdown menu and choose New York
-        addressesPage.clickOnStateDropdown();
-        addressesPage.enterPartialStateName(partialStateName);
-        addressesPage.keyDownThriceAndSelect();
+        addressesPage.clickOnStateDropdownBilling();
+        addressesPage.enterPartialStateNameBilling(partialStateName);
+        addressesPage.keyDownThriceAndSelectBilling();
         //enter Zip Code
-        addressesPage.clearZipCodeField();
+        addressesPage.clearZipCodeFieldBilling();
         waitFor(3);
         addressesPage.enterZipCodeBilling(zipcode);
         //enter Phone Number
-        addressesPage.clearPhoneNumberField();
+        addressesPage.clearPhoneNumberFieldBilling();
         waitFor(3);
         addressesPage.enterPhoneNumberBilling(phoneNumber);
         //click on save address button
@@ -86,10 +86,64 @@ public class AddressesTest extends CommonAPI{
         String expectedMessage = "Address changed successfully.";
         String actualMessage = addressesPage.getConfirmationMessage();
         Assert.assertEquals(expectedMessage, actualMessage);
-
     }
     @Test
     public void setShippingAddress() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+        AddressesPage addressesPage = new AddressesPage(getDriver());
+        //land on home page
+        String expectedTitle = "Automation – Automate eCommerce";
+        String actualTitle = getCurrentTitle();
+        Assert.assertEquals(expectedTitle, actualTitle);
+        waitFor(3);
+        //enter  username, password, and click on login button
+        loginPage.clickOnMyAccountBtn();
+        loginPage.enterUsername(validUsername);
+        loginPage.enterPassword(validPassword);
+        loginPage.clickOnLoginBtn();
+        //check user is logged in
+        String expectedHomePageHeader = "My account";
+        String actualHomePageHeader = homePage.getHeaderText();
+        Assert.assertEquals(expectedHomePageHeader, actualHomePageHeader);
+        waitFor(3);
+        //click on account details button
+        homePage.clickOnAddressesBtn();
+        //check user is in correct place
+        String expectedAddressesPageHeader = "Addresses";
+        String actualAddressesPageHeader = addressesPage.getHeaderText();
+        Assert.assertEquals(expectedAddressesPageHeader, actualAddressesPageHeader);
+        waitFor(3);
+        //click on edit Billing Address button
+        addressesPage.clickOnEditBtnShipping();
+        //click on Country dropdown menu and choose United States
+        addressesPage.clickOnCountryDropdownShipping();
+        addressesPage.enterPartialCountryNameShipping(partialCountryName);
+        waitFor(3);
+        addressesPage.keyDownTwiceAndSelectShipping();
+        //enter Street Address
+        addressesPage.clearStreetAddressFieldShipping();
+        addressesPage.enterStreetAddressShipping(streetAddress);
+        addressesPage.clearApartmentNumberFieldShipping();
+        addressesPage.enterApartmentNumberShipping(apartmentNumber);
+        //enter City
+        addressesPage.clearCityFieldShipping();
+        waitFor(3);
+        addressesPage.enterCityShipping(city);
+        //click on State dropdown menu and choose New York
+        addressesPage.clickOnStateDropdownShipping();
+        addressesPage.enterPartialStateNameShipping(partialStateName);
+        addressesPage.keyDownThriceAndSelectShipping();
+        //enter Zip Code
+        addressesPage.clearZipCodeFieldShipping();
+        waitFor(3);
+        addressesPage.enterZipCodeShipping(zipcode);
+        //click on save address button
+        addressesPage.clickOnSaveAddressBtnShipping();
+        //verify confirmation message
+        String expectedMessage = "Address changed successfully.";
+        String actualMessage = addressesPage.getConfirmationMessageShipping();
+        Assert.assertEquals(expectedMessage, actualMessage);
 
     }
 }

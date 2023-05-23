@@ -16,7 +16,6 @@ import org.openqa.selenium.WebElement;
 
 public class LoginTest extends CommonAPI {
     Logger log = LogManager.getLogger(LoginTest.class.getName());
-
     Properties prop = Utility.loadProperties();
     String validUsername = Utility.decode(prop.getProperty("scaledupit.username"));
     String validPassword = Utility.decode(prop.getProperty("scaledupit.password"));
