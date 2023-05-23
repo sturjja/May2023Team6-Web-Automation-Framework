@@ -22,6 +22,9 @@ public class AccountSettingsItem extends CommonAPI {
     String validLastName = "Doe";
     String newValidEmail = "kazizaman@gmail.com";
 
+ //----------------------------------------------------------------------------------------------------------
+ //*****************************(Test Case to change a password)******************************************
+
     @Test
     public void changePassword(){
         LoginPage loginPage = new LoginPage(getDriver());
@@ -50,6 +53,9 @@ public class AccountSettingsItem extends CommonAPI {
 
     }
 
+//-----------------------------------------------------------------------------------------------------------
+//*******************************(Test Case to add address to company)**************************************
+
     @Test
     public void addAddressToCompany(){
         LoginPage loginPage = new LoginPage(getDriver());
@@ -73,6 +79,9 @@ public class AccountSettingsItem extends CommonAPI {
 
 
     }
+
+ //----------------------------------------------------------------------------------------------------------
+ //*****************************(Test Case to add a new user manager)*******************************************
 
 
     @Test

@@ -13,6 +13,9 @@ import java.util.Properties;
 public class LogoutTest extends CommonAPI {
     Logger log = LogManager.getLogger(LogoutTest.class.getName());
 
+ //-----------------------------------------------------------------------------------------------------------
+ //********************************(Logout Function Test)**************************************************
+
     String validEmail = "awafzaman@gmail.com";
 
     String validPassword = "Takeover2022 ";

@@ -16,6 +16,9 @@ public class CompanyItem extends CommonAPI {
     String contactName = "Hillary Clinton";
     String dealName = "HarryKaneDeal";
 
+//------------------------------------------------------------------------------------------------------------
+//******************************(Test Case to link a contact to a company)*************************************
+
 
 
     @Test
@@ -42,7 +45,8 @@ public class CompanyItem extends CommonAPI {
 
 
     }
-
+//-----------------------------------------------------------------------------------------------------------
+    //******************************(Test case to link a deal to a company)*******************************
 
 
 

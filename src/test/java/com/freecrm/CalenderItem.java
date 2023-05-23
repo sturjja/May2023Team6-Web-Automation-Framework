@@ -18,6 +18,9 @@ public class CalenderItem extends CommonAPI {
     String validCalendarStart = "2023-05-19";
     String validEndDate = "2023-05-20";
 
+//-------------------------------------------------------------------------------------------------------------
+//***************************(Test Case to create a new calendar)*********************************************
+
     @Test
     public void createCalenderDate(){
         LoginPage loginPage = new LoginPage(getDriver());
@@ -59,6 +62,9 @@ public class CalenderItem extends CommonAPI {
 
 
     }
+//----------------------------------------------------------------------------------------------------------
+//********************************(Test Case to delete a calendar)*****************************************
+
 
     @Test
     public void deleteCalenderDate(){

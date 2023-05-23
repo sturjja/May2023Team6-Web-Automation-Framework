@@ -8,9 +8,9 @@
     <parameter name="browserVersion" value="113"></parameter>
     <parameter name="browserName" value="chrome"></parameter>
     <parameter name="url" value="https://freecrm.com/"></parameter>
-    <test name="login test">
+    <test name="VerifyDashboard">
         <classes>
-            <class name="com.freecrm.LoginTest"></class>
+            <class name="com.freecrm.ForumItem"></class>
         </classes>
     </test>
 </suite>

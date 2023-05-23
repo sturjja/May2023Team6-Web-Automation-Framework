@@ -17,6 +17,9 @@ public class DealsItem extends CommonAPI {
     String comission = "$100000";
     String note = "Harry Kane must sign for ManUtd";
 
+//-------------------------------------------------------------------------------------------------------------
+//*****************************(Test Case to assign commission to a deal)***************************************
+
     @Test
     public void assignDealCommision(){
         LoginPage loginPage = new LoginPage(getDriver());
@@ -38,6 +41,9 @@ public class DealsItem extends CommonAPI {
         dealsPage.clickOnDealSaveButton();
 
     }
+
+//-------------------------------------------------------------------------------------------------------------
+//********************************(Test Case to add Notes to an existing Deal)********************************
 
 
 

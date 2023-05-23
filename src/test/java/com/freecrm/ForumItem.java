@@ -18,6 +18,9 @@ public class ForumItem extends CommonAPI {
     String simpleIntro = "This is the 5th month of the year";
     String simpleOutro = "That means the time to act is now";
 
+//-------------------------------------------------------------------------------------------------------------
+//**********************************(Test Case to add notes to the forum)**************************************
+
 
     @Test
     public void addNotesToForm() {

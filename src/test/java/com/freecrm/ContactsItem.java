@@ -12,6 +12,9 @@ public class ContactsItem extends CommonAPI {
     String validEmail = "awafzaman@gmail.com";
     String validPassword = "Takeover2022";
 
+//-------------------------------------------------------------------------------------------------------------
+//*****************************(Test Case to export a contact from Contacts)*********************************
+
     @Test
     public void exportContact(){
         LoginPage loginPage = new LoginPage(getDriver());
@@ -33,7 +36,8 @@ public class ContactsItem extends CommonAPI {
 
 
     }
-
+//-------------------------------------------------------------------------------------------------------------
+    //*******************************(Test Case to delete a contact from Contacts)*****************************
 
     @Test
     public void deleteContact(){
