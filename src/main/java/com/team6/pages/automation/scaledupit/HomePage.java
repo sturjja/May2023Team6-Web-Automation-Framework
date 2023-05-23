@@ -19,45 +19,49 @@ public class HomePage extends CommonAPI {
     //locators
     @FindBy(xpath = "//span[contains(text(),'My account')]")
     WebElement mainHeader;
-
     @FindBy(xpath = "//*[@id=\"post-9\"]/div/div/nav/ul/li[5]/a")
     WebElement accountDetailBtn;
-
     @FindBy(css = "button[name ='save_account_details'")
     WebElement saveChangesBtn;
-
     @FindBy(xpath = "//*[@id=\"post-9\"]/div/div/nav/ul/li[6]")
     WebElement logoutLink;
-
     @FindBy(xpath = "//input[@id=\"account_email\"]")
     WebElement emailField;
     @FindBy(xpath = "//input[@id=\"password_current\"]")
     WebElement currentPasswordField;
     @FindBy(xpath = "//input[@id=\"password_1\"]")
     WebElement newPasswordField;
-
     @FindBy(xpath = "//input[@id=\"password_2\"]")
     WebElement confirmPasswordField;
-
     @FindBy(xpath = "//*[@id=\"menu-item-282\"]")
     WebElement menCollectionBtn;
     @FindBy(xpath = "//*[@id=\"main\"]/ul/li[1]")
     WebElement beltLink;
     @FindBy(xpath = "//*[@id=\"product-197\"]/div[2]/form/button")
     WebElement addToCartBtn;
-
     @FindBy(xpath = "//*[@id=\"main\"]/div[1]/div")
     WebElement confirmationMessage;
-
     @FindBy(xpath = "//*[@id=\"main\"]/div[1]/div/a")
     WebElement viewCartBtn;
     @FindBy(xpath = "//*[@id=\"coupon_code\"]")
     WebElement couponCodeField;
     @FindBy(xpath = "//*[@id=\"post-7\"]/div/div/form/table/tbody/tr[2]/td/div/button")
     WebElement applyCouponBtn;
-
     @FindBy(xpath = "//*[@id=\"post-7\"]/div/div/div[1]/ul/li")
     WebElement cartErrorMessage;
+    @FindBy(xpath = "//*[@id=\"account_display_name\"]")
+    WebElement displaynameField;
+    @FindBy(xpath = "//*[@id=\"post-7\"]/div/div/div/div")
+    WebElement confirmationMessageCart;
+    @FindBy(xpath = "//*[@id=\"post-7\"]/div/div/form/table/tbody/tr[1]/td[1]/a")
+    WebElement xBtn;
+    @FindBy(xpath = "//*[@id=\"post-7\"]/div/div/div/div/a")
+    WebElement undoBtn;
+    @FindBy(xpath = "//*[@id=\"post-7\"]/div/div/div[2]/div/div/a")
+    WebElement proceedToCheckoutBtn;
+    @FindBy(xpath = "//*[@id=\"post-9\"]/div/div/nav/ul/li[4]/a")
+    WebElement addressesBtn;
+
 
     //reusable methods
     public String getHeaderText(){
@@ -131,6 +135,37 @@ public class HomePage extends CommonAPI {
         log.info("get Error message text success");
         return text;
     }
+    public void clearDisplaynameField(){
+        displaynameField.clear();
+        log.info("clear Display name field success");
+    }
+    public void enterNewDisplayname(String newDisplayname){
+        type(displaynameField, newDisplayname);
+        log.info("enter new Displayname success");
+    }
+    public String getCartsConfirmationMessage(){
+        String text = getElementText(confirmationMessageCart);
+        log.info("get removal confirmation message text success");
+        return text;
+    }
+    public void clickOnXBtn(){
+        clickOn(xBtn);
+        log.info("click on x button Success");
+    }
+    public void clickOnUndoBtn(){
+        clickOn(undoBtn);
+        log.info("click on undo button Success");
+    }
+    public boolean checkPresenceOfProceedToCheckoutButton(){
+        boolean checkoutButtonIsVisible = isVisible(proceedToCheckoutBtn);
+        log.info("checkoutButton is present "+checkoutButtonIsVisible);
+        return checkoutButtonIsVisible;
+    }
+    public void clickOnAddressesBtn(){
+        clickOn(addressesBtn);
+        log.info("click on Addresses Button success");
+    }
+
 
 
 }
