@@ -13,7 +13,6 @@ import java.util.List;
 
 public class ExcelReader {
     private final Logger LOG = LogManager.getLogger(ExcelReader.class.getName());
-
     XSSFWorkbook excelWBook;
     XSSFSheet excelWSheet;
     XSSFCell cell;
@@ -90,12 +89,14 @@ public class ExcelReader {
         return value;
     }
 
-    public static void main(String[] args)  {
-        String path = "C:\\Users\\PNT\\eclipse-workspace\\Feb2023-web-automation-framework\\data\\data.xlsx";
+    public static void main(String[] args) {
+        String currentDir = System.getProperty("user.dir");
+        String path = currentDir+ File.separator+"data"+File.separator+"scaledupit.xlsx";
         ExcelReader excelReader = new ExcelReader(path);
-        System.out.println(excelReader.getValueForGivenHeaderAndKey("data","ID","101"));
+        String homeTitle =excelReader.getDataFromCell("QuickLinks",1,1);
+        System.out.println(homeTitle);
+    }
 //        List<String> items = excelReader.getEntireColumnForGivenHeader("Sheet1", "id");
 //        //String items = excelReader.getValueForGivenHeaderAndKey("Sheet1", "id", "id004");
 //        System.out.println(items);
     }
-}
