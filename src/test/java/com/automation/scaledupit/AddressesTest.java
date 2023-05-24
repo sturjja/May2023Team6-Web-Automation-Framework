@@ -5,6 +5,7 @@ import com.team6.pages.automation.scaledupit.AddressesPage;
 import com.team6.pages.automation.scaledupit.HomePage;
 import com.team6.pages.automation.scaledupit.LoginPage;
 import com.team6.utility.Utility;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
@@ -14,7 +15,6 @@ import java.util.Properties;
 
 public class AddressesTest extends CommonAPI{
     Logger log = LogManager.getLogger(AddressesTest.class.getName());
-
     Properties prop = Utility.loadProperties();
     String validUsername = Utility.decode(prop.getProperty("scaledupit.username"));
     String validPassword = Utility.decode(prop.getProperty("scaledupit.password"));

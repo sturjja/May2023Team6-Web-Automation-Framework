@@ -4,18 +4,34 @@ import com.team6.base.CommonAPI;
 import com.team6.pages.automation.scaledupit.LinksPage;
 import com.team6.pages.automation.scaledupit.HomePage;
 import com.team6.pages.automation.scaledupit.LoginPage;
+import com.team6.utility.ExcelReader;
 import com.team6.utility.Utility;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import java.util.Properties;
+import java.io.File;
+import java.io.PipedReader;
 
 public class QuickLinksTest extends CommonAPI {
+    String currentDir = System.getProperty("user.dir");
+    String path = currentDir+ File.separator+"data"+File.separator+"scaledupit.xlsx";
+    ExcelReader excelReader = new ExcelReader(path);
+    String homeTitle =excelReader.getDataFromCell("QuickLinks",1,1);
+    String shopTitle =excelReader.getDataFromCell("QuickLinks",2,1);
+    String menCollectionTitle =excelReader.getDataFromCell("QuickLinks",3,1);
+    String womenCollectionTitle =excelReader.getDataFromCell("QuickLinks",4,1);
+    String myAccountTitle =excelReader.getDataFromCell("QuickLinks",5,1);
+    String cartTitle =excelReader.getDataFromCell("QuickLinks",6,1);
+    String checkoutTitle =excelReader.getDataFromCell("QuickLinks",7,1);
+    String blogTitle =excelReader.getDataFromCell("QuickLinks",8,1);
+    String loginSlashRegisterTitle =excelReader.getDataFromCell("QuickLinks",9,1);
     Logger log = LogManager.getLogger(QuickLinksTest.class.getName());
     Properties prop = Utility.loadProperties();
     String validUsername = Utility.decode(prop.getProperty("scaledupit.username"));
     String validPassword = Utility.decode(prop.getProperty("scaledupit.password"));
+
     @Test
     public void linkToHomePage() throws InterruptedException {
         LoginPage loginPage = new LoginPage(getDriver());
@@ -42,7 +58,7 @@ public class QuickLinksTest extends CommonAPI {
         //click on account details button
         linksPage.clickOnHomePageLink();
         //check user is in correct place
-        String expectedHomePageTitle = "Automation – Automate eCommerce";
+        String expectedHomePageTitle = homeTitle;
         String actualHomePageTitle = getCurrentTitle();
         Assert.assertEquals(expectedHomePageTitle, actualHomePageTitle);
         waitFor(3);
@@ -73,7 +89,7 @@ public class QuickLinksTest extends CommonAPI {
         //click on account details button
         linksPage.clickOnShopPageLink();
         //check user is in correct place
-        String expectedShopPageTitle = "Products – Automation";
+        String expectedShopPageTitle = shopTitle;
         String actualShopPageTitle = getCurrentTitle();
         Assert.assertEquals(expectedShopPageTitle, actualShopPageTitle);
         waitFor(3);
@@ -104,7 +120,7 @@ public class QuickLinksTest extends CommonAPI {
         //click on account details button
         linksPage.clickOnMenCollectionPageLink();
         //check user is in correct place
-        String expectedMenCollectionPageTitle = "Men Collection – Automation";
+        String expectedMenCollectionPageTitle = menCollectionTitle;
         String actualMenCollectionPageTitle = getCurrentTitle();
         Assert.assertEquals(expectedMenCollectionPageTitle, actualMenCollectionPageTitle);
         waitFor(3);
@@ -136,7 +152,7 @@ public class QuickLinksTest extends CommonAPI {
         //click on account details button
         linksPage.clickOnWomenCollectionPageLink();
         //check user is in correct place
-        String expectedWomenCollectionPageTitle = "Women Collection – Automation";
+        String expectedWomenCollectionPageTitle = womenCollectionTitle;
         String actualWomenCollectionPageTitle = getCurrentTitle();
         Assert.assertEquals(expectedWomenCollectionPageTitle, actualWomenCollectionPageTitle);
         waitFor(3);
@@ -168,7 +184,7 @@ public class QuickLinksTest extends CommonAPI {
         //click on account details button
         linksPage.clickOnMyaccountPageLink();
         //check user is in correct place
-        String expectedMyaccountPageTitle = "My account – Automation";
+        String expectedMyaccountPageTitle = myAccountTitle;
         String actualMyaccountPageTitle = getCurrentTitle();
         Assert.assertEquals(expectedMyaccountPageTitle, actualMyaccountPageTitle);
         waitFor(3);
@@ -200,7 +216,7 @@ public class QuickLinksTest extends CommonAPI {
         //click on account details button
         linksPage.clickOnCartPageLink();
         //check user is in correct place
-        String expectedCartPageTitle = "Cart – Automation";
+        String expectedCartPageTitle = cartTitle;
         String actualCartPageTitle = getCurrentTitle();
         Assert.assertEquals(expectedCartPageTitle, actualCartPageTitle);
         waitFor(3);
@@ -232,7 +248,7 @@ public class QuickLinksTest extends CommonAPI {
         //click on account details button
         linksPage.clickOnCheckoutPageLink();
         //check user is in correct place
-        String expectedCheckoutPageTitle = "Checkout – Automation";
+        String expectedCheckoutPageTitle = checkoutTitle;
         String actualCheckoutPageTitle = getCurrentTitle();
         Assert.assertEquals(expectedCheckoutPageTitle, actualCheckoutPageTitle);
         waitFor(3);
@@ -264,7 +280,7 @@ public class QuickLinksTest extends CommonAPI {
         //click on account details button
         linksPage.clickOnBlogPageLink();
         //check user is in correct place
-        String expectedBlogPageTitle = "Blog – Automation";
+        String expectedBlogPageTitle = blogTitle;
         String actualBlogPageTitle = getCurrentTitle();
         Assert.assertEquals(expectedBlogPageTitle, actualBlogPageTitle);
         waitFor(3);
@@ -296,7 +312,7 @@ public class QuickLinksTest extends CommonAPI {
         //click on account details button
         linksPage.clickOnLoginSlashRegisterPageLink();
         //check user is in correct place
-        String expectedLoginSlashRegisterPageTitle = "My account – Automation";
+        String expectedLoginSlashRegisterPageTitle = loginSlashRegisterTitle;
         String actualLoginSlashRegisterPageTitle = getCurrentTitle();
         Assert.assertEquals(expectedLoginSlashRegisterPageTitle, actualLoginSlashRegisterPageTitle);
         waitFor(3);
