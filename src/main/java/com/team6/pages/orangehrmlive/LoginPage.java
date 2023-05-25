@@ -15,22 +15,33 @@ public class LoginPage extends CommonAPI {
     }
 
     //locators
-    @FindBy(css = "#user-name") //driver.findElement(By.xpath(""))
+    @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[2]/input")
+    public //driver.findElement(By.xpath(""))
     WebElement usernameField;
 
-    @FindBy(css = "#password")
-    WebElement passwordField;
+    @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[2]/div/div[2]/input")
+    public WebElement passwordField;
 
-    @FindBy(css = "#login-button")
+    @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button")
+    public
     WebElement loginBtn;
 
     @FindBy(xpath = "//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[3]/h3[1]")
     WebElement errorMessage;
 
-    @FindBy(xpath = "//div[contains(text(),'Swag Labs')]")
+    @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div/div[1]/div/div[2]/h5")
     WebElement loginPageHeader;
 
+    @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div/div[1]/div/div[2]/div[2]/div/div[1]/div[1]/p")
+    WebElement InvalidCredentialMsg;
+
     //reusable methods
+
+    public void enteringUserNamePassWord(){
+        enterUsername("Admin");
+        enterPassword("admin123");
+    }
+
     public void enterUsername(String username){
         type(usernameField, username);
         log.info("enter username success");
@@ -39,8 +50,11 @@ public class LoginPage extends CommonAPI {
         type(passwordField, password);
         log.info("enter password success");
     }
+
+
     public void clickOnLoginBtn(){
         clickOn(loginBtn);
+        waitFor(10);
         log.info("click on login button Success");
     }
     public String getErrorMessage(){
@@ -55,7 +69,14 @@ public class LoginPage extends CommonAPI {
     }
     public String getLoginPageHeaderText(){
         String loginPageHeaderText = getElementText(loginPageHeader);
-        log.info("login page header text is "+loginPageHeaderText);
+        log.info("login page header text is "+ loginPageHeaderText);
         return loginPageHeaderText;
+    }
+    private void waitFor(long milliseconds) {
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            log.error("InterruptedException occurred while waiting", e);
+        }
     }
 }

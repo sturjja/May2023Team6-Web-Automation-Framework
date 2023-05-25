@@ -9,29 +9,29 @@
 
     <parameter name="browserName" value="chrome"></parameter>
     <parameter name="url" value="https://opensource-demo.orangehrmlive.com/"></parameter>
-    <test name="">
+    <test name="AdminTest">
         <classes>
-            <class name=""></class>
+            <class name="com.orangehrmlive.AdminTest"></class>
         </classes>
     </test>
-    <test name="">
+    <test name="BuzzTest">
         <classes>
-            <class name=""></class>
+            <class name="com.orangehrmlive.BuzzTest"></class>
         </classes>
     </test>
-    <test name="">
+    <test name="DashboardTest">
         <classes>
-            <class name=""></class>
+            <class name="com.orangehrmlive.DashboardTest"></class>
         </classes>
     </test>
-    <test name="">
+    <test name="LeaveTest">
         <classes>
-            <class name=""></class>
+            <class name="com.orangehrmlive.LeaveTest"></class>
         </classes>
     </test>
-    <test name="">
+    <test name="LoginTest">
         <classes>
-            <class name=""></class>
+            <class name="com.orangehrmlive.LoginTest"></class>
         </classes>
     </test>
 </suite>
