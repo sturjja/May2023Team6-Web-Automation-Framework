@@ -29,12 +29,12 @@ public class Maintenance extends CommonAPI {
     @Test
     public void accessMaintenanceTab() {
         LoginPage lp = new LoginPage(getDriver());
-        HomePage hp = new HomePage(getDriver());
+        MaintenancePage mP = new MaintenancePage(getDriver());
 
         lp.enteringUserNamePassWord();
         lp.clickOnLoginBtn();
-        hp.clickMaintenance();
-        hp.enterPassForMaintenance("admin123");
+        mP.clickMaintenance();
+        mP.enterPassForMaintenance("admin123");
 
       //  Assert.assertEquals(hp.maintenanceTabHeader(), "Purge Employee Records");
 

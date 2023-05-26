@@ -16,10 +16,10 @@ public class AdminPage extends CommonAPI {
     }
 
     //locators
-    @FindBy(css = "#app > div.oxd-layout > div.oxd-layout-navigation > aside > nav > div.oxd-sidepanel-body > ul > li:nth-child(1) > a")
+    @FindBy(xpath = "//a[@class='oxd-main-menu-item active']")
     WebElement adminButton;
 
-    @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/input")
+    @FindBy(xpath = "//input[@class='oxd-input oxd-input--focus']")
     WebElement userNameTextFieldAdmin;
 
     @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div/input")
@@ -32,7 +32,7 @@ public class AdminPage extends CommonAPI {
     WebElement blankElement;
 
     //locator for the search button
-    @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]")
+    @FindBy(xpath = "//button[@type='submit']")
     WebElement searchButton;
 
     //locator for the "No records found" message element
@@ -54,34 +54,54 @@ public class AdminPage extends CommonAPI {
     public void enterUsernameAndEmployeeName(String userName, String employeeName) {
         userNameTextFieldAdmin.sendKeys(userName);
         EmployeeNameTextFieldAdmin.sendKeys(employeeName);
+        log.info("Username and Employee Name enter Success");
     }
 
     public void enterUsernameAndEmployeeName(String userName) {
         userNameTextFieldAdmin.sendKeys(userName);
-    }
+        log.info("Username enter Success");
 
+    }
 
     public void clickResetButton() {
         resetButton.click();
         waitFor(5);
+        log.info("Click on reset button success");
+
     }
 
     public void clickOnAdmin() {
         adminButton.click();
+        log.info("click on Admin button Success");
     }
 
     public boolean verifyTextBoxEmpty() {
+        log.info("Text field empty verification success");
         return userNameTextFieldAdmin.getText().isEmpty() || EmployeeNameTextFieldAdmin.getText().isEmpty();
+
+
+    }
+
+    public void clearUserNameandPasword() {
+        if (!verifyTextBoxEmpty()) {
+            userNameTextFieldAdmin.clear();
+            EmployeeNameTextFieldAdmin.clear();
+        }
+        log.info("Text field clear success");
+
     }
 
     public void clickSearchButton() {
         clickOn(searchButton);
-        waitFor(2000); // Adjust the wait
+        waitFor(3);
+        log.info("Click on search button success");
+
     }
 
-
-    // Add the isNoRecordsFoundMessageDisplayed method
     public boolean isNoRecordsFoundMessageDisplayed() {
-        return noRecordsFoundMessage.isDisplayed() && noRecordsFoundMessage.getText().equals("No Records Found");
+        log.info("No records found message displayed");
+
+        return noRecordsFoundMessage.isDisplayed();
     }
+
 }

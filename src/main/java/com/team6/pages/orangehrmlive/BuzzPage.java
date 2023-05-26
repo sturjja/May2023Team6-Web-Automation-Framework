@@ -87,6 +87,7 @@ public class BuzzPage extends CommonAPI {
 
     public void publishComment(String text) {
         typeAndEnter(CommentText, text);
+
     }
 
 }

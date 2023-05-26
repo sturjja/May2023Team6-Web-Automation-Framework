@@ -47,6 +47,7 @@ public class MyInfoPage extends CommonAPI {
     public void clickOnMyInfo() {
         clickOn(MyInfo);
         waitFor(5);
+        log.info("Click on My Info Success");
 
     }
 
@@ -55,6 +56,8 @@ public class MyInfoPage extends CommonAPI {
         firstNameField.sendKeys(firstName);
         lastNameField.clear();
         lastNameField.sendKeys(lastName);
+        log.info("First and last name enter Success");
+
     }
 
     public void clickOnSave() {
@@ -62,9 +65,10 @@ public class MyInfoPage extends CommonAPI {
         waitFor(5);
         getDriver().navigate().refresh();
         waitFor(10);
+        log.info("Click on save Success");
     }
 
-    public String firstNameLastName() {
+    public String firstNameLastName(){
         return firstNameLastName.getText();
     }
 

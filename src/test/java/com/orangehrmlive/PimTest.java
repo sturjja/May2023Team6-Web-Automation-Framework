@@ -40,6 +40,7 @@ public class PimTest extends CommonAPI {
         PIM.enterLastName("Taseen");
         PIM.clickSaveButton();
         Assert.assertEquals(PIM.showsFirstAndLastName(), "Mohammad Taseen");
+
     }
 
     @Test

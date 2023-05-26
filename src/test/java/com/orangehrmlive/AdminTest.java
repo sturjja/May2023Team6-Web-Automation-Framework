@@ -41,22 +41,40 @@ public class AdminTest extends CommonAPI {
 
     }
 
-//    @Test
-//    public void verifySearchWithValidUserDetails() {
-//        LoginPage lp = new LoginPage(getDriver());
-//        AdminPage aP = new AdminPage(getDriver());
-//
-//        lp.enterUsername(validUsername);
-//        lp.enterPassword(validPassword);
-//        lp.clickOnLoginBtn();
-//        aP.clickOnAdmin();
-//
-//        aP.enterUsernameAndEmployeeName("admin");
-//        // Assuming you have a search button in AdminPage, click it after entering the details:
-//        aP.clickSearchButton();
-//
-//
-//        // Add an assertion to check if the search results contain the expected data.
-//        // This can be done by checking if a specific element is displayed in the search results.
-//    }
+    @Test
+    public void verifySearchWithValidUserDetails() {
+        LoginPage lp = new LoginPage(getDriver());
+        AdminPage aP = new AdminPage(getDriver());
+
+        lp.enterUsername(validUsername);
+        lp.enterPassword(validPassword);
+        lp.clickOnLoginBtn();
+        aP.clickOnAdmin();
+
+        aP.enterUsernameAndEmployeeName("admin");
+        // Assuming you have a search button in AdminPage, click it after entering the details:
+        aP.clickSearchButton();
+        Assert.assertTrue(aP.isNoRecordsFoundMessageDisplayed());
+
+
+        // Add an assertion to check if the search results contain the expected data.
+        // This can be done by checking if a specific element is displayed in the search results.
+    }
+
+    @Test
+    public void verifySearchWithInvalidUserDetails() {
+        LoginPage lp = new LoginPage(getDriver());
+        AdminPage aP = new AdminPage(getDriver());
+
+
+
+        lp.enterUsername(validUsername);
+        lp.enterPassword(validPassword);
+        lp.clickOnLoginBtn();
+        aP.clickOnAdmin();
+        aP.enterUsernameAndEmployeeName("admin1231");
+        aP.clickSearchButton();
+
+        Assert.assertTrue(aP.isNoRecordsFoundMessageDisplayed());
+    }
 }

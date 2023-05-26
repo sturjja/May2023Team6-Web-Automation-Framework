@@ -55,7 +55,6 @@ public class BuzzTest extends CommonAPI {
         buzzpage.clickOnCommentIcon();
         buzzpage.publishComment("Hello World");
 
-
     }
 
 }

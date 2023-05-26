@@ -36,14 +36,15 @@ public class LeavePage extends CommonAPI {
     WebElement noRecordsFound;
 
 
-
-
     public void clickOnLeave() {
         clickOn(Leave);
+
+        log.info("Click on leave button Success");
     }
 
     public void selectPendingApprovals() {
         selectAllPendingLeaveRequest.click();
+        log.info("Selecting all pending leave request Success");
     }
 
     public void approve() {
@@ -51,13 +52,15 @@ public class LeavePage extends CommonAPI {
         approveButton.click();
         waitFor(2);
         confirmApprove.click();
+        log.info("Confirming approve Success");
     }
 
-    public boolean noApprovalsNeeded()
-    {
+    public boolean noApprovalsNeeded() {
         return noRecordsFound.isDisplayed();
     }
+
     public boolean EmptyListIsDisplayed() {
+        log.info("Empty List Displayed Success");
         return blankElement.isDisplayed();
     }
 
