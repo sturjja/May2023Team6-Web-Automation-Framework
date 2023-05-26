@@ -10,10 +10,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
-public class PerformancePage extends CommonAPI {
+public class TimeTestPage extends CommonAPI {
     Logger log = LogManager.getLogger(HomePage.class.getName());
 
-    public PerformancePage(WebDriver driver) {
+    public TimeTestPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 }

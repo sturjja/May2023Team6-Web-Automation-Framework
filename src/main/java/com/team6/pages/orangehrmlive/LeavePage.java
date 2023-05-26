@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 public class LeavePage extends CommonAPI {
     Logger log = LogManager.getLogger(HomePage.class.getName());
@@ -57,6 +58,15 @@ public class LeavePage extends CommonAPI {
 
     public boolean noApprovalsNeeded() {
         return noRecordsFound.isDisplayed();
+    }
+
+    public void checkAndApproveLeaveRequest() {
+        if (noApprovalsNeeded()) {
+            log.info("No pending approval found");
+
+        } else selectPendingApprovals();
+        approve();
+        log.info("Approve Leave Requests Success");
     }
 
     public boolean EmptyListIsDisplayed() {

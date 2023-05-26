@@ -25,7 +25,8 @@ public class BuzzPage extends CommonAPI {
     @FindBy(xpath = "(//div[@id='app']//button[@type=\"submit\"])[2]")
     WebElement ShareBtn;
     @FindBy(xpath = "//p[text()='Success']")
-    WebElement ToastMessage;
+    WebElement ToastMessageText;
+
     @FindBy(xpath = "//button[text()=' Most Recent Posts ']")
     WebElement MostRecentPostBtn;
     @FindBy(xpath = "(//div[@class='orangehrm-buzz-post-actions']//button)[1]")
@@ -36,11 +37,7 @@ public class BuzzPage extends CommonAPI {
     @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div[1]/aside/nav/div[2]/ul/li[11]/a")
     WebElement BuzzPageButton;
 
-    // click on Share Photo button
-    // write text
-    //upload the pic
-    // click on Share
-    //catch success message
+
     public void typeAndEnter(WebElement element, String text) {
         element.sendKeys(text, Keys.ENTER);
     }
@@ -54,9 +51,10 @@ public class BuzzPage extends CommonAPI {
         clickOn(BuzzPageButton);
     }
 
-    public void typeText(String text) {
+    public void enterText(String text) {
         type(TextArea, text);
-        log.info("Text set to What's on your mind");
+
+        log.info("What's on your mind");
     }
 
     public void uploadImage(String ImagePath) {
@@ -69,9 +67,10 @@ public class BuzzPage extends CommonAPI {
         log.info("Share button clicked");
     }
 
-    public String toastMessage() {
-        String toastMessage = ToastMessage.getText();
+    public String getToastMessage() {
+        String toastMessage = ToastMessageText.getText();
         log.info("Toast message successfully captured");
+
         return toastMessage;
     }
 

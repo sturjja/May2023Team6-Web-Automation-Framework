@@ -31,8 +31,7 @@ public class DashboardTest extends CommonAPI {
         LoginPage lp = new LoginPage(getDriver());
         HomePage hp = new HomePage(getDriver());
 
-        lp.enteringUserNamePassWord();
-        lp.clickOnLoginBtn();
+        lp.enteringUserNamePassWord("Admin","admin123");        lp.clickOnLoginBtn();
         hp.clickOnLogoutButton();
 
         Assert.assertTrue(lp.checkPresenceOfLoginPageHeader());
@@ -43,7 +42,7 @@ public class DashboardTest extends CommonAPI {
         LoginPage lp = new LoginPage(getDriver());
         HomePage hp = new HomePage(getDriver());
 
-        lp.enteringUserNamePassWord();
+        lp.enteringUserNamePassWord("Admin","admin123");
         lp.clickOnLoginBtn();
         hp.clickOnSidebarMenuIcon();
 
@@ -54,7 +53,7 @@ public class DashboardTest extends CommonAPI {
         LoginPage lp = new LoginPage(getDriver());
         HomePage hp = new HomePage(getDriver());
 
-        lp.enteringUserNamePassWord();
+        lp.enteringUserNamePassWord("Admin","admin123");
         lp.clickOnLoginBtn();
         hp.clickOnLogoutButton();
 

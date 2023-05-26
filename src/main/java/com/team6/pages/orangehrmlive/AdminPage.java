@@ -3,6 +3,7 @@ package com.team6.pages.orangehrmlive;
 import com.team6.base.CommonAPI;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -41,6 +42,12 @@ public class AdminPage extends CommonAPI {
 
     @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[2]/div[2]/div/span")
     WebElement RecordFound;
+
+    @FindBy(xpath = "(//div[@class='oxd-grid-item oxd-grid-item--gutters']//div[text()='-- Select --'])[1]")
+    WebElement userRoleDropDown;
+
+    @FindBy(xpath = "//div[contains(text(),'-- Select --')]")//
+    WebElement statusDropDown;
 
 
     private void waitFor(long milliseconds) {
@@ -104,4 +111,16 @@ public class AdminPage extends CommonAPI {
         return noRecordsFoundMessage.isDisplayed();
     }
 
+    public void userRoleDropDown() {
+        clickOn(userRoleDropDown);
+        userRoleDropDown.sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
+        log.info("Admin selected from dropdown");
+    } // select Admin from UsersRole drop down
+
+    public void statusDropDown() {
+        clickOn(statusDropDown);
+        statusDropDown.sendKeys(Keys.ARROW_DOWN, Keys.ESCAPE);
+        log.info("Enable selected from dropdown");
+
+    }
 }

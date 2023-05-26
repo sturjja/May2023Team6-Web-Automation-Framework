@@ -4,6 +4,8 @@ import com.team6.base.CommonAPI;
 import com.team6.pages.orangehrmlive.AdminPage;
 import com.team6.pages.orangehrmlive.LoginPage;
 import com.team6.utility.Utility;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
@@ -13,6 +15,7 @@ import java.net.MalformedURLException;
 import java.util.Properties;
 
 public class AdminTest extends CommonAPI {
+    Logger log = LogManager.getLogger(LoginPage.class.getName());
     Properties prop = Utility.loadProperties();
     String validUsername = Utility.decode(prop.getProperty("orangeHRM.username"));
     String validPassword = Utility.decode(prop.getProperty("orangeHRM.password"));
@@ -32,12 +35,14 @@ public class AdminTest extends CommonAPI {
         LoginPage lp = new LoginPage(getDriver());
         AdminPage aP = new AdminPage(getDriver());
 
-        lp.enteringUserNamePassWord();
+        lp.enteringUserNamePassWord("Admin","admin123");
         lp.clickOnLoginBtn();
         aP.clickOnAdmin();
         aP.enterUsernameAndEmployeeName("Jon", "Doe");
         aP.clickResetButton();
+
         Assert.assertTrue(aP.verifyTextBoxEmpty());
+        log.info("Verify Reset Button Success");
 
     }
 
@@ -48,9 +53,9 @@ public class AdminTest extends CommonAPI {
 
         lp.enterUsername(validUsername);
         lp.enterPassword(validPassword);
+
         lp.clickOnLoginBtn();
         aP.clickOnAdmin();
-
         aP.enterUsernameAndEmployeeName("admin");
         // Assuming you have a search button in AdminPage, click it after entering the details:
         aP.clickSearchButton();

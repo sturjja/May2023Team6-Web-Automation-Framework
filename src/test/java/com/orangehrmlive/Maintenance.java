@@ -31,7 +31,7 @@ public class Maintenance extends CommonAPI {
         LoginPage lp = new LoginPage(getDriver());
         MaintenancePage mP = new MaintenancePage(getDriver());
 
-        lp.enteringUserNamePassWord();
+        lp.enteringUserNamePassWord("Admin","admin123");
         lp.clickOnLoginBtn();
         mP.clickMaintenance();
         mP.enterPassForMaintenance("admin123");
@@ -46,7 +46,7 @@ public class Maintenance extends CommonAPI {
         HomePage hp = new HomePage(getDriver());
         MaintenancePage mP = new MaintenancePage(getDriver());
 
-        lp.enteringUserNamePassWord();
+        lp.enteringUserNamePassWord("Admin","admin123");
         lp.clickOnLoginBtn();
 
         mP.clickMaintenance();

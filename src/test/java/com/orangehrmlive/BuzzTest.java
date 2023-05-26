@@ -4,6 +4,9 @@ import com.team6.base.CommonAPI;
 import com.team6.pages.orangehrmlive.BuzzPage;
 import com.team6.pages.orangehrmlive.LoginPage;
 import com.team6.utility.Utility;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Test;
@@ -25,8 +28,11 @@ public class BuzzTest extends CommonAPI {
                       @Optional("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login") String url) throws MalformedURLException {
         super.setUp(useCloudEnv, envName, os, osVersion, browserName, browserVersion, url);
     }
+
+    Logger log = LogManager.getLogger(BuzzTest.class.getName());
+
     @Test
-    public void PostAnImage(){
+    public void postStatusOnBuzzFeed(){
 
         LoginPage loginpage = new LoginPage(getDriver());
         loginpage.enterUsername("Admin");
@@ -34,11 +40,18 @@ public class BuzzTest extends CommonAPI {
         loginpage.clickOnLoginBtn();
 
 
-        BuzzPage buzzpage = new BuzzPage(getDriver());
-        buzzpage.clickOnBuzzFeed();
-        buzzpage.clickOnSharePhotosButton();
-        buzzpage.typeText("PostText");
-        buzzpage.clickOnShareBtn();
+        BuzzPage bp = new BuzzPage(getDriver());
+        bp.clickOnBuzzFeed();
+        bp.clickOnSharePhotosButton();
+
+        bp.enterText("Good Morning");
+        bp.clickOnShareBtn();
+
+        String actualMessage = bp.getToastMessage();
+        String expectedMessage = "Success";
+
+        Assert.assertEquals(actualMessage,expectedMessage);
+        log.info("Successfully published a status");
 
     }
     @Test
@@ -54,6 +67,12 @@ public class BuzzTest extends CommonAPI {
         buzzpage.clickOnMostRecentPost();
         buzzpage.clickOnCommentIcon();
         buzzpage.publishComment("Hello World");
+
+        String ToastMessage = buzzpage.getToastMessage();
+        String ExpectedResult = "Success";
+
+        Assert.assertEquals(ToastMessage,ExpectedResult);
+        log.info("Successfully published a comment");
 
     }
 

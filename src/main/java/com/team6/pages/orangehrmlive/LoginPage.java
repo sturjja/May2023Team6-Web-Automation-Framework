@@ -37,6 +37,10 @@ public class LoginPage extends CommonAPI {
 
     //reusable methods
 
+    public void enteringUserNamePassWord(String userName, String passWord){
+        enterUsername(userName);
+        enterPassword(passWord);
+    }
     public void enteringUserNamePassWord(){
         enterUsername("Admin");
         enterPassword("admin123");

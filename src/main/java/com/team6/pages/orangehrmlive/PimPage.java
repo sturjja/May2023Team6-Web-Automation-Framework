@@ -16,10 +16,10 @@ public class PimPage extends CommonAPI {
     }
 
     //locators
-    @FindBy(css = "#app > div.oxd-layout > div.oxd-layout-navigation > aside > nav > div.oxd-sidepanel-body > ul > li:nth-child(2) > a")
+    @FindBy(xpath = "//a[normalize-space()='']")
     WebElement PIM;
 
-    @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[2]/div[3]/div/div[1]/div/div[1]/div/label/span")
+    @FindBy(css = "div.oxd-layout div.oxd-layout-container div.oxd-layout-context div.orangehrm-background-container div.orangehrm-paper-container:nth-child(3) div.orangehrm-container:nth-child(3) div.oxd-table.orangehrm-employee-list div.oxd-table-header div.oxd-table-row.oxd-table-row--with-border div.oxd-table-header-cell.oxd-padding-cell.oxd-table-th:nth-child(1) div.oxd-checkbox-wrapper label:nth-child(1) span.oxd-checkbox-input.oxd-checkbox-input--active.--label-right.oxd-checkbox-input:nth-child(2) > i.oxd-icon.bi-check.oxd-checkbox-input-icon")
     WebElement selectAllEmployees;
 
     @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[2]/div[2]/div/div/button")
@@ -28,7 +28,7 @@ public class PimPage extends CommonAPI {
     @FindBy(xpath = "//*[@id=\"app\"]/div[3]/div/div/div/div[3]/button[2]")
     WebElement confirmDeleteRecords;
 
-    @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[2]/div[1]/button")
+    @FindBy(xpath = "//body/div[@id='app']/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/button[1]")
     WebElement addEmployeeBtn;
 
     @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[1]/div[1]/div/div/div[2]/div[1]/div[2]/input")
@@ -40,8 +40,6 @@ public class PimPage extends CommonAPI {
     @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[2]/button[2]")
     WebElement saveButton;
 
-    @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div[1]/aside/nav/div[2]/ul/li[2]/a")
-    WebElement pimButton;
 
     @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/div/div[1]/div[1]/div[1]/h6")
     WebElement firstNameLastName;
@@ -49,20 +47,21 @@ public class PimPage extends CommonAPI {
 
     //methods
     public void clickOnPIM() {
-        clickOn(PIM);
-        log.info("Click on PIM tab Success");
+       PIM.click();
+       waitFor(5);
+       log.info("Click on PIM tab Success");
 
     }
 
     public void SelectAll() {
-        clickOn(selectAllEmployees);
+       clickOn(selectAllEmployees);
         log.info("Select all employees Success");
     }
 
     public void clickOnDelete() {
         clickOn(deleteSelected);
         waitFor(5);
-        log.info("Deletion Success");
+        log.info("Click on delete success");
 
     }
 
@@ -88,14 +87,13 @@ public class PimPage extends CommonAPI {
 
     public void clickSaveButton() {
         saveButton.click();
-        waitFor(20);
+        waitFor(5);
         log.info("Click on save button Success");
     }
 
     public void clickAddEmployeeButton() {
-        pimButton.click();
-        addEmployeeBtn.click();
-        log.info("Add Employee Success");
+       clickOn(addEmployeeBtn);
+       log.info("Add Employee Success");
 
     }
 
