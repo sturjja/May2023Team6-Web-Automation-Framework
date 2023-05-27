@@ -35,11 +35,14 @@ public class MaintenancePage extends CommonAPI {
 
     public void clickMaintenance() {
         clickOn(maintenance);
+        log.info("Click on maintenance enter Success");
     }
 
     public void enterPassForMaintenance(String password) {
         passFieldMaintence.sendKeys(password);
         confirmButtonMaintenance.click();
+        log.info("Enter password for maintenance tab  Success");
+
     }
 
 

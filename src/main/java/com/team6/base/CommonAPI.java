@@ -190,8 +190,13 @@ public class CommonAPI {
     public WebDriver getDriver() {
         return driver;
     }
+
+
     public String getCurrentTitle(){
         return driver.getTitle();
+    }
+      public String getCurrentUrl(){
+        return driver.getCurrentUrl();
     }
     public String getElementText(WebElement element){
         return element.getText();

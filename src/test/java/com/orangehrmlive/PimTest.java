@@ -32,14 +32,16 @@ public class PimTest extends CommonAPI {
         LoginPage lp = new LoginPage(getDriver());
 
         PimPage PIM = new PimPage(getDriver());
-        lp.enteringUserNamePassWord();
+        lp.enteringUserNamePassWord("Admin","admin123");
         lp.clickOnLoginBtn();
 
+        PIM.    clickOnPIM();
         PIM.clickAddEmployeeButton();
         PIM.enterFirstName("Mohammad");
         PIM.enterLastName("Taseen");
         PIM.clickSaveButton();
         Assert.assertEquals(PIM.showsFirstAndLastName(), "Mohammad Taseen");
+
     }
 
     @Test
@@ -47,7 +49,7 @@ public class PimTest extends CommonAPI {
         LoginPage lp = new LoginPage(getDriver());
         PimPage PIM = new PimPage(getDriver());
 
-        lp.enteringUserNamePassWord();
+        lp.enteringUserNamePassWord("Admin","admin123");
         lp.clickOnLoginBtn();
         PIM.clickOnPIM();
         PIM.SelectAll();

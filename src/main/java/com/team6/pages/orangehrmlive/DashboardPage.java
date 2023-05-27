@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class DashboardPage extends CommonAPI {
-    Logger log = LogManager.getLogger(HomePage.class.getName());
+    Logger log = LogManager.getLogger(HomepagePage.class.getName());
 
     public DashboardPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -34,12 +34,17 @@ public class DashboardPage extends CommonAPI {
     }
 
     public String getCurrentUrl(){
+        log.info("Get Current url success");
         return getDriver().getCurrentUrl();
+
+
     }
 
     public void clickOnSupport() {
         accountButton.click();
         SupportButton.click();
+
+        log.info("Click on support Success");
     }
     public String QuickLaunchText() {
         return quickLaunchText.getText();

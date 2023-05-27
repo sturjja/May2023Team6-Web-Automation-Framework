@@ -8,10 +8,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 
-public class DirectoryPage extends CommonAPI {
+public class TimeTestPage extends CommonAPI {
     Logger log = LogManager.getLogger(HomepagePage.class.getName());
 
-    public DirectoryPage(WebDriver driver) {
+    public TimeTestPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 }

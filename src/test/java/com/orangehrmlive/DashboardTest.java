@@ -2,7 +2,7 @@ package com.orangehrmlive;
 
 import com.team6.base.CommonAPI;
 import com.team6.pages.orangehrmlive.DashboardPage;
-import com.team6.pages.orangehrmlive.HomePage;
+import com.team6.pages.orangehrmlive.HomepagePage;
 import com.team6.pages.orangehrmlive.LoginPage;
 import com.team6.utility.Utility;
 import org.testng.Assert;
@@ -29,10 +29,9 @@ public class DashboardTest extends CommonAPI {
     @Test
     public void verifyLogout() {
         LoginPage lp = new LoginPage(getDriver());
-        HomePage hp = new HomePage(getDriver());
+        HomepagePage hp = new HomepagePage(getDriver());
 
-        lp.enteringUserNamePassWord();
-        lp.clickOnLoginBtn();
+        lp.enteringUserNamePassWord("Admin","admin123");        lp.clickOnLoginBtn();
         hp.clickOnLogoutButton();
 
         Assert.assertTrue(lp.checkPresenceOfLoginPageHeader());
@@ -41,9 +40,9 @@ public class DashboardTest extends CommonAPI {
     @Test
     public void validateSidebarMenuButton() {
         LoginPage lp = new LoginPage(getDriver());
-        HomePage hp = new HomePage(getDriver());
+        HomepagePage hp = new HomepagePage(getDriver());
 
-        lp.enteringUserNamePassWord();
+        lp.enteringUserNamePassWord("Admin","admin123");
         lp.clickOnLoginBtn();
         hp.clickOnSidebarMenuIcon();
 
@@ -52,9 +51,9 @@ public class DashboardTest extends CommonAPI {
     @Test
     public void verifyLogoutNegative() {
         LoginPage lp = new LoginPage(getDriver());
-        HomePage hp = new HomePage(getDriver());
+        HomepagePage hp = new HomepagePage(getDriver());
 
-        lp.enteringUserNamePassWord();
+        lp.enteringUserNamePassWord("Admin","admin123");
         lp.clickOnLoginBtn();
         hp.clickOnLogoutButton();
 
