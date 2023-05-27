@@ -24,6 +24,16 @@
             <class name="com.orangehrmlive.DashboardTest"></class>
         </classes>
     </test>
+    <test name="DirectoryTest">
+        <classes>
+            <class name="com.orangehrmlive.DirectoryTest"></class>
+        </classes>
+    </test>
+    <test name="HomepageTest">
+        <classes>
+            <class name="com.orangehrmlive.HomepageTest"></class>
+        </classes>
+    </test>
     <test name="LeaveTest">
         <classes>
             <class name="com.orangehrmlive.LeaveTest"></class>
@@ -32,6 +42,36 @@
     <test name="LoginTest">
         <classes>
             <class name="com.orangehrmlive.LoginTest"></class>
+        </classes>
+    </test>
+    <test name="MaintenanceTest">
+        <classes>
+            <class name="com.orangehrmlive.MaintenanceTest"></class>
+        </classes>
+    </test>
+    <test name="MyInfoTest">
+        <classes>
+            <class name="com.orangehrmlive.MyInfo"></class>
+        </classes>
+    </test>
+    <test name="PerformanceTest">
+        <classes>
+            <class name="com.orangehrmlive.PerformanceTest"></class>
+        </classes>
+    </test>
+    <test name="PimTest">
+        <classes>
+            <class name="com.orangehrmlive.PimTest"></class>
+        </classes>
+    </test>
+    <test name="RecruitmentTest">
+        <classes>
+            <class name="com.orangehrmlive.RecruitmentTest"></class>
+        </classes>
+    </test>
+    <test name="TimeTest">
+        <classes>
+            <class name="com.orangehrmlive.TimeTest"></class>
         </classes>
     </test>
 </suite>
