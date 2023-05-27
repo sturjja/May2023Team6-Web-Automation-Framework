@@ -2,7 +2,10 @@ package com.team6.reporting;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,4 +35,8 @@ public class ExtentTestManager {
         extentTestMap.put((int) (long) (Thread.currentThread().getId()), test);
         return test;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/master

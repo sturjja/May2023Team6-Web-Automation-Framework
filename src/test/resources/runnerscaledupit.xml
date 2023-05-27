@@ -9,14 +9,24 @@
     <parameter name="browserVersion" value="110"></parameter>
     <parameter name="browserName" value="chrome"></parameter>
     <parameter name="url" value="https://automation.scaledupit.com"></parameter>
-    <test name="checkout test">
+    <test name="addresses test">
         <classes>
-            <class name="com.automation.scaledupit.CheckoutTest"></class>
+            <class name="com.automation.scaledupit.AddressesTest"></class>
         </classes>
     </test>
     <test name="cart test">
         <classes>
             <class name="com.automation.scaledupit.CartTest"></class>
+        </classes>
+    </test>
+    <test name="quick links test">
+        <classes>
+            <class name="com.automation.scaledupit.QuickLinksTest"></class>
+        </classes>
+    </test>
+    <test name="recent posts test">
+        <classes>
+            <class name="com.automation.scaledupit.RecentPostsTest"></class>
         </classes>
     </test>
     <test name="account details test">
@@ -34,4 +44,5 @@
             <class name="com.automation.scaledupit.LogoutTest"></class>
         </classes>
     </test>
+
 </suite>

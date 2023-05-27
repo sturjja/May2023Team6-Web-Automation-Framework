@@ -31,9 +31,13 @@ public class LoginTest extends CommonAPI {
 
          //Click on login link
             loginPage.clickOnloginLink();
+<<<<<<< HEAD
          // enter a valid email address on the email field in the center of the page
             loginPage.enterEmail(validEmail);
          // enter a valid password on the password field beneath email field
+=======
+            loginPage.enterEmail(validEmail);
+>>>>>>> origin/master
             loginPage.enterPassword(validPassword);
          // click on login button to enter home page
             loginPage.clickOnLoginButton();

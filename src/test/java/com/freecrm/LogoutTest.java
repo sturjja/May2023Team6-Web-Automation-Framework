@@ -33,7 +33,7 @@ public class LogoutTest extends CommonAPI {
         loginPage.clickOnLoginButton();
 
 
-        String expectedHomePageHeader = "No items found";
+        String expectedHomePageHeader = "Ibna Zaman";
         String actualHomePageHeader= homePage.getHomePageHeader();
         Assert.assertEquals(expectedHomePageHeader,actualHomePageHeader);
         log.info("User login success");

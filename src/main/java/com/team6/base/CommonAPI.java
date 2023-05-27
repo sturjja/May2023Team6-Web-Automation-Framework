@@ -1,40 +1,58 @@
 package com.team6.base;
 
 import com.relevantcodes.extentreports.LogStatus;
+<<<<<<< HEAD
 import com.team6.reporting.ExtentManager;
 import com.team6.reporting.ExtentTestManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+=======
+import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.*;
+>>>>>>> origin/master
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+<<<<<<< HEAD
 import org.openqa.selenium.Keys;
+=======
+import org.openqa.selenium.WebElement;
+>>>>>>> origin/master
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
+import com.team6.reporting.ExtentManager;
+import com.team6.reporting.ExtentTestManager;
 import com.team6.utility.Utility;
+<<<<<<< HEAD
 
+=======
+import java.io.File;
+import java.io.IOException;
+>>>>>>> origin/master
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Properties;
-
 public class CommonAPI {
     Logger log = LogManager.getLogger(CommonAPI.class.getName());
     Properties prop = Utility.loadProperties();
     String browserstackUsername = prop.getProperty("browserstack.username");
     String browserstackPassword = prop.getProperty("browserstack.password");
-
     String implicitWait = prop.getProperty("implicit.wait","5");
     String windowMaximize = prop.getProperty("browser.maximize","true");
     String takeScreenshots = prop.getProperty("take.screenshots","false");
@@ -82,11 +100,19 @@ public class CommonAPI {
         }
         ExtentTestManager.endTest();
         extent.flush();
+<<<<<<< HEAD
      //   if (takeScreenshots.equalsIgnoreCase("true")){
      //       if (result.getStatus() == ITestResult.FAILURE) {
      //           takeScreenshots(result.getName());
      //       }
      //   }
+=======
+        if (takeScreenshots.equalsIgnoreCase("true")){
+            if (result.getStatus() == ITestResult.FAILURE) {
+                takeScreenshot(result.getName());
+            }
+        }
+>>>>>>> origin/master
         driver.quit();
     }
     @AfterSuite
@@ -100,6 +126,10 @@ public class CommonAPI {
         return calendar.getTime();
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
     public void getCloudDriver(String envName, String os, String osVersion, String browserName, String browserVersion, String username, String password) throws MalformedURLException {
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability("os", os);
@@ -173,6 +203,10 @@ public class CommonAPI {
         element.sendKeys(text);
 
     }
+    public void scrollDownThePage(WebElement element) {
+        element.sendKeys(Keys.PAGE_DOWN);
+
+    }
     public void pressEnter(WebElement element){
         element.sendKeys(Keys.ENTER);
     }
@@ -206,5 +240,34 @@ public class CommonAPI {
     }
     public boolean isChecked(WebElement element){
         return element.isSelected();
+    }
+    public void clickWithJavascript(WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].click();", element);
+    }
+    public void scrollToElement(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].scrollIntoView();",element);
+    }
+    public void captureScreenshot() {
+        File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        try {
+            FileUtils.copyFile(file,new File("screenshots"+File.separator+"screenshot.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void takeScreenshot(String screenshotName){
+        DateFormat df = new SimpleDateFormat("MMddyyyyHHmma");
+        Date date = new Date();
+        df.format(date);
+
+        File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        try {
+            FileUtils.copyFile(file, new File(Utility.currentDir+ File.separator +"screenshots"+ File.separator + screenshotName+" "+df.format(date)+".jpeg"));
+            System.out.println("Screenshot captured");
+        } catch (Exception e) {
+            System.out.println("Exception while taking screenshot "+e.getMessage());
+        }
     }
 }

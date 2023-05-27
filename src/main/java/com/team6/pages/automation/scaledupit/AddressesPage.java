@@ -16,7 +16,7 @@ public class AddressesPage extends CommonAPI {
     @FindBy(xpath = "//*[@id=\"post-9\"]/header/h1")
     WebElement addressesPageHeader ;
     @FindBy(xpath = "//*[@id=\"post-9\"]/div/div/div/div[2]/div[1]/header/a")
-    WebElement editBtn ;
+    WebElement editBtnBilling;
     @FindBy(xpath = "//*[@id=\"billing_first_name\"]")
     WebElement firstNameFieldBilling ;
     @FindBy(xpath = "//*[@id=\"billing_last_name\"]")
@@ -35,8 +35,6 @@ public class AddressesPage extends CommonAPI {
     WebElement countryKeysBilling;
     @FindBy(xpath = "//*[@id=\"billing_phone\"]")
     WebElement phoneNumberFieldBilling;
-    @FindBy(xpath = "//*[@id=\"billing_email\"]")
-    WebElement emailAddressFieldBilling;
     @FindBy(xpath = "//*[@id=\"billing_country_field\"]/span/span/span[1]/span/span[2]")
     WebElement countryDropdownBilling;
     @FindBy(xpath = "//*[@id=\"billing_state_field\"]/span/span/span[1]/span/span[2]")
@@ -49,6 +47,35 @@ public class AddressesPage extends CommonAPI {
     WebElement stateKeysBilling;
     @FindBy(xpath = "//*[@id=\"post-9\"]/div/div/div/div[1]/div")
     WebElement confirmationMessage;
+    @FindBy(xpath = "//*[@id=\"post-9\"]/div/div/div/div[2]/div[2]/header/a")
+    WebElement editBtnShipping ;
+    @FindBy(xpath = "//*[@id=\"billing_first_name\"]")
+    WebElement firstNameFieldShipping ;
+    @FindBy(xpath = "//*[@id=\"billing_last_name\"]")
+    WebElement lastNameFieldShipping;
+    @FindBy(xpath = "//*[@id=\"shipping_address_1\"]")
+    WebElement streetAddressFieldShipping;
+    @FindBy(xpath = "//*[@id=\"shipping_address_2\"]")
+    WebElement apartmentNumberFieldShipping;
+    @FindBy(xpath = "//*[@id=\"shipping_city\"]")
+    WebElement cityFieldShipping;
+    @FindBy(xpath = "//*[@id=\"shipping_postcode\"]")
+    WebElement zipCodeFieldShipping;
+    @FindBy(css = "input[class='select2-search__field']")
+    WebElement countryFieldShipping;
+    @FindBy(css = "ul[class='select2-results__options']")
+    WebElement countryKeysShipping;
+    @FindBy(xpath = "//*[@id=\"shipping_country_field\"]/span/span")
+    WebElement countryDropdownShipping;
+    @FindBy(xpath = "//*[@id=\"shipping_state_field\"]/span/span")
+    WebElement stateDropdownShipping;
+    @FindBy(xpath = "//*[@id=\"post-9\"]/div/div/div/form/div/p/button")
+    WebElement saveAddressBtnShipping;
+    @FindBy(css = "input[class='select2-search__field']")
+    WebElement stateFieldShipping;
+    @FindBy(css = "ul[class='select2-results__options']")
+    WebElement stateKeysShipping;
+
 
 
 
@@ -57,19 +84,19 @@ public class AddressesPage extends CommonAPI {
         log.info("user navigated to addresses page success");
         return text;
     }
-    public void clickOnEditBtn(){
-        clickOn(editBtn);
+    public void clickOnEditBtnBilling(){
+        clickOn(editBtnBilling);
         log.info("click on edit Button success");
     }
-    public void clickOnCountryDropdown(){
+    public void clickOnCountryDropdownBilling(){
         clickOn(countryDropdownBilling);
         log.info("click on Country Dropdown Button success");
     }
-    public void enterPartialCountryName(String partialCountryName){
+    public void enterPartialCountryNameBilling(String partialCountryName){
         type(countryFieldBilling, partialCountryName);
         log.info("enter partial country name success");
     }
-    public void keyDownTwiceAndSelect(){
+    public void keyDownTwiceAndSelectBilling(){
         pressEnter(countryKeysBilling);
         log.info("arrow down and enter success");
     }
@@ -85,15 +112,15 @@ public class AddressesPage extends CommonAPI {
         type(cityFieldBilling, city);
         log.info("enter city name success");
     }
-    public void enterPartialStateName(String partialStateName){
+    public void enterPartialStateNameBilling(String partialStateName){
         type(stateFieldBilling, partialStateName);
         log.info("enter partial state name success");
     }
-    public void clickOnStateDropdown(){
+    public void clickOnStateDropdownBilling(){
         clickOn(stateDropdownBilling);
         log.info("click on State Dropdown Button success");
     }
-    public void keyDownThriceAndSelect(){
+    public void keyDownThriceAndSelectBilling(){
         pressEnter(stateKeysBilling);
         log.info("arrow down thrice and enter success");
     }
@@ -114,25 +141,98 @@ public class AddressesPage extends CommonAPI {
         log.info("get confirmation message text success");
         return text;
     }
-    public void clearStreetAddressField(){
+    public void clearStreetAddressFieldBilling(){
         streetAddressFieldBilling.clear();
         log.info("clear street address field success");
     }
-    public void clearApartmentNumberField(){
+    public void clearApartmentNumberFieldBilling(){
         apartmentNumberFieldBilling.clear();
         log.info("clear apartment number field success");
     }
-    public void clearCityField(){
+    public void clearCityFieldBilling(){
         cityFieldBilling.clear();
         log.info("clear city field success");
     }
-    public void clearZipCodeField(){
+    public void clearZipCodeFieldBilling(){
         zipCodeFieldBilling.clear();
         log.info("clear Zip Code field success");
     }
-    public void clearPhoneNumberField(){
+    public void clearPhoneNumberFieldBilling(){
         phoneNumberFieldBilling.clear();
         log.info("clear phone number field success");
     }
+
+
+    public void clickOnEditBtnShipping(){
+        clickOn(editBtnShipping);
+        log.info("click on edit Button success");
+    }
+    public void clickOnCountryDropdownShipping(){
+        clickOn(countryDropdownShipping);
+        log.info("click on Country Dropdown Button success");
+    }
+    public void enterPartialCountryNameShipping(String partialCountryName){
+        type(countryFieldShipping, partialCountryName);
+        log.info("enter partial country name success");
+    }
+    public void keyDownTwiceAndSelectShipping(){
+        pressEnter(countryKeysShipping);
+        log.info("arrow down and enter success");
+    }
+    public void enterStreetAddressShipping(String partialCountryName){
+        type(streetAddressFieldShipping, partialCountryName);
+        log.info("enter street address success");
+    }
+    public void enterApartmentNumberShipping(String partialCountryName){
+        type(apartmentNumberFieldShipping, partialCountryName);
+        log.info("enter apartment number success");
+    }
+    public void enterCityShipping(String city){
+        type(cityFieldShipping, city);
+        log.info("enter city name success");
+    }
+    public void enterPartialStateNameShipping(String partialStateName){
+        type(stateFieldShipping, partialStateName);
+        log.info("enter partial state name success");
+    }
+    public void clickOnStateDropdownShipping(){
+        clickOn(stateDropdownShipping);
+        log.info("click on State Dropdown Button success");
+    }
+    public void keyDownThriceAndSelectShipping(){
+        pressEnter(stateKeysShipping);
+        log.info("arrow down thrice and enter success");
+    }
+    public void enterZipCodeShipping(String zipcode){
+        type(zipCodeFieldShipping, zipcode);
+        log.info("enter zipcode success");
+    }
+
+    public void clickOnSaveAddressBtnShipping(){
+        clickOn(saveAddressBtnBilling);
+        log.info("click on save address Button success");
+    }
+    public String getConfirmationMessageShipping(){
+        String text = getElementText(confirmationMessage);
+        log.info("get confirmation message text success");
+        return text;
+    }
+    public void clearStreetAddressFieldShipping(){
+        streetAddressFieldShipping.clear();
+        log.info("clear street address field success");
+    }
+    public void clearApartmentNumberFieldShipping(){
+        apartmentNumberFieldShipping.clear();
+        log.info("clear apartment number field success");
+    }
+    public void clearCityFieldShipping(){
+        cityFieldShipping.clear();
+        log.info("clear city field success");
+    }
+    public void clearZipCodeFieldShipping(){
+        zipCodeFieldShipping.clear();
+        log.info("clear Zip Code field success");
+    }
+
 
 }

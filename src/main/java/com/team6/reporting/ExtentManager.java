@@ -1,9 +1,15 @@
 package com.team6.reporting;
 
 import com.relevantcodes.extentreports.ExtentReports;
+<<<<<<< HEAD
 import com.team6.utility.Utility;
 import org.testng.ITestContext;
 import org.testng.Reporter;
+=======
+import org.testng.ITestContext;
+import org.testng.Reporter;
+import com.team6.utility.Utility;
+>>>>>>> origin/master
 
 import java.io.File;
 
@@ -18,7 +24,11 @@ public class ExtentManager {
             extent = new ExtentReports(Utility.currentDir +"/Extent-Report/ExtentReport.html", true);
             Reporter.log("Extent Report Directory"+ resultDirectory, true);
             extent.addSystemInfo("Host Name", "PNT").addSystemInfo("Environment","QA")
+<<<<<<< HEAD
                     .addSystemInfo("User Name", "Ibna Zaman");
+=======
+                    .addSystemInfo("User Name", "Nacer Zimu");
+>>>>>>> origin/master
             extent.loadConfig(new File(Utility.currentDir+ "/report-config.xml"));
         }
         return extent;
@@ -28,4 +38,8 @@ public class ExtentManager {
         ExtentManager.context = context;
 
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/master
