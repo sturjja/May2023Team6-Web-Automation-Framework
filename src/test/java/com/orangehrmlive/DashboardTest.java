@@ -5,6 +5,8 @@ import com.team6.pages.orangehrmlive.DashboardPage;
 import com.team6.pages.orangehrmlive.HomepagePage;
 import com.team6.pages.orangehrmlive.LoginPage;
 import com.team6.utility.Utility;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
@@ -19,6 +21,7 @@ public class DashboardTest extends CommonAPI {
     String validPassword = Utility.decode(prop.getProperty("orangeHRM.password"));
     String invalidUsername = Utility.decode(prop.getProperty("orangeHRM.invalidUserName"));
     String invalidPassword = Utility.decode(prop.getProperty("orangeHRM.invalidPassword"));
+    Logger log = LogManager.getLogger(LeaveTest.class.getName());
 
     @BeforeMethod
     @Override
@@ -26,35 +29,37 @@ public class DashboardTest extends CommonAPI {
         super.setUp(useCloudEnv, envName, os, osVersion, browserName, browserVersion, url);
     }
 
-    @Test
+    @Test(priority = 1)
     public void verifyLogout() {
         LoginPage lp = new LoginPage(getDriver());
+        LoginPage loginpage = new LoginPage(getDriver());
+        loginpage.enteringUserNamePassWord(validUsername, validPassword);
+
         HomepagePage hp = new HomepagePage(getDriver());
-
-        lp.enteringUserNamePassWord("Admin","admin123");        lp.clickOnLoginBtn();
         hp.clickOnLogoutButton();
-
         Assert.assertTrue(lp.checkPresenceOfLoginPageHeader());
     }
 
-    @Test
+    @Test(priority = 2)
     public void validateSidebarMenuButton() {
-        LoginPage lp = new LoginPage(getDriver());
+        LoginPage loginPage = new LoginPage(getDriver());
         HomepagePage hp = new HomepagePage(getDriver());
 
-        lp.enteringUserNamePassWord("Admin","admin123");
-        lp.clickOnLoginBtn();
+        loginPage.enteringUserNamePassWord(validUsername, validPassword);
+
+        loginPage.clickOnLoginBtn();
         hp.clickOnSidebarMenuIcon();
 
     }
 
-    @Test
+    @Test(priority = 3)
     public void verifyLogoutNegative() {
-        LoginPage lp = new LoginPage(getDriver());
+        LoginPage loginPage = new LoginPage(getDriver());
         HomepagePage hp = new HomepagePage(getDriver());
 
-        lp.enteringUserNamePassWord("Admin","admin123");
-        lp.clickOnLoginBtn();
+        loginPage.enteringUserNamePassWord(validUsername, validPassword);
+
+        loginPage.clickOnLoginBtn();
         hp.clickOnLogoutButton();
 
         // Wait for 5 seconds to simulate a delay in the logout process
@@ -65,35 +70,35 @@ public class DashboardTest extends CommonAPI {
         }
 
         // Check if the login page header is displayed
-        boolean isLoginPageHeaderDisplayed = lp.checkPresenceOfLoginPageHeader();
+        boolean isLoginPageHeaderDisplayed = loginPage.checkPresenceOfLoginPageHeader();
         Assert.assertFalse(isLoginPageHeaderDisplayed, "Login page header is displayed after logout.");
     }
 
 
-    @Test
+    @Test(priority = 4)
     public void verifyQuickLaunchMenuVisible() {
-        LoginPage lp = new LoginPage(getDriver());
+        LoginPage loginPage = new LoginPage(getDriver());
         DashboardPage dP = new DashboardPage(getDriver());
 
-        lp.enteringUserNamePassWord();
-        lp.clickOnLoginBtn();
+        loginPage.enteringUserNamePassWord(validUsername, validPassword);
+
+        loginPage.clickOnLoginBtn();
         Assert.assertEquals(dP.QuickLaunchText(), "Quick Launch");
 
 
     }
 
-    @Test
+    @Test(priority = 5)
     public void supportText() {
         LoginPage lp = new LoginPage(getDriver());
         DashboardPage dP = new DashboardPage(getDriver());
-
-        lp.enteringUserNamePassWord();
+        String supportText = "Should you experience any issues, please do not hesitate to contact us on ossupport@orangehrm.com We will be delighted to help.";
+        lp.enteringUserNamePassWord(validUsername, validPassword);
         lp.clickOnLoginBtn();
 
         dP.clickOnSupport();
-
-        Assert.assertEquals(dP.GetSupportText(), "Should you experience any issues, please do not hesitate to contact us on ossupport@orangehrm.com We will be delighted to help.");
+        Assert.assertEquals(dP.GetSupportText(), supportText);
+        log.info("Support Text Visible success");
 
     }
-
 }

@@ -30,7 +30,7 @@ public class HomepageTest extends CommonAPI {
         super.setUp(useCloudEnv, envName, os, osVersion, browserName, browserVersion, url);
     }
 
-    @Test
+    @Test(priority = 1)
     public void navigateToAdmin() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomepagePage homepagePage = new HomepagePage(getDriver());
@@ -46,12 +46,13 @@ public class HomepageTest extends CommonAPI {
         String ExpectedTabName = tabName.toLowerCase();
 
         Assert.assertEquals(ActualTabName, ExpectedTabName);
+
         log.info(tabName + " is clickable from menu -- Success");
 
 
     }
 
-    @Test
+    @Test(priority = 2)
     public void navigateToPIM() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomepagePage homepagePage = new HomepagePage(getDriver());
@@ -71,7 +72,7 @@ public class HomepageTest extends CommonAPI {
 
     }
 
-    @Test
+    @Test(priority = 3)
     public void navigateToLeave() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomepagePage homepagePage = new HomepagePage(getDriver());
@@ -92,7 +93,7 @@ public class HomepageTest extends CommonAPI {
 
     }
 
-    @Test
+    @Test(priority = 4)
     public void navigateToTime() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomepagePage homepagePage = new HomepagePage(getDriver());
@@ -112,7 +113,7 @@ public class HomepageTest extends CommonAPI {
 
     }
 
-    @Test
+    @Test(priority = 5)
     public void navigateToRecruitment() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomepagePage homepagePage = new HomepagePage(getDriver());
@@ -132,7 +133,7 @@ public class HomepageTest extends CommonAPI {
 
     }
 
-    @Test
+    @Test(priority = 6)
     public void navigateToMyInfo() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomepagePage homepagePage = new HomepagePage(getDriver());
@@ -144,7 +145,7 @@ public class HomepageTest extends CommonAPI {
         homepagePage.clickonMainMenuOptions("My Info");
     }
 
-    @Test
+    @Test(priority = 7)
     public void navigateToPerformance() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomepagePage homepagePage = new HomepagePage(getDriver());
@@ -160,9 +161,10 @@ public class HomepageTest extends CommonAPI {
 
         Assert.assertEquals(ActualTabName, ExpectedTabName);
         log.info(tabName + " is clickable from menu -- Success");
+
     }
 
-    @Test
+    @Test(priority = 8)
     public void navigateToDirectory() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomepagePage homepagePage = new HomepagePage(getDriver());
@@ -180,7 +182,7 @@ public class HomepageTest extends CommonAPI {
         log.info(tabName + " is clickable from menu -- Success");
     }
 
-    @Test
+    @Test(priority = 9)
     public void navigateToMaintenance() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomepagePage homepagePage = new HomepagePage(getDriver());
@@ -200,7 +202,7 @@ public class HomepageTest extends CommonAPI {
         log.info(tabName + " is clickable from menu -- Success");
     }
 
-    @Test
+    @Test(priority = 10)
     public void navigateToBuzz() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomepagePage homepagePage = new HomepagePage(getDriver());

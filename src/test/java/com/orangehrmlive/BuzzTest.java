@@ -31,12 +31,12 @@ public class BuzzTest extends CommonAPI {
 
     Logger log = LogManager.getLogger(BuzzTest.class.getName());
 
-    @Test
-    public void postStatusOnBuzzFeed(){
+    @Test(priority = 1)
+    public void postStatusOnBuzzFeed() {
 
         LoginPage loginpage = new LoginPage(getDriver());
-        loginpage.enterUsername("Admin");
-        loginpage.enterPassword("admin123");
+        loginpage.enteringUserNamePassWord(validUsername,validPassword);
+
         loginpage.clickOnLoginBtn();
 
 
@@ -50,15 +50,15 @@ public class BuzzTest extends CommonAPI {
         String actualMessage = bp.getToastMessage();
         String expectedMessage = "Success";
 
-        Assert.assertEquals(actualMessage,expectedMessage);
+        Assert.assertEquals(actualMessage, expectedMessage);
         log.info("Successfully published a status");
 
     }
-    @Test
-    public void addCommentToMostRecentPost(){
+
+    @Test(priority = 2)
+    public void addCommentToMostRecentPost() {
         LoginPage loginpage = new LoginPage(getDriver());
-        loginpage.enterUsername("Admin");
-        loginpage.enterPassword("admin123");
+        loginpage.enteringUserNamePassWord(validUsername,validPassword);
         loginpage.clickOnLoginBtn();
 
 
@@ -71,7 +71,7 @@ public class BuzzTest extends CommonAPI {
         String ToastMessage = buzzpage.getToastMessage();
         String ExpectedResult = "Success";
 
-        Assert.assertEquals(ToastMessage,ExpectedResult);
+        Assert.assertEquals(ToastMessage, ExpectedResult);
         log.info("Successfully published a comment");
 
     }
