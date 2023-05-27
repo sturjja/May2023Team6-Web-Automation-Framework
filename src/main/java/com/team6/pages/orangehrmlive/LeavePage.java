@@ -7,10 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 
 public class LeavePage extends CommonAPI {
-    Logger log = LogManager.getLogger(HomePage.class.getName());
+    Logger log = LogManager.getLogger(HomepagePage.class.getName());
 
     public LeavePage(WebDriver driver) {
         PageFactory.initElements(driver, this);

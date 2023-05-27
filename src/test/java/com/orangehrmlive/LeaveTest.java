@@ -1,13 +1,12 @@
 package com.orangehrmlive;
 
 import com.team6.base.CommonAPI;
-import com.team6.pages.orangehrmlive.HomePage;
+import com.team6.pages.orangehrmlive.HomepagePage;
 import com.team6.pages.orangehrmlive.LeavePage;
 import com.team6.pages.orangehrmlive.LoginPage;
 import com.team6.utility.Utility;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Test;
@@ -48,7 +47,7 @@ public class LeaveTest extends CommonAPI {
     @Test
     public void rejectingLeave() {
         LoginPage lp = new LoginPage(getDriver());
-        HomePage hp = new HomePage(getDriver());
+        HomepagePage hp = new HomepagePage(getDriver());
 
         lp.enteringUserNamePassWord();
         lp.clickOnLoginBtn();

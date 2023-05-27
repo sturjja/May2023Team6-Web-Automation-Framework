@@ -10,7 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class BuzzPage extends CommonAPI {
-    Logger log = LogManager.getLogger(HomePage.class.getName());
+    Logger log = LogManager.getLogger(HomepagePage.class.getName());
 
     public BuzzPage(WebDriver driver) {
         PageFactory.initElements(driver, this);

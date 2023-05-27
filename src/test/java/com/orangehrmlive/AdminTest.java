@@ -2,6 +2,7 @@ package com.orangehrmlive;
 
 import com.team6.base.CommonAPI;
 import com.team6.pages.orangehrmlive.AdminPage;
+import com.team6.pages.orangehrmlive.HomepagePage;
 import com.team6.pages.orangehrmlive.LoginPage;
 import com.team6.utility.Utility;
 import org.apache.logging.log4j.LogManager;
@@ -35,7 +36,7 @@ public class AdminTest extends CommonAPI {
         LoginPage lp = new LoginPage(getDriver());
         AdminPage aP = new AdminPage(getDriver());
 
-        lp.enteringUserNamePassWord("Admin","admin123");
+        lp.enteringUserNamePassWord("Admin", "admin123");
         lp.clickOnLoginBtn();
         aP.clickOnAdmin();
         aP.enterUsernameAndEmployeeName("Jon", "Doe");
@@ -57,13 +58,10 @@ public class AdminTest extends CommonAPI {
         lp.clickOnLoginBtn();
         aP.clickOnAdmin();
         aP.enterUsernameAndEmployeeName("admin");
-        // Assuming you have a search button in AdminPage, click it after entering the details:
+
         aP.clickSearchButton();
         Assert.assertTrue(aP.isNoRecordsFoundMessageDisplayed());
 
-
-        // Add an assertion to check if the search results contain the expected data.
-        // This can be done by checking if a specific element is displayed in the search results.
     }
 
     @Test
@@ -71,15 +69,33 @@ public class AdminTest extends CommonAPI {
         LoginPage lp = new LoginPage(getDriver());
         AdminPage aP = new AdminPage(getDriver());
 
-
-
         lp.enterUsername(validUsername);
         lp.enterPassword(validPassword);
         lp.clickOnLoginBtn();
         aP.clickOnAdmin();
-        aP.enterUsernameAndEmployeeName("admin1231");
+        aP.enterUsernameAndEmployeeName("admin3216");
         aP.clickSearchButton();
 
         Assert.assertTrue(aP.isNoRecordsFoundMessageDisplayed());
+    }
+
+    @Test
+    public void editOrganizationInfo() {
+        LoginPage lp = new LoginPage(getDriver());
+        AdminPage aP = new AdminPage(getDriver());
+        HomepagePage hP = new HomepagePage(getDriver());
+        lp.enterUsername(validUsername);
+        lp.enterPassword(validPassword);
+        lp.clickOnLoginBtn();
+        hP.clickonMainMenuOptions("Admin");
+        aP.clickOnOrganization();
+        aP.clickOngeneralInfo();
+        aP.enableEdit();
+        aP.enterOrganizaationName("PeopleNTech");
+//        aP.enterRegistrationNumber("0008321");
+//        aP.enterTaxId("54321");
+//        aP.saveInfo();
+
+
     }
 }

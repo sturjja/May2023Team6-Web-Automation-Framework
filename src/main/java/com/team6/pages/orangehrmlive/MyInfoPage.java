@@ -11,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 
 
 public class MyInfoPage extends CommonAPI {
-    Logger log = LogManager.getLogger(HomePage.class.getName());
+    Logger log = LogManager.getLogger(HomepagePage.class.getName());
 
     public MyInfoPage(WebDriver driver) {
         PageFactory.initElements(driver, this);

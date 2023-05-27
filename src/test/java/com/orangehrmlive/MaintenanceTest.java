@@ -1,7 +1,7 @@
 package com.orangehrmlive;
 
 import com.team6.base.CommonAPI;
-import com.team6.pages.orangehrmlive.HomePage;
+import com.team6.pages.orangehrmlive.HomepagePage;
 import com.team6.pages.orangehrmlive.LoginPage;
 import com.team6.pages.orangehrmlive.MaintenancePage;
 import com.team6.utility.Utility;
@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 import java.util.Properties;
 
-public class Maintenance extends CommonAPI {
+public class MaintenanceTest extends CommonAPI {
     Properties prop = Utility.loadProperties();
     String validUsername = Utility.decode(prop.getProperty("orangeHRM.username"));
     String validPassword = Utility.decode(prop.getProperty("orangeHRM.password"));
@@ -43,7 +43,7 @@ public class Maintenance extends CommonAPI {
     @Test
     public void accessDeniedMaintenanceTab() {
         LoginPage lp = new LoginPage(getDriver());
-        HomePage hp = new HomePage(getDriver());
+        HomepagePage hp = new HomepagePage(getDriver());
         MaintenancePage mP = new MaintenancePage(getDriver());
 
         lp.enteringUserNamePassWord("Admin","admin123");

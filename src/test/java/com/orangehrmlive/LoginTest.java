@@ -2,7 +2,7 @@ package com.orangehrmlive;
 
 import com.team6.base.CommonAPI;
 import com.team6.pages.orangehrmlive.DashboardPage;
-import com.team6.pages.orangehrmlive.HomePage;
+import com.team6.pages.orangehrmlive.HomepagePage;
 import com.team6.pages.orangehrmlive.LoginPage;
 import com.team6.utility.Utility;
 import org.testng.Assert;
@@ -31,7 +31,7 @@ public class LoginTest extends CommonAPI {
     @Test
     public void validateLogin() {
         LoginPage lp = new LoginPage(getDriver());
-        HomePage hp = new HomePage(getDriver());
+        HomepagePage hp = new HomepagePage(getDriver());
         // Verify login page
         String expectedTitle = "OrangeHRM";
         String actualTitle = getCurrentTitle();

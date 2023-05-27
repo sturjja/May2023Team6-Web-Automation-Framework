@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class DashboardPage extends CommonAPI {
-    Logger log = LogManager.getLogger(HomePage.class.getName());
+    Logger log = LogManager.getLogger(HomepagePage.class.getName());
 
     public DashboardPage(WebDriver driver) {
         PageFactory.initElements(driver, this);

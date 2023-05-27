@@ -1,7 +1,7 @@
 package com.orangehrmlive;
 
 import com.team6.base.CommonAPI;
-import com.team6.pages.orangehrmlive.HomePage;
+import com.team6.pages.orangehrmlive.HomepagePage;
 import com.team6.pages.orangehrmlive.LoginPage;
 import com.team6.pages.orangehrmlive.MyInfoPage;
 import com.team6.utility.Utility;
@@ -31,7 +31,7 @@ public class MyInfo extends CommonAPI {
     @Test
     public void changingPersonalInfo() {
         LoginPage lp = new LoginPage(getDriver());
-        HomePage hp = new HomePage(getDriver());
+        HomepagePage hp = new HomepagePage(getDriver());
         MyInfoPage mI = new MyInfoPage(getDriver());
         lp.enteringUserNamePassWord();
         lp.clickOnLoginBtn();
@@ -44,7 +44,7 @@ public class MyInfo extends CommonAPI {
     @Test
     public void verifyAccountName() {
         LoginPage lp = new LoginPage(getDriver());
-        HomePage hp = new HomePage(getDriver());
+        HomepagePage hp = new HomepagePage(getDriver());
         MyInfoPage mI = new MyInfoPage(getDriver());
 
         lp.enteringUserNamePassWord();
