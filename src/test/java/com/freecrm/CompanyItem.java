@@ -10,11 +10,13 @@ import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 public class CompanyItem extends CommonAPI {
-    Logger log = LogManager.getLogManager().getLogger(CompanyItem.class.getName());
     String validEmail = "awafzaman@gmail.com";
     String validPassword = "Takeover2022";
     String contactName = "Hillary Clinton";
     String dealName = "HarryKaneDeal";
+
+//------------------------------------------------------------------------------------------------------------
+//******************************(Test Case to link a contact to a company)*************************************
 
 
 
@@ -27,13 +29,16 @@ public class CompanyItem extends CommonAPI {
         Assert.assertEquals(expectedTitle, actualTitle);
 
         loginPage.clickOnloginLink();
-        log.info("enter login page");
         loginPage.enterEmail(validEmail);
         loginPage.enterPassword(validPassword);
         loginPage.clickOnLoginButton();
 
+        waitFor(3);
+
         companyPage.clickOnCompaniesButton();
+        waitFor(3);
         companyPage.clickOnCompaniesUnhideIcon();
+        waitFor(3);
         companyPage.clickOnLinkCompanyContactButton();
         companyPage.typeOnCompanyContactField(contactName);
         companyPage.clickOnConfirmCompanyContactButton();
@@ -42,7 +47,8 @@ public class CompanyItem extends CommonAPI {
 
 
     }
-
+//-----------------------------------------------------------------------------------------------------------
+    //******************************(Test case to link a deal to a company)*******************************
 
 
 
@@ -57,13 +63,14 @@ public class CompanyItem extends CommonAPI {
         Assert.assertEquals(expectedTitle, actualTitle);
 
         loginPage.clickOnloginLink();
-        log.info("enter login page");
         loginPage.enterEmail(validEmail);
         loginPage.enterPassword(validPassword);
         loginPage.clickOnLoginButton();
 
         companyPage.clickOnCompaniesButton();
+        waitFor(3);
         companyPage.clickOnCompaniesUnhideIcon();
+        waitFor(3);
         companyPage.clickOnLinkCompanyDealsButton();
         companyPage.typeOnLinkCompanyDealField(dealName);
         companyPage.clickOnLinkCompanyDealButton();

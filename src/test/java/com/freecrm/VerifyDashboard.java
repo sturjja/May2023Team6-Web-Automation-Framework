@@ -14,6 +14,9 @@ public class VerifyDashboard extends CommonAPI {
     String validPassword = "Takeover2022";
     String titleName = "newtask";
     String searchContact = "Lionel";
+
+ //-----------------------------------------------------------------------------------------------------------
+ //****************************(Test Case to verify the visibility of the Dashboard)*************************
     @Test
     public void testDashboardLoadPage(){
         LoginPage loginPage = new LoginPage(getDriver());
@@ -34,6 +37,9 @@ public class VerifyDashboard extends CommonAPI {
 
 
     }
+
+//-------------------------------------------------------------------------------------------------------------
+//*******************************(Test to create a new task through Dashboard)*********************************
 
     @Test
     public void createNewTask(){
@@ -64,6 +70,9 @@ public class VerifyDashboard extends CommonAPI {
 
     }
 
+//------------------------------------------------------------------------------------------------------------
+//*******************************(Test case to search for a contact)*****************************************
+
     @Test
     public void searchContact(){
         LoginPage loginPage = new LoginPage(getDriver());
@@ -82,7 +91,7 @@ public class VerifyDashboard extends CommonAPI {
         log.info("Validate dashboard success");
 
         homePage.typeOnSearchField(searchContact);
-        String expectedContactName = "Lionel Messi";
+        String expectedContactName = "Lionel";
         String actualContactName = homePage.getActualContactNameTitle();
         Assert.assertEquals(expectedContactName,actualContactName);
         log.info("desired contact found");

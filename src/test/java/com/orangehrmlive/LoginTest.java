@@ -2,9 +2,11 @@ package com.orangehrmlive;
 
 import com.team6.base.CommonAPI;
 import com.team6.pages.orangehrmlive.DashboardPage;
-import com.team6.pages.orangehrmlive.HomePage;
+import com.team6.pages.orangehrmlive.HomepagePage;
 import com.team6.pages.orangehrmlive.LoginPage;
 import com.team6.utility.Utility;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
@@ -19,6 +21,7 @@ public class LoginTest extends CommonAPI {
     String validPassword = Utility.decode(prop.getProperty("orangeHRM.password"));
     String invalidUsername = Utility.decode(prop.getProperty("orangeHRM.invalidUserName"));
     String invalidPassword = Utility.decode(prop.getProperty("orangeHRM.invalidPassword"));
+    Logger log = LogManager.getLogger(LeaveTest.class.getName());
 
     @BeforeMethod
     @Override
@@ -28,10 +31,10 @@ public class LoginTest extends CommonAPI {
         super.setUp(useCloudEnv, envName, os, osVersion, browserName, browserVersion, url);
     }
 
-    @Test
+    @Test(priority = 1)
     public void validateLogin() {
         LoginPage lp = new LoginPage(getDriver());
-        HomePage hp = new HomePage(getDriver());
+        HomepagePage hp = new HomepagePage(getDriver());
         // Verify login page
         String expectedTitle = "OrangeHRM";
         String actualTitle = getCurrentTitle();
@@ -43,7 +46,7 @@ public class LoginTest extends CommonAPI {
 
     }
 
-    @Test
+    @Test(priority = 2)
     public void verifyLoginPageElements() {
         LoginPage lp = new LoginPage(getDriver());
 
@@ -52,7 +55,7 @@ public class LoginTest extends CommonAPI {
         Assert.assertTrue(lp.loginBtn.isDisplayed());
     }
 
-    @Test
+    @Test(priority = 3)
     public void verifyValidLogin() {
         LoginPage lp = new LoginPage(getDriver());
         DashboardPage dP = new DashboardPage(getDriver());
@@ -64,6 +67,5 @@ public class LoginTest extends CommonAPI {
       //  Assert.assertTrue(dP.getCurrentUrl().contains("dashboard"));
 
     }
-
 
 }

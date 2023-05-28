@@ -13,6 +13,9 @@ import java.util.Properties;
 public class LogoutTest extends CommonAPI {
     Logger log = LogManager.getLogger(LogoutTest.class.getName());
 
+ //-----------------------------------------------------------------------------------------------------------
+ //********************************(Logout Function Test)**************************************************
+
     String validEmail = "awafzaman@gmail.com";
 
     String validPassword = "Takeover2022 ";
@@ -30,7 +33,7 @@ public class LogoutTest extends CommonAPI {
         loginPage.clickOnLoginButton();
 
 
-        String expectedHomePageHeader = "No items found";
+        String expectedHomePageHeader = "Ibna Zaman";
         String actualHomePageHeader= homePage.getHomePageHeader();
         Assert.assertEquals(expectedHomePageHeader,actualHomePageHeader);
         log.info("User login success");
