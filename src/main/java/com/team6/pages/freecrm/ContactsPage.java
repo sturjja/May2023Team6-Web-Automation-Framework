@@ -24,6 +24,39 @@ public class ContactsPage extends CommonAPI {
     WebElement contactDeleteButton;
     @FindBy(xpath = "//button[@class='ui red button' and i[@aria-hidden='true' and @class='remove icon'] and text()='Delete']\n")
     WebElement contactDeleteConfirmButton;
+    @FindBy(xpath = "//i[@aria-hidden=\"true\" and @class=\"edit icon\"]\n")
+    WebElement createContactButton;
+    @FindBy(xpath = "//input[@autocomplete=\"new-password\" and @name=\"first_name\" and @type=\"text\"]\n")
+    WebElement contactFirstName;
+    @FindBy(xpath = "//input[@autocomplete=\"new-password\" and @name=\"last_name\" and @type=\"text\"]\n")
+    WebElement contactLastName;
+    @FindBy(xpath = "//i[@aria-hidden=\"true\" and @class=\"save icon\"]\n")
+    WebElement contactSaveButton;
+    @FindBy(xpath = "//button[@class=\"ui left floated button\"]\n")
+    WebElement cancelDeletionButton;
+
+    public void clickOnCancelDeletionButton(){
+        clickOn(cancelDeletionButton);
+        log.info("deletion is cancelled");
+    }
+
+    public void clickOnContactSaveButton(){
+        clickOn(contactSaveButton);
+        log.info("contact is saved");
+    }
+
+    public void typeOnContactLastName(String lastName){
+        type(contactLastName, lastName);
+    }
+
+    public void typeOnContactFirstName(String firstName){
+        type(contactFirstName, firstName);
+    }
+
+    public void clickOnCreateContactButton(){
+        clickOn(createContactButton);
+        log.info("contact creation is initiated");
+    }
 
     public void clickOnContactDeleteConfirmButton(){
         clickOn(contactDeleteConfirmButton);

@@ -22,7 +22,7 @@ public class ForumItem extends CommonAPI {
 
 
     @Test
-    public void addNotesToForm() {
+    public void addFormsWithName() {
         LoginPage loginPage = new LoginPage(getDriver());
         ForumPage forumPage = new ForumPage(getDriver());
 
@@ -34,7 +34,38 @@ public class ForumItem extends CommonAPI {
         forumPage.clickOnFormsButton();
         forumPage.clickOnFormsAddButton();
         forumPage.typeOnFormsNameField(validName);
+        //forumPage.typeOnFormsIntroField(simpleIntro);
+        forumPage.typeOnFormsOutroField(simpleOutro);
+        forumPage.clickOnFormSaveButton();
+    }
+    @Test
+    public void addFormsWithIntro(){
+        LoginPage loginPage = new LoginPage(getDriver());
+        ForumPage forumPage = new ForumPage(getDriver());
+
+        loginPage.clickOnloginLink();
+        loginPage.enterEmail(validEmail);
+        loginPage.enterPassword(validPassword);
+        loginPage.clickOnLoginButton();
+
+        forumPage.clickOnFormsButton();
+        forumPage.clickOnFormsAddButton();
         forumPage.typeOnFormsIntroField(simpleIntro);
+        forumPage.clickOnFormSaveButton();
+
+    }
+    @Test
+    public void addFormsWithOutro(){
+        LoginPage loginPage = new LoginPage(getDriver());
+        ForumPage forumPage = new ForumPage(getDriver());
+
+        loginPage.clickOnloginLink();
+        loginPage.enterEmail(validEmail);
+        loginPage.enterPassword(validPassword);
+        loginPage.clickOnLoginButton();
+
+        forumPage.clickOnFormsButton();
+        forumPage.clickOnFormsAddButton();
         forumPage.typeOnFormsOutroField(simpleOutro);
         forumPage.clickOnFormSaveButton();
     }
