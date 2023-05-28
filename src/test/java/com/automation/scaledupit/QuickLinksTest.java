@@ -55,7 +55,7 @@ public class QuickLinksTest extends CommonAPI {
         //scroll down the page
         linksPage.scrollDownPage();
         waitFor(3);
-        //click on account details button
+        //click on home page link
         linksPage.clickOnHomePageLink();
         //check user is in correct place
         String expectedHomePageTitle = homeTitle;
@@ -86,7 +86,7 @@ public class QuickLinksTest extends CommonAPI {
         //scroll down the page
         linksPage.scrollDownPage();
         waitFor(3);
-        //click on account details button
+        //click on shop page link
         linksPage.clickOnShopPageLink();
         //check user is in correct place
         String expectedShopPageTitle = shopTitle;
@@ -117,7 +117,7 @@ public class QuickLinksTest extends CommonAPI {
         //scroll down the page
         linksPage.scrollDownPage();
         waitFor(3);
-        //click on account details button
+        //click on men collection page link
         linksPage.clickOnMenCollectionPageLink();
         //check user is in correct place
         String expectedMenCollectionPageTitle = menCollectionTitle;
@@ -149,7 +149,7 @@ public class QuickLinksTest extends CommonAPI {
         //scroll down the page
         linksPage.scrollDownPage();
         waitFor(3);
-        //click on account details button
+        //click on women collection page link
         linksPage.clickOnWomenCollectionPageLink();
         //check user is in correct place
         String expectedWomenCollectionPageTitle = womenCollectionTitle;
@@ -181,7 +181,7 @@ public class QuickLinksTest extends CommonAPI {
         //scroll down the page
         linksPage.scrollDownPage();
         waitFor(3);
-        //click on account details button
+        //click on my account page link
         linksPage.clickOnMyaccountPageLink();
         //check user is in correct place
         String expectedMyaccountPageTitle = myAccountTitle;
@@ -213,7 +213,7 @@ public class QuickLinksTest extends CommonAPI {
         //scroll down the page
         linksPage.scrollDownPage();
         waitFor(3);
-        //click on account details button
+        //click on cart page link
         linksPage.clickOnCartPageLink();
         //check user is in correct place
         String expectedCartPageTitle = cartTitle;
@@ -245,7 +245,7 @@ public class QuickLinksTest extends CommonAPI {
         //scroll down the page
         linksPage.scrollDownPage();
         waitFor(3);
-        //click on account details button
+        //click on checkout page link
         linksPage.clickOnCheckoutPageLink();
         //check user is in correct place
         String expectedCheckoutPageTitle = checkoutTitle;
@@ -277,7 +277,7 @@ public class QuickLinksTest extends CommonAPI {
         //scroll down the page
         linksPage.scrollDownPage();
         waitFor(3);
-        //click on account details button
+        //click on Blog page link
         linksPage.clickOnBlogPageLink();
         //check user is in correct place
         String expectedBlogPageTitle = blogTitle;
@@ -309,7 +309,7 @@ public class QuickLinksTest extends CommonAPI {
         //scroll down the page
         linksPage.scrollDownPage();
         waitFor(3);
-        //click on account details button
+        //click on Login/Register page link
         linksPage.clickOnLoginSlashRegisterPageLink();
         //check user is in correct place
         String expectedLoginSlashRegisterPageTitle = loginSlashRegisterTitle;

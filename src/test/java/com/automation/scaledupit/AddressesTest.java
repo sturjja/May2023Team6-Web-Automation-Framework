@@ -45,16 +45,16 @@ public class AddressesTest extends CommonAPI{
         String actualHomePageHeader = homePage.getHeaderText();
         Assert.assertEquals(expectedHomePageHeader, actualHomePageHeader);
         waitFor(3);
-        //click on account details button
+        //click on addresses button
         homePage.clickOnAddressesBtn();
         //check user is in correct place
         String expectedAddressesPageHeader = "Addresses";
         String actualAddressesPageHeader = addressesPage.getHeaderText();
         Assert.assertEquals(expectedAddressesPageHeader, actualAddressesPageHeader);
         waitFor(3);
-        //click on edit Billing Address button
+        //click on edit billing address button
         addressesPage.clickOnEditBtnBilling();
-        //click on Country dropdown menu and choose United States
+        //click on country dropdown menu enter partial country name and choose United States
         addressesPage.clickOnCountryDropdownBilling();
         addressesPage.enterPartialCountryNameBilling(partialCountryName);
         waitFor(3);
@@ -62,6 +62,7 @@ public class AddressesTest extends CommonAPI{
         //enter Street Address
         addressesPage.clearStreetAddressFieldBilling();
         addressesPage.enterStreetAddressBilling(streetAddress);
+        //enter Apartment Number
         addressesPage.clearApartmentNumberFieldBilling();
         addressesPage.enterApartmentNumberBilling(apartmentNumber);
         //enter City
@@ -107,16 +108,16 @@ public class AddressesTest extends CommonAPI{
         String actualHomePageHeader = homePage.getHeaderText();
         Assert.assertEquals(expectedHomePageHeader, actualHomePageHeader);
         waitFor(3);
-        //click on account details button
+        //click on addresses button
         homePage.clickOnAddressesBtn();
         //check user is in correct place
         String expectedAddressesPageHeader = "Addresses";
         String actualAddressesPageHeader = addressesPage.getHeaderText();
         Assert.assertEquals(expectedAddressesPageHeader, actualAddressesPageHeader);
         waitFor(3);
-        //click on edit Billing Address button
+        //click on edit shipping address button
         addressesPage.clickOnEditBtnShipping();
-        //click on Country dropdown menu and choose United States
+        //click on Country dropdown menu, enter partial country name and choose United States
         addressesPage.clickOnCountryDropdownShipping();
         addressesPage.enterPartialCountryNameShipping(partialCountryName);
         waitFor(3);
@@ -124,6 +125,7 @@ public class AddressesTest extends CommonAPI{
         //enter Street Address
         addressesPage.clearStreetAddressFieldShipping();
         addressesPage.enterStreetAddressShipping(streetAddress);
+        //enter Apartment Number
         addressesPage.clearApartmentNumberFieldShipping();
         addressesPage.enterApartmentNumberShipping(apartmentNumber);
         //enter City
