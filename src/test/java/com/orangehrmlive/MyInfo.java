@@ -28,7 +28,7 @@ public class MyInfo extends CommonAPI {
         super.setUp(useCloudEnv, envName, os, osVersion, browserName, browserVersion, url);
     }
 
-    @Test
+    @Test(priority = 1)
     public void changingPersonalInfo() {
         LoginPage lp = new LoginPage(getDriver());
         HomepagePage hp = new HomepagePage(getDriver());
@@ -41,7 +41,7 @@ public class MyInfo extends CommonAPI {
         Assert.assertEquals(mI.firstNameLastName(), "Domina Burndead");
     }
 
-    @Test
+    @Test(priority = 2)
     public void verifyAccountName() {
         LoginPage lp = new LoginPage(getDriver());
         HomepagePage hp = new HomepagePage(getDriver());

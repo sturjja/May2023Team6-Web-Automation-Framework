@@ -44,10 +44,10 @@ public class HomepagePage extends CommonAPI {
     List<WebElement> menuOptionList;
 
     @FindBy(css = ".oxd-text.oxd-text--h6.oxd-topbar-header-breadcrumb-module")
-   WebElement menuTabConfirmation;
+    WebElement menuTabConfirmation;
 
     @FindBy(xpath = "//body/div[@id='app']/div[1]/div[1]/form[1]/h6[1]")
-   WebElement maintenanceText;
+    WebElement maintenanceText;
 
 
     private void waitFor(long milliseconds) {
@@ -96,12 +96,12 @@ public class HomepagePage extends CommonAPI {
         }
     }
 
-    public String menuTabConfirmation(){
+    public String menuTabConfirmation() {
         String optionName = menuTabConfirmation.getText();
         return optionName.toLowerCase();
     }
 
-    public String mainteneanceAccessTitle(){
-       return maintenanceText.getText().toLowerCase();
+    public String mainteneanceAccessTitle() {
+        return maintenanceText.getText().toLowerCase();
     }
 }

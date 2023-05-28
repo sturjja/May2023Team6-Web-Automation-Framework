@@ -31,14 +31,16 @@ public class AdminTest extends CommonAPI {
         super.setUp(useCloudEnv, envName, os, osVersion, browserName, browserVersion, url);
     }
 
-    @Test
+    @Test(priority = 1)
     public void verifyResetButton() {
         LoginPage lp = new LoginPage(getDriver());
         AdminPage aP = new AdminPage(getDriver());
 
-        lp.enteringUserNamePassWord("Admin", "admin123");
+        lp.enteringUserNamePassWord(validUsername, validPassword);
+
         lp.clickOnLoginBtn();
         aP.clickOnAdmin();
+
         aP.enterUsernameAndEmployeeName("Jon", "Doe");
         aP.clickResetButton();
 
@@ -47,13 +49,12 @@ public class AdminTest extends CommonAPI {
 
     }
 
-    @Test
+    @Test(priority = 2)
     public void verifySearchWithValidUserDetails() {
         LoginPage lp = new LoginPage(getDriver());
         AdminPage aP = new AdminPage(getDriver());
 
-        lp.enterUsername(validUsername);
-        lp.enterPassword(validPassword);
+        lp.enteringUserNamePassWord(validUsername, validPassword);
 
         lp.clickOnLoginBtn();
         aP.clickOnAdmin();
@@ -64,13 +65,13 @@ public class AdminTest extends CommonAPI {
 
     }
 
-    @Test
+    @Test(priority = 3)
     public void verifySearchWithInvalidUserDetails() {
         LoginPage lp = new LoginPage(getDriver());
         AdminPage aP = new AdminPage(getDriver());
 
-        lp.enterUsername(validUsername);
-        lp.enterPassword(validPassword);
+        lp.enteringUserNamePassWord(validUsername, validPassword);
+
         lp.clickOnLoginBtn();
         aP.clickOnAdmin();
         aP.enterUsernameAndEmployeeName("admin3216");
@@ -79,14 +80,14 @@ public class AdminTest extends CommonAPI {
         Assert.assertTrue(aP.isNoRecordsFoundMessageDisplayed());
     }
 
-    @Test
+    @Test(priority = 4)
     public void editOrganizationInfo() {
         LoginPage lp = new LoginPage(getDriver());
         AdminPage aP = new AdminPage(getDriver());
         HomepagePage hP = new HomepagePage(getDriver());
-        lp.enterUsername(validUsername);
-        lp.enterPassword(validPassword);
+        lp.enteringUserNamePassWord(validUsername, validPassword);
         lp.clickOnLoginBtn();
+
         hP.clickonMainMenuOptions("Admin");
         aP.clickOnOrganization();
         aP.clickOngeneralInfo();

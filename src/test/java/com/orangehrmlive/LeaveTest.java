@@ -30,7 +30,7 @@ public class LeaveTest extends CommonAPI {
         super.setUp(useCloudEnv, envName, os, osVersion, browserName, browserVersion, url);
     }
 
-    @Test
+    @Test(priority = 1)
     public void approveLeave() {
         LoginPage loginPage = new LoginPage(getDriver());
         LeavePage lP = new LeavePage(getDriver());
@@ -44,7 +44,7 @@ public class LeaveTest extends CommonAPI {
 
     }
 
-    @Test
+    @Test(priority = 2)
     public void rejectingLeave() {
         LoginPage lp = new LoginPage(getDriver());
         HomepagePage hp = new HomepagePage(getDriver());

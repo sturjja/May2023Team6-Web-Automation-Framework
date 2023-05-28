@@ -40,6 +40,7 @@ public class LoginPage extends CommonAPI {
     public void enteringUserNamePassWord(String userName, String passWord){
         enterUsername(userName);
         enterPassword(passWord);
+        log.info("Login Success");
     }
     public void enteringUserNamePassWord(){
         enterUsername("Admin");

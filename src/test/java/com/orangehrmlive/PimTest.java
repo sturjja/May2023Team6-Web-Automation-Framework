@@ -27,7 +27,7 @@ public class PimTest extends CommonAPI {
         super.setUp(useCloudEnv, envName, os, osVersion, browserName, browserVersion, url);
     }
 
-    @Test
+    @Test(priority = 1)
     public void verifyAddEmployee() {
         LoginPage lp = new LoginPage(getDriver());
 
@@ -44,7 +44,7 @@ public class PimTest extends CommonAPI {
 
     }
 
-    @Test
+    @Test(priority = 2)
     public void deleteEmployeeRecords() {
         LoginPage lp = new LoginPage(getDriver());
         PimPage PIM = new PimPage(getDriver());
