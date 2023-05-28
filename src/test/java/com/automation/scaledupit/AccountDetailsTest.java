@@ -40,7 +40,7 @@ public class AccountDetailsTest extends CommonAPI{
         waitFor(3);
         //click on account details button
         homePage.clickOnAccountDetailBtn();
-        //clear then email field
+        //clear the email field, enter the new email and save changes
         homePage.clearEmailField();
         homePage.enterNewEmail(newEmail);
         homePage.clickOnSaveChangesBtn();
@@ -61,7 +61,7 @@ public class AccountDetailsTest extends CommonAPI{
         loginPage.clickOnLoginBtn();
         //click on account details button
         homePage.clickOnAccountDetailBtn();
-        //clear then email field
+        //clear the email field, reenter the original email and save changes
         homePage.clearEmailField();
         homePage.enterNewEmail(validUsername);
         homePage.clickOnSaveChangesBtn();
@@ -87,7 +87,7 @@ public class AccountDetailsTest extends CommonAPI{
         waitFor(3);
         //click on account details button
         homePage.clickOnAccountDetailBtn();
-        //clear then email field
+        //clear the display name field, enter the new display name, and save changes
         homePage.clearDisplaynameField();
         homePage.enterNewDisplayname(newAccountName);
         homePage.clickOnSaveChangesBtn();
@@ -101,7 +101,7 @@ public class AccountDetailsTest extends CommonAPI{
         String actualLoginPageHeaderText = loginPage.getLoginPageHeaderText();
         Assert.assertEquals(expectedLoginPageHeaderText, actualLoginPageHeaderText);
         log.info("login page header text validation success");
-        //enter  new email, password, and click on login button
+        //enter new account name, password, and click on login button
         loginPage.clickOnMyAccountBtn();
         loginPage.enterUsername(newAccountName);
         loginPage.enterPassword(validPassword);
@@ -128,7 +128,7 @@ public class AccountDetailsTest extends CommonAPI{
         waitFor(3);
         //click on account details button
         homePage.clickOnAccountDetailBtn();
-        //enter and confirm new password
+        //enter current password and new password and confirm new password, save all changes
         homePage.enterCurrentPassword(validPassword);
         homePage.enterNewPassword(newPassword);
         homePage.confirmNewPassword(newPassword);
@@ -143,14 +143,14 @@ public class AccountDetailsTest extends CommonAPI{
         String actualLoginPageHeaderText = loginPage.getLoginPageHeaderText();
         Assert.assertEquals(expectedLoginPageHeaderText, actualLoginPageHeaderText);
         log.info("login page header text validation success");
-        //enter  new email, password, and click on login button
+        //navigate to my account page then enter username, password, and click on login button
         loginPage.clickOnMyAccountBtn();
         loginPage.enterUsername(validUsername);
         loginPage.enterPassword(newPassword);
         loginPage.clickOnLoginBtn();
         //click on account details button
         homePage.clickOnAccountDetailBtn();
-        //clear then email field
+        //enter the current password, the new password, and confirm the new password and save all changes
         homePage.enterCurrentPassword(newPassword);
         homePage.enterNewPassword(validPassword);
         homePage.confirmNewPassword(validPassword);
