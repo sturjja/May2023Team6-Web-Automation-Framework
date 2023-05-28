@@ -71,9 +71,9 @@ public class CompanyItem extends CommonAPI {
         waitFor(3);
         companyPage.clickOnCompaniesUnhideIcon();
         waitFor(3);
-        companyPage.clickOnLinkCompanyDealsButton();
+        companyPage.clickOnLinkCompanyDealInitiate();
         companyPage.typeOnLinkCompanyDealField(dealName);
-        companyPage.clickOnLinkCompanyDealButton();
+        companyPage.clickOnLinkCompanyDealsButton();
 
 
 

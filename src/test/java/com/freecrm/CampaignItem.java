@@ -18,7 +18,7 @@ public class CampaignItem extends CommonAPI {
 
     String validEmail = prop.getProperty("freecrm.email");
     String validPassword = prop.getProperty("freecrm.password");
-    String campaignName = "USA2026";
+    String campaignName = "USA2027";
     @Test
     public void createCampaign(){
         LoginPage loginPage = new LoginPage(getDriver());
@@ -34,7 +34,9 @@ public class CampaignItem extends CommonAPI {
         loginPage.clickOnLoginButton();
 
         campaignPage.clickOnCampaignButton();
+        waitFor(3);
         campaignPage.clickOnNewCampaignButton();
+        waitFor(2);
         campaignPage.typeOnCampaignNameField(campaignName);
         campaignPage.clickOnSaveCampaignButton();
 
@@ -57,8 +59,8 @@ public class CampaignItem extends CommonAPI {
         loginPage.clickOnLoginButton();
 
         campaignPage.clickOnCampaignButton();
+        waitFor(4);
         campaignPage.clickOnEditCampaignButton();
-        campaignPage.clickOnCampaignActiveButton();
 
     }
     @Test

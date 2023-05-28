@@ -1,42 +1,38 @@
 package com.team6.base;
 
 import com.relevantcodes.extentreports.LogStatus;
-<<<<<<< HEAD
+
 import com.team6.reporting.ExtentManager;
 import com.team6.reporting.ExtentTestManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-=======
+
 import org.apache.commons.io.FileUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
->>>>>>> origin/master
+
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-<<<<<<< HEAD
+
 import org.openqa.selenium.Keys;
-=======
-import org.openqa.selenium.WebElement;
->>>>>>> origin/master
+
+
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
-import com.team6.reporting.ExtentManager;
-import com.team6.reporting.ExtentTestManager;
-import com.team6.utility.Utility;
-<<<<<<< HEAD
 
-=======
+import com.team6.utility.Utility;
+
+
+
 import java.io.File;
 import java.io.IOException;
->>>>>>> origin/master
+
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.Method;
@@ -100,19 +96,19 @@ public class CommonAPI {
         }
         ExtentTestManager.endTest();
         extent.flush();
-<<<<<<< HEAD
+
      //   if (takeScreenshots.equalsIgnoreCase("true")){
      //       if (result.getStatus() == ITestResult.FAILURE) {
      //           takeScreenshots(result.getName());
      //       }
      //   }
-=======
+
         if (takeScreenshots.equalsIgnoreCase("true")){
             if (result.getStatus() == ITestResult.FAILURE) {
                 takeScreenshot(result.getName());
             }
         }
->>>>>>> origin/master
+
         driver.quit();
     }
     @AfterSuite
@@ -126,10 +122,7 @@ public class CommonAPI {
         return calendar.getTime();
     }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
     public void getCloudDriver(String envName, String os, String osVersion, String browserName, String browserVersion, String username, String password) throws MalformedURLException {
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability("os", os);

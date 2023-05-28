@@ -41,6 +41,13 @@ public class DocumentsPage extends CommonAPI {
     WebElement folderNameField;
     @FindBy(xpath = "//i[@aria-hidden=\"true\" and @class=\"checkmark icon\"]\n")
     WebElement saveFolderButton;
+    @FindBy(xpath = "//i[@aria-hidden=\"true\" and @class=\"file icon\"]\n")
+    WebElement addFileButton;
+
+    public void clickOnAddFileButton(){
+        clickOn(addFileButton);
+        log.info("file can be added");
+    }
 
     public void clickOnSaveFolderButton(){
         clickOn(saveFolderButton);

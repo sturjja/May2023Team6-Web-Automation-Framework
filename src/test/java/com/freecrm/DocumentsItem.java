@@ -23,7 +23,7 @@ public class DocumentsItem extends CommonAPI {
     String documentTitle = "Document1";
     String documentNote = "In this note is valuable info";
     String folderName = "Class Folder";
-    @Test
+    @Test(priority = 0)
     public void createDocument(){
         LoginPage loginPage = new LoginPage(getDriver());
         DocumentsPage documentsPage = new DocumentsPage(getDriver());
@@ -45,7 +45,7 @@ public class DocumentsItem extends CommonAPI {
 
 
     }
-    @Test
+    @Test(priority = 1)
     public void addNotesToDocument(){
         LoginPage loginPage = new LoginPage(getDriver());
         DocumentsPage documentsPage = new DocumentsPage(getDriver());
@@ -59,13 +59,14 @@ public class DocumentsItem extends CommonAPI {
         loginPage.clickOnLoginButton();
 
         documentsPage.clickOnDocumentsButton();
+        documentsPage.clickOnAddFileButton();
         documentsPage.clickOnAddNotesButton();
         documentsPage.typeOnNoteTextField(documentNote);
         documentsPage.clickOnSaveDocumentNoteButton();
 
 
     }
-    @Test
+    @Test(priority = 2)
     public void downloadContactDocument(){
         LoginPage loginPage = new LoginPage(getDriver());
         DocumentsPage documentsPage = new DocumentsPage(getDriver());
