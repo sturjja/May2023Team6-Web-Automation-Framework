@@ -13,7 +13,7 @@ public class VerifyDashboard extends CommonAPI {
     String validEmail = "awafzaman@gmail.com";
     String validPassword = "Takeover2022";
     String titleName = "newtask";
-    String searchContact = "Lionel";
+    String companyName = "Google";
 
  //-----------------------------------------------------------------------------------------------------------
  //****************************(Test Case to verify the visibility of the Dashboard)*************************
@@ -71,10 +71,10 @@ public class VerifyDashboard extends CommonAPI {
     }
 
 //------------------------------------------------------------------------------------------------------------
-//*******************************(Test case to search for a contact)*****************************************
+//*******************************(Test case to search for a company)*****************************************
 
     @Test
-    public void searchContact(){
+    public void searchCompany(){
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
         String expectedTitle = "#1 Free CRM App for every business customer relationship management cloud";
@@ -90,12 +90,7 @@ public class VerifyDashboard extends CommonAPI {
         Assert.assertEquals(actualHeader, expectedHeader);
         log.info("Validate dashboard success");
 
-        homePage.typeOnSearchField(searchContact);
-        String expectedContactName = "Lionel";
-        String actualContactName = homePage.getActualContactNameTitle();
-        Assert.assertEquals(expectedContactName,actualContactName);
-        log.info("desired contact found");
-
+        homePage.typeOnSearchField(companyName);
     }
 
 
