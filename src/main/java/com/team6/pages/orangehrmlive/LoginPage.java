@@ -37,6 +37,11 @@ public class LoginPage extends CommonAPI {
 
     //reusable methods
 
+    public void enteringUserNamePassWord(String userName, String passWord){
+        enterUsername(userName);
+        enterPassword(passWord);
+        log.info("Login Success");
+    }
     public void enteringUserNamePassWord(){
         enterUsername("Admin");
         enterPassword("admin123");
@@ -57,6 +62,7 @@ public class LoginPage extends CommonAPI {
         waitFor(10);
         log.info("click on login button Success");
     }
+
     public String getErrorMessage(){
         String text = getElementText(errorMessage);
         log.info("get error message text success");
@@ -72,6 +78,7 @@ public class LoginPage extends CommonAPI {
         log.info("login page header text is "+ loginPageHeaderText);
         return loginPageHeaderText;
     }
+
     private void waitFor(long milliseconds) {
         try {
             Thread.sleep(milliseconds);

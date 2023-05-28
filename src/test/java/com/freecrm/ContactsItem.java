@@ -8,17 +8,38 @@ import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
 
 public class ContactsItem extends CommonAPI {
-    Logger log = LogManager.getLogger(ContactsItem.class.getName());
+
     String validEmail = "awafzaman@gmail.com";
     String validPassword = "Takeover2022";
+    String firstName = "Lionel";
+    String lastName = "Messi";
 
-    @Test
+//-------------------------------------------------------------------------------------------------------------
+//*****************************(Test Case to export a contact from Contacts)*********************************
+    @Test(priority = 0)
+    public void createContact(){
+        LoginPage loginPage = new LoginPage(getDriver());
+        ContactsPage contactsPage = new ContactsPage(getDriver());
+
+        loginPage.clickOnloginLink();
+        loginPage.enterEmail(validEmail);
+        loginPage.enterPassword(validPassword);
+        loginPage.clickOnLoginButton();
+
+        contactsPage.clickOnContactsButton();
+        contactsPage.clickOnCreateContactButton();
+        contactsPage.typeOnContactFirstName(firstName);
+        contactsPage.typeOnContactLastName(lastName);
+        contactsPage.clickOnContactSaveButton();
+
+
+    }
+    @Test(priority = 1)
     public void exportContact(){
         LoginPage loginPage = new LoginPage(getDriver());
         ContactsPage contactsPage = new ContactsPage(getDriver());
 
         loginPage.clickOnloginLink();
-        log.info("enter login page");
         loginPage.enterEmail(validEmail);
         loginPage.enterPassword(validPassword);
         loginPage.clickOnLoginButton();
@@ -33,15 +54,15 @@ public class ContactsItem extends CommonAPI {
 
 
     }
+//-------------------------------------------------------------------------------------------------------------
+    //*******************************(Test Case to delete a contact from Contacts)*****************************
 
-
-    @Test
+    @Test(priority = 4)
     public void deleteContact(){
         LoginPage loginPage = new LoginPage(getDriver());
         ContactsPage contactsPage = new ContactsPage(getDriver());
 
         loginPage.clickOnloginLink();
-        log.info("enter login page");
         loginPage.enterEmail(validEmail);
         loginPage.enterPassword(validPassword);
         loginPage.clickOnLoginButton();
@@ -49,6 +70,22 @@ public class ContactsItem extends CommonAPI {
         contactsPage.clickOnContactsButton();
         contactsPage.clickOnContactDeleteButton();
         contactsPage.clickOnContactDeleteConfirmButton();
+
+    }
+
+    @Test(priority = 3)
+    public void cancelDeletionOfContact(){
+        LoginPage loginPage = new LoginPage(getDriver());
+        ContactsPage contactsPage = new ContactsPage(getDriver());
+
+        loginPage.clickOnloginLink();
+        loginPage.enterEmail(validEmail);
+        loginPage.enterPassword(validPassword);
+        loginPage.clickOnLoginButton();
+
+        contactsPage.clickOnContactsButton();
+        contactsPage.clickOnContactDeleteButton();
+        contactsPage.clickOnCancelDeletionButton();
 
     }
 }

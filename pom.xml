@@ -76,6 +76,8 @@
       <artifactId>commons-lang3</artifactId>
       <version>3.7</version>
     </dependency>
+<<<<<<< HEAD
+=======
     <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
     <dependency>
       <groupId>mysql</groupId>
@@ -88,6 +90,7 @@
       <artifactId>mongo-java-driver</artifactId>
       <version>3.12.10</version>
     </dependency>
+>>>>>>> origin/master
   </dependencies>
   <build>
     <plugins>

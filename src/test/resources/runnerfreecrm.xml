@@ -8,9 +8,19 @@
     <parameter name="browserVersion" value="113"></parameter>
     <parameter name="browserName" value="chrome"></parameter>
     <parameter name="url" value="https://freecrm.com/"></parameter>
-    <test name="login test">
+    <test name="All Test Case">
         <classes>
+            <class name="com.freecrm.ContactsItem"></class>
+            <class name="com.freecrm.CaseItem"></class>
             <class name="com.freecrm.LoginTest"></class>
+            <class name="com.freecrm.LogoutTest"></class>
+            <class name="com.freecrm.VerifyDashboard"></class>
+            <class name="com.freecrm.DealsItem"></class>
+            <class name="com.freecrm.CampaignItem"></class>
+            <class name="com.freecrm.ForumItem"></class>
+            <class name="com.freecrm.DocumentsItem"></class>
+            <class name="com.freecrm.CompanyItem"></class>
+            <class name="com.freecrm.CalenderItem"></class>
         </classes>
     </test>
 </suite>

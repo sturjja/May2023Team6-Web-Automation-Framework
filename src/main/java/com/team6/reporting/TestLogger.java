@@ -1,7 +1,9 @@
 package com.team6.reporting;
 
 import com.relevantcodes.extentreports.LogStatus;
-import org.apache.commons.lang3.StringUtils;
+
+import io.opentelemetry.api.internal.StringUtils;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.Reporter;
 

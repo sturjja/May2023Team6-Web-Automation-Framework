@@ -24,11 +24,11 @@ public class DealsPage extends CommonAPI {
     WebElement dealSaveButton;
     @FindBy(xpath = "//i[@aria-hidden=\"true\" and @class=\"unhide icon\"]\n")
     WebElement unhideIcon;
-    @FindBy(xpath = "<i aria-hidden=\"true\" class=\"add icon\"></i>")
+    @FindBy(xpath = "//button[@class=\"ui basic icon button custom-note-btn\"]\n")
     WebElement addNotesButton;
     @FindBy(xpath = "//textarea[@rows=\"3\"]\n")
     WebElement notesField;
-    @FindBy(xpath = "//button[@class=\"ui green button\" and i[@aria-hidden=\"true\" and @class=\"checkmark icon\"] and contains(text(), \"Save\")]\n")
+    @FindBy(xpath = "//i[@aria-hidden=\"true\" and @class=\"checkmark icon\"]\n")
     WebElement saveNotes;
 
     public void clickOnSaveNotes(){

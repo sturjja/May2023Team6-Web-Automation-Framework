@@ -1,25 +1,38 @@
 package com.team6.base;
 
 import com.relevantcodes.extentreports.LogStatus;
-import org.apache.commons.io.FileUtils;
+
+import com.team6.reporting.ExtentManager;
+import com.team6.reporting.ExtentTestManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
+
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.WebElement;
+
+import org.openqa.selenium.Keys;
+
+
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
-import com.team6.reporting.ExtentManager;
-import com.team6.reporting.ExtentTestManager;
+
 import com.team6.utility.Utility;
+
+
+
 import java.io.File;
 import java.io.IOException;
+
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.Method;
@@ -83,11 +96,19 @@ public class CommonAPI {
         }
         ExtentTestManager.endTest();
         extent.flush();
+
+     //   if (takeScreenshots.equalsIgnoreCase("true")){
+     //       if (result.getStatus() == ITestResult.FAILURE) {
+     //           takeScreenshots(result.getName());
+     //       }
+     //   }
+
         if (takeScreenshots.equalsIgnoreCase("true")){
             if (result.getStatus() == ITestResult.FAILURE) {
                 takeScreenshot(result.getName());
             }
         }
+
         driver.quit();
     }
     @AfterSuite
@@ -162,8 +183,13 @@ public class CommonAPI {
     public WebDriver getDriver() {
         return driver;
     }
+
+
     public String getCurrentTitle(){
         return driver.getTitle();
+    }
+      public String getCurrentUrl(){
+        return driver.getCurrentUrl();
     }
     public String getElementText(WebElement element){
         return element.getText();

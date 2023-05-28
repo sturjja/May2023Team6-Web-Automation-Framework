@@ -16,7 +16,7 @@ public class CalendarPage extends CommonAPI {
 
     @FindBy(xpath = "//span[contains(text(), 'Calendar')]")
     WebElement calendarButton;
-    @FindBy(xpath = "//button[contains(text(), 'New')]")
+    @FindBy(xpath = "//a[@href=\"/calendar/new\"]\n")
     WebElement newCalendarButton;
     @FindBy(xpath = "//input[@autocomplete=\"new-password\" and @name=\"title\" and @type=\"text\" and @value=\"\"]\n")
     WebElement calendarTitleField;
@@ -26,11 +26,11 @@ public class CalendarPage extends CommonAPI {
     WebElement calendarEndField;
     @FindBy(xpath = "//button[contains(text(), 'Save')]")
     WebElement calendarSaveButton;
-    @FindBy(xpath = "//div[@class=\"rbc-event-content\" and @title=\"NewDate\"]\n")
+    @FindBy(xpath = "//div[@class=\"rbc-event-content\" and @title=\"Test event\"]\n")
     WebElement createdCalendar;
     @FindBy(xpath = "//i[@aria-hidden=\"true\" and @class=\"trash icon\"]\n")
     WebElement calendarDeleteButton;
-    @FindBy(xpath = "//button[@class=\"ui red button\" and i[@aria-hidden=\"true\" and @class=\"remove icon\"] and contains(text(), \"Delete\")]\n")
+    @FindBy(xpath = "//i[@aria-hidden=\"true\" and @class=\"remove icon\"]\n")
     WebElement confirmDeleteButton;
 
     public void clickOnConfirmDeleteButton(){

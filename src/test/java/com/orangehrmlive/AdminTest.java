@@ -2,8 +2,11 @@ package com.orangehrmlive;
 
 import com.team6.base.CommonAPI;
 import com.team6.pages.orangehrmlive.AdminPage;
+import com.team6.pages.orangehrmlive.HomepagePage;
 import com.team6.pages.orangehrmlive.LoginPage;
 import com.team6.utility.Utility;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
@@ -13,6 +16,7 @@ import java.net.MalformedURLException;
 import java.util.Properties;
 
 public class AdminTest extends CommonAPI {
+    Logger log = LogManager.getLogger(LoginPage.class.getName());
     Properties prop = Utility.loadProperties();
     String validUsername = Utility.decode(prop.getProperty("orangeHRM.username"));
     String validPassword = Utility.decode(prop.getProperty("orangeHRM.password"));
@@ -27,36 +31,72 @@ public class AdminTest extends CommonAPI {
         super.setUp(useCloudEnv, envName, os, osVersion, browserName, browserVersion, url);
     }
 
-    @Test
+    @Test(priority = 1)
     public void verifyResetButton() {
         LoginPage lp = new LoginPage(getDriver());
         AdminPage aP = new AdminPage(getDriver());
 
-        lp.enteringUserNamePassWord();
+        lp.enteringUserNamePassWord(validUsername, validPassword);
+
         lp.clickOnLoginBtn();
         aP.clickOnAdmin();
+
         aP.enterUsernameAndEmployeeName("Jon", "Doe");
         aP.clickResetButton();
+
         Assert.assertTrue(aP.verifyTextBoxEmpty());
+        log.info("Verify Reset Button Success");
 
     }
 
-//    @Test
-//    public void verifySearchWithValidUserDetails() {
-//        LoginPage lp = new LoginPage(getDriver());
-//        AdminPage aP = new AdminPage(getDriver());
-//
-//        lp.enterUsername(validUsername);
-//        lp.enterPassword(validPassword);
-//        lp.clickOnLoginBtn();
-//        aP.clickOnAdmin();
-//
-//        aP.enterUsernameAndEmployeeName("admin");
-//        // Assuming you have a search button in AdminPage, click it after entering the details:
-//        aP.clickSearchButton();
-//
-//
-//        // Add an assertion to check if the search results contain the expected data.
-//        // This can be done by checking if a specific element is displayed in the search results.
-//    }
+    @Test(priority = 2)
+    public void verifySearchWithValidUserDetails() {
+        LoginPage lp = new LoginPage(getDriver());
+        AdminPage aP = new AdminPage(getDriver());
+
+        lp.enteringUserNamePassWord(validUsername, validPassword);
+
+        lp.clickOnLoginBtn();
+        aP.clickOnAdmin();
+        aP.enterUsernameAndEmployeeName("admin");
+
+        aP.clickSearchButton();
+        Assert.assertTrue(aP.isNoRecordsFoundMessageDisplayed());
+
+    }
+
+    @Test(priority = 3)
+    public void verifySearchWithInvalidUserDetails() {
+        LoginPage lp = new LoginPage(getDriver());
+        AdminPage aP = new AdminPage(getDriver());
+
+        lp.enteringUserNamePassWord(validUsername, validPassword);
+
+        lp.clickOnLoginBtn();
+        aP.clickOnAdmin();
+        aP.enterUsernameAndEmployeeName("admin3216");
+        aP.clickSearchButton();
+
+        Assert.assertTrue(aP.isNoRecordsFoundMessageDisplayed());
+    }
+
+    @Test(priority = 4)
+    public void editOrganizationInfo() {
+        LoginPage lp = new LoginPage(getDriver());
+        AdminPage aP = new AdminPage(getDriver());
+        HomepagePage hP = new HomepagePage(getDriver());
+        lp.enteringUserNamePassWord(validUsername, validPassword);
+        lp.clickOnLoginBtn();
+
+        hP.clickonMainMenuOptions("Admin");
+        aP.clickOnOrganization();
+        aP.clickOngeneralInfo();
+        aP.enableEdit();
+        aP.enterOrganizaationName("PeopleNTech");
+//        aP.enterRegistrationNumber("0008321");
+//        aP.enterTaxId("54321");
+//        aP.saveInfo();
+
+
+    }
 }
