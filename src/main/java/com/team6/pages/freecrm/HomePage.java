@@ -40,7 +40,16 @@ public class HomePage extends CommonAPI {
     WebElement searchField;
 
     @FindBy(xpath = "//a[@href=\"/contacts/220a97ab-5b94-4c07-bbb9-d91d08055b44\" and text()=\"Lionel Messi\"]\n")
-    WebElement actualContactNameTitle;
+    WebElement actualContactNameTitle
+            ;
+
+    @FindBy(xpath = "//i[@aria-hidden='true' and contains(@class, 'check')]\n")
+    WebElement actualCompletionText;
+
+    public String getActualCompletionText(){
+        String completionText = getElementText(actualCompletionText);
+        return completionText;
+    }
 
     public String getActualContactNameTitle(){
         String text = getElementText(actualContactNameTitle);

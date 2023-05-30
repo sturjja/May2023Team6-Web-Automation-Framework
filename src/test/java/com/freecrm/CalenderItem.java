@@ -3,19 +3,20 @@ package com.freecrm;
 import com.team6.pages.freecrm.CalendarPage;
 import com.team6.pages.freecrm.HomePage;
 import com.team6.pages.freecrm.LoginPage;
+import com.team6.utility.Utility;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.team6.base.CommonAPI;
 
+import java.util.Properties;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 public class CalenderItem extends CommonAPI {
-    String validEmail = "awafzaman@gmail.com";
-    String validPassword = "Takeover2022";
+    Properties prop = Utility.loadProperties();
+    String validEmail = prop.getProperty("freecrm.email");
+    String validPassword = prop.getProperty("freecrm.password");
     String validCalendarTitle = "Test event";
-    String validCalendarStart = "2023-05-19";
-    String validEndDate = "2023-05-20";
 
 //-------------------------------------------------------------------------------------------------------------
 //***************************(Test Case to create a new calendar)*********************************************
@@ -29,23 +30,32 @@ public class CalenderItem extends CommonAPI {
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
 
+        // user will click on login link
         loginPage.clickOnloginLink();
+        //user will enter a valid email on the email field in the center of the page
         loginPage.enterEmail(validEmail);
+        //user will enter a valid password on the password field right below email field
         loginPage.enterPassword(validPassword);
+        //user will click on the login button to enter the home page
         loginPage.clickOnLoginButton();
-
-        waitFor(10);
-
-
         String expectedHeader = "Cogmento CRM";
         String actualHeader = getCurrentTitle();
         Assert.assertEquals(actualHeader, expectedHeader);
 
+        waitFor(10);
+
+
+
+
+        //user will click on calendar section button on the left column to enter calendar page
         calendarPage.clickOnCalendarButton();
         waitFor(3);
+        //user will click on the new button in the calendar page
         calendarPage.clickOnNewCalendarButton();
         waitFor(3);
+        //user will set their desired Title name for the new calendar
         calendarPage.setCalendarTitleField(validCalendarTitle);
+        //user will save this new calendar
         calendarPage.setCalendarSaveButton();
 
 
@@ -65,17 +75,28 @@ public class CalenderItem extends CommonAPI {
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
 
+        //user will click on the login link
         loginPage.clickOnloginLink();
+        //user will enter a valid email on the email field on the center of the page
         loginPage.enterEmail(validEmail);
+        //user will enter a valid password on the password field right below email field
         loginPage.enterPassword(validPassword);
+        //user will click on the login button to enter the home page
         loginPage.clickOnLoginButton();
+        String expectedHeader = "Cogmento CRM";
+        String actualHeader = getCurrentTitle();
+        Assert.assertEquals(actualHeader, expectedHeader);
 
+        //user will click on calendar section button on the left column to enter calendar page
         calendarPage.clickOnCalendarButton();
         waitFor(6);
+        //user will click on the created calender from calendar table
         calendarPage.clickOnCreatedCalendar();
         waitFor(3);
+        //user will click on the delete button assigned to this created calendar
         calendarPage.clickOnCalendarDeleteButton();
         waitFor(3);
+        //user will confirm that they are about to delete this created calendar
         calendarPage.clickOnConfirmDeleteButton();
 
 
