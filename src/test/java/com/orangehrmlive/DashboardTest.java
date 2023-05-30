@@ -21,6 +21,7 @@ public class DashboardTest extends CommonAPI {
     String validPassword = Utility.decode(prop.getProperty("orangeHRM.password"));
     String invalidUsername = Utility.decode(prop.getProperty("orangeHRM.invalidUserName"));
     String invalidPassword = Utility.decode(prop.getProperty("orangeHRM.invalidPassword"));
+    String supportTextMessage = Utility.decode(prop.getProperty("orangeHRM.supportText"));
     Logger log = LogManager.getLogger(LeaveTest.class.getName());
 
     @BeforeMethod
@@ -62,16 +63,9 @@ public class DashboardTest extends CommonAPI {
         loginPage.clickOnLoginBtn();
         hp.clickOnLogoutButton();
 
-        // Wait for 5 seconds to simulate a delay in the logout process
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         // Check if the login page header is displayed
-        boolean isLoginPageHeaderDisplayed = loginPage.checkPresenceOfLoginPageHeader();
-        Assert.assertFalse(isLoginPageHeaderDisplayed, "Login page header is displayed after logout.");
+        boolean displayHeader = loginPage.checkPresenceOfLoginPageHeader();
+        Assert.assertFalse(displayHeader, "Login page header is displayed after logout.");
     }
 
 
@@ -83,7 +77,12 @@ public class DashboardTest extends CommonAPI {
         loginPage.enteringUserNamePassWord(validUsername, validPassword);
 
         loginPage.clickOnLoginBtn();
-        Assert.assertEquals(dP.QuickLaunchText(), "Quick Launch");
+
+        String actualText = "Quick Launch";
+        String expectedText = dP.QuickLaunchText();
+
+        Assert.assertEquals(actualText, expectedText);
+        log.info("Quick Launch Menu accessible success");
 
 
     }
@@ -92,12 +91,15 @@ public class DashboardTest extends CommonAPI {
     public void supportText() {
         LoginPage lp = new LoginPage(getDriver());
         DashboardPage dP = new DashboardPage(getDriver());
-        String supportText = "Should you experience any issues, please do not hesitate to contact us on ossupport@orangehrm.com We will be delighted to help.";
+
         lp.enteringUserNamePassWord(validUsername, validPassword);
         lp.clickOnLoginBtn();
-
         dP.clickOnSupport();
-        Assert.assertEquals(dP.GetSupportText(), supportText);
+
+        String actualMessage = supportTextMessage;
+        String expectedMessage = dP.GetSupportText();
+
+        Assert.assertEquals(actualMessage, expectedMessage);
         log.info("Support Text Visible success");
 
     }

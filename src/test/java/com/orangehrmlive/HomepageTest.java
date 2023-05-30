@@ -207,10 +207,8 @@ public class HomepageTest extends CommonAPI {
         LoginPage loginPage = new LoginPage(getDriver());
         HomepagePage homepagePage = new HomepagePage(getDriver());
         String tabName = "Buzz";
-
         loginPage.enteringUserNamePassWord(validUsername, validPassword);
         loginPage.clickOnLoginBtn();
-
         homepagePage.clickonMainMenuOptions(tabName);
 
         String ActualTabName = homepagePage.menuTabConfirmation();

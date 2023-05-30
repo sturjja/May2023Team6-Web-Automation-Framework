@@ -86,4 +86,5 @@ public class LoginPage extends CommonAPI {
             log.error("InterruptedException occurred while waiting", e);
         }
     }
+
 }

@@ -9,6 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Test;
 
@@ -31,19 +32,24 @@ public class LoginTest extends CommonAPI {
         super.setUp(useCloudEnv, envName, os, osVersion, browserName, browserVersion, url);
     }
 
-    @Test(priority = 1)
-    public void validateLogin() {
+
+    //LoginTest with data provider
+    @Test(dataProvider = "validLoginTestData")
+    public void validateLogin(String userName, String password) {
         LoginPage lp = new LoginPage(getDriver());
         HomepagePage hp = new HomepagePage(getDriver());
+
         // Verify login page
         String expectedTitle = "OrangeHRM";
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
+        log.info("Landing page open success");
 
         // Perform login with valid credentials
-        lp.enteringUserNamePassWord();
+        lp.enterUsername(userName);
+        lp.enterPassword(password);
         lp.clickOnLoginBtn();
-
+        log.info("Login success");
     }
 
     @Test(priority = 2)
@@ -64,8 +70,14 @@ public class LoginTest extends CommonAPI {
         lp.clickOnLoginBtn();
         waitFor(5);
 
-      //  Assert.assertTrue(dP.getCurrentUrl().contains("dashboard"));
+        //  Assert.assertTrue(dP.getCurrentUrl().contains("dashboard"));
 
     }
 
+    @DataProvider(name = "validLoginTestData")
+    public Object[][] testData() {
+        return new Object[][]{
+                {validUsername, validPassword}
+        };
+    }
 }
