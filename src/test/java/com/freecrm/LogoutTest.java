@@ -12,13 +12,14 @@ import com.team6.utility.Utility;
 import java.util.Properties;
 public class LogoutTest extends CommonAPI {
     Logger log = LogManager.getLogger(LogoutTest.class.getName());
+    Properties prop = Utility.loadProperties();
 
  //-----------------------------------------------------------------------------------------------------------
  //********************************(Logout Function Test)**************************************************
 
-    String validEmail = "awafzaman@gmail.com";
+    String validEmail = prop.getProperty("freecrm.email");
 
-    String validPassword = "Takeover2022 ";
+    String validPassword = prop.getProperty("freecrm.password");
     @Test
     public void logOut() {
 
@@ -26,10 +27,15 @@ public class LogoutTest extends CommonAPI {
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
 
+
+        //user will click on login link
         loginPage.clickOnloginLink();
         log.info("enter login page");
+        //user will enter a valid email on the email field in the center of the page
         loginPage.enterEmail(validEmail);
+        //user will enter a valid password on the password field right below email field
         loginPage.enterPassword(validPassword);
+        //user will click on the login button to enter the home page
         loginPage.clickOnLoginButton();
 
 
@@ -40,7 +46,9 @@ public class LogoutTest extends CommonAPI {
 
         waitFor(3);
 
+        //user will click on settings button on top right corner of homepage
         homePage.clickOnSettingButton();
+        //user will click on log out button to successfully log out of profile
         homePage.clickOnLogOutButton();
 
 

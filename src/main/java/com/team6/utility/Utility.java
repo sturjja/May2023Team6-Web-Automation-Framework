@@ -26,11 +26,11 @@ public class Utility {
     }
 
     public static void main(String[] args) {
-//        String originalInput = "secret_sauce";
+//       String originalInput = "";
 //        String encodedString = Base64.getEncoder().encodeToString(originalInput.getBytes());
 //        System.out.println(encodedString);
 
-        byte[] decodedBytes = Base64.getDecoder().decode("c3RhbmRhcmRfdXNlcg==");
+        byte[] decodedBytes = Base64.getDecoder().decode("");
         String decodedString = new String(decodedBytes);
         System.out.println(decodedString);
     }

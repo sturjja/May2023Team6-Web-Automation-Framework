@@ -91,9 +91,9 @@ public class ExcelReader {
 
     public static void main(String[] args) {
         String currentDir = System.getProperty("user.dir");
-        String path = currentDir+ File.separator+"data"+File.separator+"scaledupit.xlsx";
+        String path = currentDir+ File.separator+"data"+File.separator+"freecrm.xlsx";
         ExcelReader excelReader = new ExcelReader(path);
-        String homeTitle =excelReader.getDataFromCell("QuickLinks",1,1);
+        String homeTitle =excelReader.getDataFromCell("VerifyDashboard",0,0);
         System.out.println(homeTitle);
     }
 //        List<String> items = excelReader.getEntireColumnForGivenHeader("Sheet1", "id");

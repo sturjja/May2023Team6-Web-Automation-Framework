@@ -32,6 +32,9 @@ public class CampaignItem extends CommonAPI {
         loginPage.enterEmail(validEmail);
         loginPage.enterPassword(validPassword);
         loginPage.clickOnLoginButton();
+        String expectedHeader = "Cogmento CRM";
+        String actualHeader = getCurrentTitle();
+        Assert.assertEquals(actualHeader, expectedHeader);
 
         campaignPage.clickOnCampaignButton();
         waitFor(3);
@@ -53,13 +56,23 @@ public class CampaignItem extends CommonAPI {
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
 
-        loginPage.clickOnloginLink();
-        loginPage.enterEmail(validEmail);
-        loginPage.enterPassword(validPassword);
-        loginPage.clickOnLoginButton();
 
+        //user will click on login link
+        loginPage.clickOnloginLink();
+        //user will enter a valid email on the email field in the center of the page
+        loginPage.enterEmail(validEmail);
+        //user will enter a valid password on the password field right below email field
+        loginPage.enterPassword(validPassword);
+        //user will click on the login button to enter the home page
+        loginPage.clickOnLoginButton();
+        String expectedHeader = "Cogmento CRM";
+        String actualHeader = getCurrentTitle();
+        Assert.assertEquals(actualHeader, expectedHeader);
+
+        //user will click on the campaign button to access the campaign page
         campaignPage.clickOnCampaignButton();
         waitFor(4);
+        //user will click on the edit button assigned to the created campaign
         campaignPage.clickOnEditCampaignButton();
 
     }
@@ -72,13 +85,23 @@ public class CampaignItem extends CommonAPI {
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
 
+        //user will click on login link
         loginPage.clickOnloginLink();
+        //user will enter a valid email on the email field in the center of the page
         loginPage.enterEmail(validEmail);
+        //user will enter a valid password on the password field right below email field
         loginPage.enterPassword(validPassword);
+        //user will click on the login button to enter the home page
         loginPage.clickOnLoginButton();
+        String expectedHeader = "Cogmento CRM";
+        String actualHeader = getCurrentTitle();
+        Assert.assertEquals(actualHeader, expectedHeader);
 
+        //user will click on the campaign button to access the campaign page
         campaignPage.clickOnCampaignButton();
+        //user will click on the delete button assigned to this created campaign
         campaignPage.clickOnCampaignDeleteButton();
+        //user will confirm by clicking the confirm delete button the completion of the deletion
         campaignPage.clickOnConfirmCampaignDeletion();
 
 
