@@ -97,7 +97,6 @@ public class LoginTest extends CommonAPI {
         loginPage.enterUsername(validUsername);
         loginPage.enterPassword("Incorrect");
         loginPage.clickOnLoginBtn();
-
         //validate the error message
         String expectedError = "Error: The password you entered for the email address Samtur@example.com is incorrect. Lost your password?";
         String actualError = loginPage.getErrorMessage();
