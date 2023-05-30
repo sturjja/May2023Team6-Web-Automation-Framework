@@ -27,27 +27,29 @@ public class PimTest extends CommonAPI {
         super.setUp(useCloudEnv, envName, os, osVersion, browserName, browserVersion, url);
     }
 
-    @Test
+    @Test(priority = 1)
     public void verifyAddEmployee() {
         LoginPage lp = new LoginPage(getDriver());
 
         PimPage PIM = new PimPage(getDriver());
-        lp.enteringUserNamePassWord();
+        lp.enteringUserNamePassWord("Admin","admin123");
         lp.clickOnLoginBtn();
 
+        PIM.    clickOnPIM();
         PIM.clickAddEmployeeButton();
         PIM.enterFirstName("Mohammad");
         PIM.enterLastName("Taseen");
         PIM.clickSaveButton();
         Assert.assertEquals(PIM.showsFirstAndLastName(), "Mohammad Taseen");
+
     }
 
-    @Test
+    @Test(priority = 2)
     public void deleteEmployeeRecords() {
         LoginPage lp = new LoginPage(getDriver());
         PimPage PIM = new PimPage(getDriver());
 
-        lp.enteringUserNamePassWord();
+        lp.enteringUserNamePassWord("Admin","admin123");
         lp.clickOnLoginBtn();
         PIM.clickOnPIM();
         PIM.SelectAll();

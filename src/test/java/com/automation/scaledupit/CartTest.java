@@ -35,7 +35,7 @@ public class CartTest extends CommonAPI {
         String actualHomePageHeader = homePage.getHeaderText();
         Assert.assertEquals(expectedHomePageHeader, actualHomePageHeader);
         waitFor(3);
-        //go to collection, click on belt and add to cart
+        //go to mens collection page, click on belt and add to cart
         homePage.clickOnMenCollectionBtn();
         homePage.clickOnBelt();
         homePage.clickOnAddToCart();
@@ -64,7 +64,7 @@ public class CartTest extends CommonAPI {
         String actualHomePageHeader = homePage.getHeaderText();
         Assert.assertEquals(expectedHomePageHeader, actualHomePageHeader);
         waitFor(3);
-        //go to collection
+        //go to mens collection, click on belt and add to cart
         homePage.clickOnMenCollectionBtn();
         homePage.clickOnBelt();
         homePage.clickOnAddToCart();
@@ -73,15 +73,16 @@ public class CartTest extends CommonAPI {
         String actualMessage = homePage.getConfirmationMessage();
         Assert.assertEquals(expectedMessage, actualMessage);
         waitFor(3);
+        //click on the view cart button and verify you are in the right place
         homePage.clickOnViewCartBtn();
         String expectedCurrentTitle = "Cart – Automation";
         String actualCurrentTitle = getCurrentTitle();
         Assert.assertEquals(expectedCurrentTitle, actualCurrentTitle);
         waitFor(3);
-        //navigate to cart and enter invalid coupon code
+        //navigate to cart and enter an invalid coupon code and click on the apply coupon button
         homePage.enterCouponCode("15OFF");
         homePage.clickOnApplyCouponBtn();
-        //validate error message
+        //validate the error message
         String expectedErrorMessage = "Coupon \"15off\" does not exist!";
         String actualErrorMessage = homePage.getErrorMessage();
         Assert.assertEquals(expectedErrorMessage, actualErrorMessage);
@@ -106,7 +107,7 @@ public class CartTest extends CommonAPI {
         String actualHomePageHeader = homePage.getHeaderText();
         Assert.assertEquals(expectedHomePageHeader, actualHomePageHeader);
         waitFor(3);
-        //go to collection
+        //go to mens collection, click on belt and add to cart
         homePage.clickOnMenCollectionBtn();
         homePage.clickOnBelt();
         homePage.clickOnAddToCart();
@@ -120,10 +121,10 @@ public class CartTest extends CommonAPI {
         String actualCurrentTitle = getCurrentTitle();
         Assert.assertEquals(expectedCurrentTitle, actualCurrentTitle);
         waitFor(3);
-        //navigate to cart and enter invalid coupon code
+        //navigate to cart and leave coupon code field empty
         homePage.enterCouponCode("");
         homePage.clickOnApplyCouponBtn();
-        //validate error message
+        //validate the error message
         String expectedErrorMessage = "Please enter a coupon code.";
         String actualErrorMessage = homePage.getErrorMessage();
         Assert.assertEquals(expectedErrorMessage, actualErrorMessage);
@@ -148,7 +149,7 @@ public class CartTest extends CommonAPI {
         String actualHomePageHeader = homePage.getHeaderText();
         Assert.assertEquals(expectedHomePageHeader, actualHomePageHeader);
         waitFor(3);
-        //go to collection
+        //go to mens collection, click on belt and add to cart
         homePage.clickOnMenCollectionBtn();
         homePage.clickOnBelt();
         homePage.clickOnAddToCart();
@@ -192,7 +193,7 @@ public class CartTest extends CommonAPI {
         String actualHomePageHeader = homePage.getHeaderText();
         Assert.assertEquals(expectedHomePageHeader, actualHomePageHeader);
         waitFor(3);
-        //go to collection
+        //go to mens collection, click on belt and add to cart
         homePage.clickOnMenCollectionBtn();
         homePage.clickOnBelt();
         homePage.clickOnAddToCart();

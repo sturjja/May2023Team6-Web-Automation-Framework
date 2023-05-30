@@ -3,12 +3,16 @@ package com.team6.utility;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
 public class ConnectDB {
+
 
     public static Connection connect = null;
     public static Statement statement = null;
@@ -55,9 +59,22 @@ public class ConnectDB {
         }
         return list;
     }
+    public static String getTableColumnDataString(String query, String columnName) {
+        StringBuilder result = new StringBuilder();
+        try {
+            statement = connectToSqlDatabase().createStatement();
+            resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                result.append(resultSet.getString(columnName));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result.toString();
 
+    }
     public static void main(String[] args) throws SQLException {
-        List<String> emails = getTableColumnData("select * from cred;","email");
-        System.out.println(emails.get(0));
+        String emails = getTableColumnDataString("select * from address;","Address1");
+        System.out.println(emails);
     }
 }

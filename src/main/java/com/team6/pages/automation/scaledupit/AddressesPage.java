@@ -75,6 +75,10 @@ public class AddressesPage extends CommonAPI {
     WebElement stateFieldShipping;
     @FindBy(css = "ul[class='select2-results__options']")
     WebElement stateKeysShipping;
+    @FindBy(xpath = "//*[@id=\"post-9\"]/div/div/div/div/ul/li")
+    WebElement errorDisplay;
+    @FindBy(xpath = "//*[@id=\"post-9\"]/div/div/div/div/ul/li")
+    WebElement errorDisplayShipping;
 
 
 
@@ -92,11 +96,11 @@ public class AddressesPage extends CommonAPI {
         clickOn(countryDropdownBilling);
         log.info("click on Country Dropdown Button success");
     }
-    public void enterPartialCountryNameBilling(String partialCountryName){
-        type(countryFieldBilling, partialCountryName);
+    public void enterCountryNameBilling(String CountryName){
+        type(countryFieldBilling, CountryName);
         log.info("enter partial country name success");
     }
-    public void keyDownTwiceAndSelectBilling(){
+    public void enterKeyBilling(){
         pressEnter(countryKeysBilling);
         log.info("arrow down and enter success");
     }
@@ -104,23 +108,23 @@ public class AddressesPage extends CommonAPI {
         type(streetAddressFieldBilling, partialCountryName);
         log.info("enter street address success");
     }
-    public void enterApartmentNumberBilling(String partialCountryName){
-        type(apartmentNumberFieldBilling, partialCountryName);
+    public void enterApartmentNumberBilling(String apartmentNumber){
+        type(apartmentNumberFieldBilling, apartmentNumber);
         log.info("enter apartment number success");
     }
     public void enterCityBilling(String city){
         type(cityFieldBilling, city);
         log.info("enter city name success");
     }
-    public void enterPartialStateNameBilling(String partialStateName){
-        type(stateFieldBilling, partialStateName);
-        log.info("enter partial state name success");
+    public void enterStateNameBilling(String StateName){
+        type(stateFieldBilling, StateName);
+        log.info("enter state name success");
     }
     public void clickOnStateDropdownBilling(){
         clickOn(stateDropdownBilling);
         log.info("click on State Dropdown Button success");
     }
-    public void keyDownThriceAndSelectBilling(){
+    public void enterStateKeyBilling(){
         pressEnter(stateKeysBilling);
         log.info("arrow down thrice and enter success");
     }
@@ -171,35 +175,35 @@ public class AddressesPage extends CommonAPI {
         clickOn(countryDropdownShipping);
         log.info("click on Country Dropdown Button success");
     }
-    public void enterPartialCountryNameShipping(String partialCountryName){
-        type(countryFieldShipping, partialCountryName);
-        log.info("enter partial country name success");
+    public void enterCountryNameShipping(String CountryName){
+        type(countryFieldShipping, CountryName);
+        log.info("enter country name success");
     }
-    public void keyDownTwiceAndSelectShipping(){
+    public void enterKeyShipping(){
         pressEnter(countryKeysShipping);
         log.info("arrow down and enter success");
     }
-    public void enterStreetAddressShipping(String partialCountryName){
-        type(streetAddressFieldShipping, partialCountryName);
+    public void enterStreetAddressShipping(String streetAddress){
+        type(streetAddressFieldShipping, streetAddress);
         log.info("enter street address success");
     }
-    public void enterApartmentNumberShipping(String partialCountryName){
-        type(apartmentNumberFieldShipping, partialCountryName);
+    public void enterApartmentNumberShipping(String apartmentNumber){
+        type(apartmentNumberFieldShipping, apartmentNumber);
         log.info("enter apartment number success");
     }
     public void enterCityShipping(String city){
         type(cityFieldShipping, city);
         log.info("enter city name success");
     }
-    public void enterPartialStateNameShipping(String partialStateName){
-        type(stateFieldShipping, partialStateName);
+    public void enterStateNameShipping(String StateName){
+        type(stateFieldShipping, StateName);
         log.info("enter partial state name success");
     }
     public void clickOnStateDropdownShipping(){
         clickOn(stateDropdownShipping);
         log.info("click on State Dropdown Button success");
     }
-    public void keyDownThriceAndSelectShipping(){
+    public void enterStateKeyShipping(){
         pressEnter(stateKeysShipping);
         log.info("arrow down thrice and enter success");
     }
@@ -232,6 +236,11 @@ public class AddressesPage extends CommonAPI {
     public void clearZipCodeFieldShipping(){
         zipCodeFieldShipping.clear();
         log.info("clear Zip Code field success");
+    }
+    public String getErrorMessage(){
+        String text = getElementText(errorDisplay);
+        log.info("get error message text success");
+        return text;
     }
 
 

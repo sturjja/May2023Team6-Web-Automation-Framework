@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LeavePage extends CommonAPI {
-    Logger log = LogManager.getLogger(HomePage.class.getName());
+    Logger log = LogManager.getLogger(HomepagePage.class.getName());
 
     public LeavePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -36,14 +36,15 @@ public class LeavePage extends CommonAPI {
     WebElement noRecordsFound;
 
 
-
-
     public void clickOnLeave() {
         clickOn(Leave);
+
+        log.info("Click on leave button Success");
     }
 
     public void selectPendingApprovals() {
         selectAllPendingLeaveRequest.click();
+        log.info("Selecting all pending leave request Success");
     }
 
     public void approve() {
@@ -51,13 +52,24 @@ public class LeavePage extends CommonAPI {
         approveButton.click();
         waitFor(2);
         confirmApprove.click();
+        log.info("Confirming approve Success");
     }
 
-    public boolean noApprovalsNeeded()
-    {
+    public boolean noApprovalsNeeded() {
         return noRecordsFound.isDisplayed();
     }
+
+    public void checkAndApproveLeaveRequest() {
+        if (noApprovalsNeeded()) {
+            log.info("No pending approval found");
+
+        } else selectPendingApprovals();
+        approve();
+        log.info("Approve Leave Requests Success");
+    }
+
     public boolean EmptyListIsDisplayed() {
+        log.info("Empty List Displayed Success");
         return blankElement.isDisplayed();
     }
 
