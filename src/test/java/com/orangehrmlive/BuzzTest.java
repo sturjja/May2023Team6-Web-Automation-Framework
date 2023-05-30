@@ -2,6 +2,7 @@ package com.orangehrmlive;
 
 import com.team6.base.CommonAPI;
 import com.team6.pages.orangehrmlive.BuzzPage;
+import com.team6.pages.orangehrmlive.HomepagePage;
 import com.team6.pages.orangehrmlive.LoginPage;
 import com.team6.utility.Utility;
 import org.apache.logging.log4j.LogManager;
@@ -33,17 +34,17 @@ public class BuzzTest extends CommonAPI {
 
     @Test(priority = 1)
     public void postStatusOnBuzzFeed() {
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomepagePage homepagePage = new HomepagePage(getDriver());
+        String tabName = "Buzz";
 
-        LoginPage loginpage = new LoginPage(getDriver());
-        loginpage.enteringUserNamePassWord(validUsername,validPassword);
-
-        loginpage.clickOnLoginBtn();
-
+        loginPage.enteringUserNamePassWord(validUsername, validPassword);
+        loginPage.clickOnLoginBtn();
+        homepagePage.clickonMainMenuOptions(tabName);
 
         BuzzPage bp = new BuzzPage(getDriver());
-        bp.clickOnBuzzFeed();
-        bp.clickOnSharePhotosButton();
 
+        bp.clickOnSharePhotosButton();
         bp.enterText("Good Morning");
         bp.clickOnShareBtn();
 
@@ -57,13 +58,16 @@ public class BuzzTest extends CommonAPI {
 
     @Test(priority = 2)
     public void addCommentToMostRecentPost() {
-        LoginPage loginpage = new LoginPage(getDriver());
-        loginpage.enteringUserNamePassWord(validUsername,validPassword);
-        loginpage.clickOnLoginBtn();
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomepagePage homepagePage = new HomepagePage(getDriver());
+        String tabName = "Buzz";
 
+        loginPage.enteringUserNamePassWord(validUsername, validPassword);
+        loginPage.clickOnLoginBtn();
+
+        homepagePage.clickonMainMenuOptions(tabName);
 
         BuzzPage buzzpage = new BuzzPage(getDriver());
-        buzzpage.clickOnBuzzFeed();
         buzzpage.clickOnMostRecentPost();
         buzzpage.clickOnCommentIcon();
         buzzpage.publishComment("Hello World");

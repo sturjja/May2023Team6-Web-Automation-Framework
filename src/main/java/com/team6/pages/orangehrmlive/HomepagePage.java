@@ -82,6 +82,13 @@ public class HomepagePage extends CommonAPI {
         accountButton.click();
         waitFor(5);
         logoutLink.click();
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void clickonMainMenuOptions(String menuName) {
