@@ -31,7 +31,7 @@ public class AdminTest extends CommonAPI {
         super.setUp(useCloudEnv, envName, os, osVersion, browserName, browserVersion, url);
     }
 
-    @Test(dataProviderClass = Utility.class, dataProvider = "info", priority = 1)
+    @Test(dataProviderClass = Utility.class, dataProvider = "info", priority = 1) //
     public void editOrganizationInfo(String RegistrationNummber, String TaxID, String Phone, String Fax, String Email, String City) {
         LoginPage loginPage = new LoginPage(getDriver());
         HomepagePage homepagePage = new HomepagePage(getDriver());
@@ -56,7 +56,7 @@ public class AdminTest extends CommonAPI {
 
     }
 
-    @Test(priority = 1)
+    @Test(priority = 1) //
     public void verifyResetButton() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomepagePage homepagePage = new HomepagePage(getDriver());
@@ -77,7 +77,7 @@ public class AdminTest extends CommonAPI {
 
     }
 
-    @Test(priority = 2)
+    @Test(priority = 2) //
     public void verifySearchWithValidUserDetails() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomepagePage homepagePage = new HomepagePage(getDriver());
