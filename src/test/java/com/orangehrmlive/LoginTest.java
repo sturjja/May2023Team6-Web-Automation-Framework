@@ -74,10 +74,4 @@ public class LoginTest extends CommonAPI {
 
     }
 
-    @DataProvider(name = "validLoginTestData")
-    public Object[][] testData() {
-        return new Object[][]{
-                {validUsername, validPassword}
-        };
-    }
 }

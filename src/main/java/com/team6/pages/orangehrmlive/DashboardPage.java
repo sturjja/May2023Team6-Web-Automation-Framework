@@ -28,12 +28,21 @@ public class DashboardPage extends CommonAPI {
     @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/div/div/div[2]/p[2]")
     WebElement SupportText;
 
+    @FindBy(xpath = "//button[@title='Help']")
+    WebElement HelpButton;
+
+    @FindBy(css = "div.container section.section.knowledge-base:nth-child(1) section.categories.blocks ul.blocks-list li.blocks-item:nth-child(1) a.blocks-item-link > span.blocks-item-title")
+    WebElement AdminUserGuide;
+
+    @FindBy(xpath = "//header//h1")
+    WebElement UserGuideHeaderText;
+
     //Methods
     public String GetSupportText() {
         return SupportText.getText();
     }
 
-    public String getCurrentUrl(){
+    public String getCurrentUrl() {
         log.info("Get Current url success");
         return getDriver().getCurrentUrl();
 
@@ -46,6 +55,24 @@ public class DashboardPage extends CommonAPI {
 
         log.info("Click on support Success");
     }
+
+    public void clickOnHelp() {
+        clickOn(HelpButton);
+        log.info("Click on help Success");
+
+    }
+
+    public void clickOnAdminUserGuide() {
+        clickOn(AdminUserGuide);
+        log.info("Click on admin user guide Success");
+
+    }
+
+    public String getUserGuideUrl() {
+        log.info("Captured header text success");
+        return getDriver().getCurrentUrl();
+    }
+
     public String QuickLaunchText() {
         return quickLaunchText.getText();
     }

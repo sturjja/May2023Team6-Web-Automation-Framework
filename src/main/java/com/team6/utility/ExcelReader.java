@@ -114,26 +114,4 @@ public class ExcelReader {
 //        //String items = excelReader.getValueForGivenHeaderAndKey("Sheet1", "id", "id004");
 //        System.out.println(items);
 
-//    public static ArrayList<Object[]> getDataFromExcel() {
-//        ArrayList<Object[]> registrationData = new ArrayList<Object[]>();
-//        ExcelReader excelReader;
-//        try {
-//            String currentDir = System.getProperty("user.dir");
-//            String path = currentDir + File.separator + "data" + File.separator + "scaledipit.xlsx";
-//            excelReader = new ExcelReader(path);
-//            String sheetName = "Register";
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        for (int rowNum = 1; rowNum <= excelReader.getRowCount("Register"); rowNum++) {
-//            String newEmail = excelReader.getDataFromCell("Register", rowNum, 0);
-//            String validPassword = excelReader.getDataFromCell("Register", rowNum, 1);
-//
-//            Object ob[] = {newEmail, validPassword};
-//            registrationData.add(ob);
-//
-//        }
-//        return registrationData;
-//    }
-}
 

@@ -18,11 +18,11 @@ public class BuzzPage extends CommonAPI {
 
     @FindBy(xpath = "//button[text()=' Share Photos']")
     WebElement SharePhotosButton;
-    @FindBy(xpath = "(//textarea[@rows='1'])[2]")
+    @FindBy(xpath = "//body/div[@id='app']/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/textarea[1]")
     WebElement TextArea;
     @FindBy(xpath = "//input[@type='file']")
     WebElement AddPhoto;
-    @FindBy(xpath = "(//div[@id='app']//button[@type=\"submit\"])[2]")
+    @FindBy(xpath = "//body/div[@id='app']/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/button[1]")
     WebElement ShareBtn;
     @FindBy(xpath = "//p[text()='Success']")
     WebElement ToastMessageText;

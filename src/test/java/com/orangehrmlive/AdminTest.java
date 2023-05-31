@@ -31,6 +31,31 @@ public class AdminTest extends CommonAPI {
         super.setUp(useCloudEnv, envName, os, osVersion, browserName, browserVersion, url);
     }
 
+    @Test(dataProviderClass = Utility.class, dataProvider = "info", priority = 1)
+    public void editOrganizationInfo(String RegistrationNummber, String TaxID, String Phone, String Fax, String Email, String City) {
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomepagePage homepagePage = new HomepagePage(getDriver());
+        AdminPage aP = new AdminPage(getDriver());
+        String OrganizationName = "PeopleNTech";
+        String tabName = "Admin";
+        loginPage.enteringUserNamePassWord(validUsername, validPassword);
+        loginPage.clickOnLoginBtn();
+        homepagePage.clickonMainMenuOptions(tabName);
+
+        aP.clickOnOrganization();
+        aP.clickOngeneralInfo();
+        aP.enableEdit();
+        aP.enterOrganizaationName(OrganizationName);
+        aP.enterRegistrationNumber(RegistrationNummber);
+        aP.enterTaxId(TaxID);
+        aP.enterPhoneNumber(Phone);
+        aP.enterFaxID(Fax);
+        aP.enterEmail(Email);
+        aP.enterCity(City);
+        aP.saveInfo();
+
+    }
+
     @Test(priority = 1)
     public void verifyResetButton() {
         LoginPage loginPage = new LoginPage(getDriver());
@@ -72,6 +97,7 @@ public class AdminTest extends CommonAPI {
 
     @Test(priority = 3)
     public void verifySearchWithInvalidUserDetails() {
+
         LoginPage loginPage = new LoginPage(getDriver());
         HomepagePage homepagePage = new HomepagePage(getDriver());
         AdminPage aP = new AdminPage(getDriver());
@@ -84,26 +110,6 @@ public class AdminTest extends CommonAPI {
         aP.clickSearchButton();
 
         Assert.assertTrue(aP.isNoRecordsFoundMessageDisplayed());
-    }
-
-    @Test(priority = 4)
-    public void editOrganizationInfo() {
-        LoginPage loginPage = new LoginPage(getDriver());
-        HomepagePage homepagePage = new HomepagePage(getDriver());
-        AdminPage aP = new AdminPage(getDriver());
-        String tabName = "Admin";
-        loginPage.enteringUserNamePassWord(validUsername, validPassword);
-        loginPage.clickOnLoginBtn();
-        homepagePage.clickonMainMenuOptions(tabName);
-
-        aP.clickOnOrganization();
-        aP.clickOngeneralInfo();
-        aP.enableEdit();
-        aP.enterOrganizaationName("PeopleNTech");
-        aP.enterRegistrationNumber("0008321");
-        aP.enterTaxId("54321");
-        aP.saveInfo();
-
     }
 
 

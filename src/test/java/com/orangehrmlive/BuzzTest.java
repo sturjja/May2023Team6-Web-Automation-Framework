@@ -32,8 +32,8 @@ public class BuzzTest extends CommonAPI {
 
     Logger log = LogManager.getLogger(BuzzTest.class.getName());
 
-    @Test(priority = 1)
-    public void postStatusOnBuzzFeed() {
+    @Test(dataProviderClass = Utility.class, dataProvider = "info", priority = 1)
+    public void postStatusOnBuzzFeed(String StatusText) {
         LoginPage loginPage = new LoginPage(getDriver());
         HomepagePage homepagePage = new HomepagePage(getDriver());
         String tabName = "Buzz";
@@ -44,8 +44,7 @@ public class BuzzTest extends CommonAPI {
 
         BuzzPage bp = new BuzzPage(getDriver());
 
-        bp.clickOnSharePhotosButton();
-        bp.enterText("Good Morning");
+        bp.enterText(StatusText);
         bp.clickOnShareBtn();
 
         String actualMessage = bp.getToastMessage();
