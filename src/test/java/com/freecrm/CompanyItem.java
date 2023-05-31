@@ -20,8 +20,8 @@ public class CompanyItem extends CommonAPI {
     ExcelReader excelReader = new ExcelReader(path);
     String validEmail = prop.getProperty("freecrm.email");
     String validPassword = prop.getProperty("freecrm.password");
-    String contactName = excelReader.getDataFromCell("CompanyItem", 0, 0);
-    String dealName = excelReader.getDataFromCell("CompanyItem", 1, 0);
+    String contactName =  excelReader.getDataFromCell("CompanyItem", 0 , 0);
+    String dealName = excelReader.getDataFromCell("CompanItem", 1, 0);
 
 //------------------------------------------------------------------------------------------------------------
 //******************************(Test Case to link a contact to a company)*************************************

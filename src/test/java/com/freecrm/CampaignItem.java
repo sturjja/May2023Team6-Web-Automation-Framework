@@ -21,9 +21,9 @@ public class CampaignItem extends CommonAPI {
     String path = currentDir+ File.separator+"data"+File.separator+"freecrm.xlsx";
     ExcelReader excelReader = new ExcelReader(path);
 
-    String validEmail = Utility.decode(prop.getProperty("freecrm.email"));
-    String validPassword = Utility.decode(prop.getProperty("freecrm.password"));
-    String campaignName = excelReader.getDataFromCell("CampaignItem", 0, 0);
+    String validEmail = prop.getProperty("freecrm.email");
+    String validPassword = prop.getProperty("freecrm.password");
+    String campaignName = "USA2027";
 
     //-------------------------------------------------------------------------------------------------------------
 //*****************************(Test Case to create a campaign in Campaign section)*********************************
