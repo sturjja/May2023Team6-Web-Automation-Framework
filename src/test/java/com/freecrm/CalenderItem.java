@@ -21,7 +21,7 @@ public class CalenderItem extends CommonAPI {
     ExcelReader excelReader = new ExcelReader(path);
     String validEmail = prop.getProperty("freecrm.email");
     String validPassword = prop.getProperty("freecrm.password");
-    String validCalendarTitle = excelReader.getDataFromCell("CalendarItem" , 0, 0) ;
+    String validCalendarTitle = "Test Event" ;
 
 //-------------------------------------------------------------------------------------------------------------
 //***************************(Test Case to create a new calendar)*********************************************
@@ -93,7 +93,7 @@ public class CalenderItem extends CommonAPI {
 
         //user will click on calendar section button on the left column to enter calendar page
         calendarPage.clickOnCalendarButton();
-        waitFor(6);
+        waitFor(7);
         //user will click on the created calender from calendar table
         calendarPage.clickOnCreatedCalendar();
         waitFor(3);

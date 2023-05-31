@@ -22,9 +22,9 @@ public class ForumItem extends CommonAPI {
     Properties prop = Utility.loadProperties();
     String validEmail = prop.getProperty("freecrm.email");
     String validPassword = prop.getProperty("freecrm.password");
-    String validName = excelReader.getDataFromCell("ForumItem", 0, 0);
-    String simpleIntro = excelReader.getDataFromCell("ForumItem" , 1, 0);
-    String simpleOutro = excelReader.getDataFromCell("ForumItem" , 2 , 0);
+    String validName = excelReader.getDataFromCell("ForumItem", 0,0);
+    String simpleIntro = excelReader.getDataFromCell("ForumItem", 1, 0);
+    String simpleOutro = excelReader.getDataFromCell("ForumItem", 2, 0);
 
 //-------------------------------------------------------------------------------------------------------------
 //**********************************(Test Case to add notes to the forum)**************************************
