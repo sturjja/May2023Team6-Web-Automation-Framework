@@ -74,8 +74,8 @@ public class HomepagePage extends CommonAPI {
     }
 
     public void clickOnSidebarMenuIcon() {
-        waitFor(5000);
         clickOn(sideBarMenu);
+        log.info("Click on sidebar menu success");
     }
 
     public void clickOnLogoutButton() {
