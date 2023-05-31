@@ -22,10 +22,10 @@ public class ContactsItem extends CommonAPI {
     String validEmail = prop.getProperty("freecrm.email");
     String validPassword = prop.getProperty("freecrm.password");
     String firstName = excelReader.getDataFromCell("ContactsItem", 0, 0);
-    String lastName = excelReader.getDataFromCell("ContactsItem", 0, 1);
+    String lastName = excelReader.getDataFromCell("ContactsItem", 1, 0);
 
 //-------------------------------------------------------------------------------------------------------------
-//*****************************(Test Case to export a contact from Contacts)*********************************
+//*****************************(Test Case to create a contact from Contacts)*********************************
     @Test(priority = 0)
     public void createContact(){
         LoginPage loginPage = new LoginPage(getDriver());
@@ -56,6 +56,9 @@ public class ContactsItem extends CommonAPI {
 
 
     }
+    //-------------------------------------------------------------------------------------------------------------
+//*****************************(Test Case to export a contact from Contacts)*********************************
+
     @Test(priority = 1)
     public void exportContact(){
         LoginPage loginPage = new LoginPage(getDriver());
@@ -113,6 +116,9 @@ public class ContactsItem extends CommonAPI {
         contactsPage.clickOnContactDeleteConfirmButton();
 
     }
+
+    //-------------------------------------------------------------------------------------------------------------
+//*****************************(Test Case to cancel a contact deletion from Contacts)*********************************
 
     @Test(priority = 3)
     public void cancelDeletionOfContact(){

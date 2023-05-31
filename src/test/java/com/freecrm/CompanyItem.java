@@ -3,20 +3,25 @@ package com.freecrm;
 import com.team6.base.CommonAPI;
 import com.team6.pages.freecrm.CompanyPage;
 import com.team6.pages.freecrm.LoginPage;
+import com.team6.utility.ExcelReader;
 import com.team6.utility.Utility;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.File;
 import java.util.Properties;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 public class CompanyItem extends CommonAPI {
     Properties prop = Utility.loadProperties();
+    String currentDir = System.getProperty("user.dir");
+    String path = currentDir+ File.separator+"data"+File.separator+"freecrm.xlsx";
+    ExcelReader excelReader = new ExcelReader(path);
     String validEmail = prop.getProperty("freecrm.email");
     String validPassword = prop.getProperty("freecrm.password");
-    String contactName = "Hillary Clinton";
-    String dealName = "HarryKaneDeal";
+    String contactName = excelReader.getDataFromCell("CompanyItem", 0, 0);
+    String dealName = excelReader.getDataFromCell("CompanyItem", 1, 0);
 
 //------------------------------------------------------------------------------------------------------------
 //******************************(Test Case to link a contact to a company)*************************************

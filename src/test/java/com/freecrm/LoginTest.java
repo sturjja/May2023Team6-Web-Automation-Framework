@@ -48,6 +48,9 @@ public class LoginTest extends CommonAPI {
 
         }
 
+    //-----------------------------------------------------------------------------------------------------------
+    //****************************(Test Case for Login Functionality with Invalid credentials)**********************
+
         @Test
         public void inValidEmail() {
             LoginPage loginPage = new LoginPage(getDriver());
@@ -76,6 +79,8 @@ public class LoginTest extends CommonAPI {
 
 
         }
+    //-----------------------------------------------------------------------------------------------------------
+    //****************************(Test Case for Login Functionality with Missing Email)*************************
 
         @Test
         public void missingEmail() {
@@ -102,6 +107,9 @@ public class LoginTest extends CommonAPI {
 
 
         }
+
+    //-----------------------------------------------------------------------------------------------------------
+    //****************************(Test Case for Login Functionality with Missing Password)*************************
 
         @Test
         public void missingPassword() {
