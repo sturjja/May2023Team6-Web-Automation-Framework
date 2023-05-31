@@ -55,7 +55,7 @@ public class PimTest extends CommonAPI {
         PIM.enterEmployeeID(employeeID);
         PIM.clickSaveButton();
 
-        waitFor(10);
+        waitFor(3);
         // Personal Info Page
         PIM.enterDriversID(driverID);
         PIM.enterSSN(ssn);
@@ -65,7 +65,7 @@ public class PimTest extends CommonAPI {
         PIM.smokeerCheckbox(smokerCheckbox);
         waitFor(5);
         PIM.clickSaveInfo();
-
+        log.info("Successfully added a user");
     }
 }
 
