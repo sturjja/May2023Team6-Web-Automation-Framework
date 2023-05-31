@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ExcelReader {
     private final Logger LOG = LogManager.getLogger(ExcelReader.class.getName());
-    XSSFWorkbook excelWBook;
+    XSSFWorkbook excelWBook ;
     XSSFSheet excelWSheet;
     XSSFCell cell;
     String path;
@@ -88,6 +88,20 @@ public class ExcelReader {
         }
         return value;
     }
+    // returns the row count in a sheet
+
+    public int getRowCount(String sheetName){
+        int index = excelWBook.getSheetIndex(sheetName);
+        if(index==-1)
+            return 0;
+        else{
+            excelWSheet = excelWBook.getSheetAt(index);
+            int number= excelWSheet.getLastRowNum()+1;
+            return number;
+        }
+
+    }
+
 
     public static void main(String[] args) {
         String currentDir = System.getProperty("user.dir");
@@ -99,4 +113,27 @@ public class ExcelReader {
 //        List<String> items = excelReader.getEntireColumnForGivenHeader("Sheet1", "id");
 //        //String items = excelReader.getValueForGivenHeaderAndKey("Sheet1", "id", "id004");
 //        System.out.println(items);
-    }
+
+//    public static ArrayList<Object[]> getDataFromExcel() {
+//        ArrayList<Object[]> registrationData = new ArrayList<Object[]>();
+//        ExcelReader excelReader;
+//        try {
+//            String currentDir = System.getProperty("user.dir");
+//            String path = currentDir + File.separator + "data" + File.separator + "scaledipit.xlsx";
+//            excelReader = new ExcelReader(path);
+//            String sheetName = "Register";
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        for (int rowNum = 1; rowNum <= excelReader.getRowCount("Register"); rowNum++) {
+//            String newEmail = excelReader.getDataFromCell("Register", rowNum, 0);
+//            String validPassword = excelReader.getDataFromCell("Register", rowNum, 1);
+//
+//            Object ob[] = {newEmail, validPassword};
+//            registrationData.add(ob);
+//
+//        }
+//        return registrationData;
+//    }
+}
+

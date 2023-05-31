@@ -35,12 +35,12 @@ public class LoginPage extends CommonAPI {
     WebElement loginPageHeader;
 
     //reusable methods
-    public void enterUsername(String Validusername){
-        type(usernameField, Validusername);
+    public void enterUsername(String validUsername){
+        type(usernameField, validUsername);
         log.info("enter username success");
     }
-    public void enterPassword(String Validpassword){
-        type(passwordField, Validpassword);
+    public void enterPassword(String validPassword){
+        type(passwordField, validPassword);
         log.info("enter password success");
     }
     public void clickOnLoginBtn(){

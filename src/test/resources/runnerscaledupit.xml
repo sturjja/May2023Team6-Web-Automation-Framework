@@ -44,5 +44,10 @@
             <class name="com.automation.scaledupit.AccountDetailsTest"></class>
         </classes>
     </test>
+    <test name="registration test">
+        <classes>
+            <class name="com.automation.scaledupit.RegistrationTest"></class>
+        </classes>
+    </test>
 
 </suite>
