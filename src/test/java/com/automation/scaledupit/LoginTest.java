@@ -6,13 +6,9 @@ import com.team6.pages.automation.scaledupit.LoginPage;
 import com.team6.utility.Utility;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.bidi.log.Log;
-import org.openqa.selenium.support.PageFactory;
 import java.util.Properties;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 public class LoginTest extends CommonAPI {
     Logger log = LogManager.getLogger(LoginTest.class.getName());
@@ -20,7 +16,7 @@ public class LoginTest extends CommonAPI {
     String validUsername = Utility.decode(prop.getProperty("scaledupit.username"));
     String validPassword = Utility.decode(prop.getProperty("scaledupit.password"));
 
-    @Test
+    @Test (priority = 0)
     public void validCredential() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -42,7 +38,7 @@ public class LoginTest extends CommonAPI {
 
     }
 
-    @Test
+    @Test(priority = 1)
     public void missingUsername() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -63,7 +59,7 @@ public class LoginTest extends CommonAPI {
         Assert.assertEquals(expectedError, actualError);
     }
 
-    @Test
+    @Test(priority = 2)
     public void missingPassword() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -83,7 +79,7 @@ public class LoginTest extends CommonAPI {
         String actualError = loginPage.getErrorMessage();
         Assert.assertEquals(expectedError, actualError);
     }
-    @Test
+    @Test(priority = 3)
     public void incorrectPassword() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -102,7 +98,7 @@ public class LoginTest extends CommonAPI {
         String actualError = loginPage.getErrorMessage();
         Assert.assertEquals(expectedError, actualError);
     }
-    @Test
+    @Test(priority = 4)
     public void noCredentials() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());

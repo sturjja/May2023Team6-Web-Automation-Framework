@@ -1,4 +1,5 @@
 package com.team6.pages.automation.scaledupit;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -14,11 +15,11 @@ public class RegisterPage extends CommonAPI {
     }
 
     //locators
-    @FindBy(xpath = "//*[@id=\"post-9\"]/header/h1")
+    @FindBy(xpath = "//*[@id=\"reg_email\"]")
     WebElement emailField ;
-    @FindBy(xpath = "//*[@id=\"post-9\"]/div/div/div/div[2]/div[1]/header/a")
+    @FindBy(xpath = "//*[@id=\"reg_password\"]")
     WebElement passwordField;
-    @FindBy(xpath = "//*[@id=\"billing_first_name\"]")
+    @FindBy(xpath = "//*[@id=\"customer_login\"]/div[2]/form/p[3]/button")
     WebElement registerBtn ;
 
     public void enterEmail(String newEmail){

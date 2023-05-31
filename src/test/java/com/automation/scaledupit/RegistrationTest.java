@@ -4,28 +4,19 @@ import com.team6.base.CommonAPI;
 import com.team6.pages.automation.scaledupit.HomePage;
 import com.team6.pages.automation.scaledupit.LoginPage;
 import com.team6.pages.automation.scaledupit.RegisterPage;
-import com.team6.utility.ExcelReader;
 import com.team6.utility.Utility;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.bidi.log.Log;
-import org.openqa.selenium.support.PageFactory;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Properties;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+
 public class RegistrationTest extends CommonAPI {
     Logger log = LogManager.getLogger(RegistrationTest.class.getName());
 
-    @Test(dataProvider = "getRegistrationTestData")
-    public void newUserRegistration(String newEmail, String validPassword) {
+    @Test(dataProviderClass = Utility.class, dataProvider = "registration")
+    public void registrationDetails(String newEmail, String validPassword) {
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
         RegisterPage registerPage = new RegisterPage(getDriver());
