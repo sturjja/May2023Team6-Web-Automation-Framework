@@ -12,7 +12,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import java.util.Properties;
 import java.io.File;
-import java.io.PipedReader;
+
 
 public class QuickLinksTest extends CommonAPI {
     String currentDir = System.getProperty("user.dir");

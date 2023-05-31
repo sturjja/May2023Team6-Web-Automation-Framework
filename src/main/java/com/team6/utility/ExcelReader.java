@@ -13,16 +13,16 @@ import java.util.List;
 
 public class ExcelReader {
     private final Logger LOG = LogManager.getLogger(ExcelReader.class.getName());
-    XSSFWorkbook excelWBook ;
+    XSSFWorkbook excelWBook;
     XSSFSheet excelWSheet;
     XSSFCell cell;
     String path;
 
-    public ExcelReader(String path){
+    public ExcelReader(String path) {
         this.path = path;
     }
 
-    public String getDataFromCell(String sheet, int rowNum, int colNum){
+    public String getDataFromCell(String sheet, int rowNum, int colNum) {
         try {
             FileInputStream excelFile = new FileInputStream(path);
             excelWBook = new XSSFWorkbook(excelFile);
@@ -31,20 +31,20 @@ public class ExcelReader {
             String cellValue = cell.getStringCellValue();
             excelFile.close();
             return cellValue;
-        }catch (Exception e){
+        } catch (Exception e) {
             LOG.info("no file found");
             return "";
         }
     }
 
-    public List<String> getEntireColumnData(String sheet, int rowStart, int colNum){
+    public List<String> getEntireColumnData(String sheet, int rowStart, int colNum) {
         List<String> columnData = new ArrayList<>();
         try {
             File file = new File(path);
             FileInputStream excelFile = new FileInputStream(file);
             excelWBook = new XSSFWorkbook(excelFile);
             excelWSheet = excelWBook.getSheet(sheet);
-            for (int i = rowStart; i <= excelWSheet.getLastRowNum(); i++){
+            for (int i = rowStart; i <= excelWSheet.getLastRowNum(); i++) {
                 columnData.add(excelWSheet.getRow(i).getCell(colNum).getStringCellValue());
             }
 //            int i = rowStart;
@@ -53,17 +53,17 @@ public class ExcelReader {
 //                i++;
 //            }
             excelFile.close();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             LOG.info("no data found");
         }
         return columnData;
     }
 
-    public List<String> getEntireColumnForGivenHeader(String sheet, String headerName){
+    public List<String> getEntireColumnForGivenHeader(String sheet, String headerName) {
         int i = 0;
-        while (getDataFromCell(sheet, 0, i) != null){
-            if(getDataFromCell(sheet, 0, i).equalsIgnoreCase(headerName)){
+        while (getDataFromCell(sheet, 0, i) != null) {
+            if (getDataFromCell(sheet, 0, i).equalsIgnoreCase(headerName)) {
                 getEntireColumnData(sheet, 1, i);
                 break;
             }
@@ -72,14 +72,14 @@ public class ExcelReader {
         return getEntireColumnData(sheet, 1, i);
     }
 
-    public String getValueForGivenHeaderAndKey(String sheet, String headerName, String key){
+    public String getValueForGivenHeaderAndKey(String sheet, String headerName, String key) {
         String value = null;
         int i = 0;
-        while (getDataFromCell(sheet, 0, i) != null){
-            if(getDataFromCell(sheet, 0, i).equalsIgnoreCase(headerName)){
-                for (int j = 0; j < getEntireColumnData(sheet, 1, i).size(); j++){
-                    if(getEntireColumnData(sheet, 1, i).get(j).equalsIgnoreCase(key)){
-                        value = getEntireColumnData(sheet, 1, i+1).get(j);
+        while (getDataFromCell(sheet, 0, i) != null) {
+            if (getDataFromCell(sheet, 0, i).equalsIgnoreCase(headerName)) {
+                for (int j = 0; j < getEntireColumnData(sheet, 1, i).size(); j++) {
+                    if (getEntireColumnData(sheet, 1, i).get(j).equalsIgnoreCase(key)) {
+                        value = getEntireColumnData(sheet, 1, i + 1).get(j);
                     }
                 }
                 break;
@@ -90,13 +90,13 @@ public class ExcelReader {
     }
     // returns the row count in a sheet
 
-    public int getRowCount(String sheetName){
+    public int getRowCount(String sheetName) {
         int index = excelWBook.getSheetIndex(sheetName);
-        if(index==-1)
+        if (index == -1)
             return 0;
-        else{
+        else {
             excelWSheet = excelWBook.getSheetAt(index);
-            int number= excelWSheet.getLastRowNum()+1;
+            int number = excelWSheet.getLastRowNum() + 1;
             return number;
         }
 
@@ -105,11 +105,12 @@ public class ExcelReader {
 
     public static void main(String[] args) {
         String currentDir = System.getProperty("user.dir");
-        String path = currentDir+ File.separator+"data"+File.separator+"freecrm.xlsx";
+        String path = currentDir + File.separator + "data" + File.separator + "freecrm.xlsx";
         ExcelReader excelReader = new ExcelReader(path);
-        String homeTitle =excelReader.getDataFromCell("VerifyDashboard",0,0);
+        String homeTitle = excelReader.getDataFromCell("VerifyDashboard", 0, 0);
         System.out.println(homeTitle);
     }
+}
 //        List<String> items = excelReader.getEntireColumnForGivenHeader("Sheet1", "id");
 //        //String items = excelReader.getValueForGivenHeaderAndKey("Sheet1", "id", "id004");
 //        System.out.println(items);

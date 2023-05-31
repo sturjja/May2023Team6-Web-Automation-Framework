@@ -67,4 +67,31 @@ public class Utility {
         }
         return testData;
     }
+    @DataProvider(name = "registration")
+    public Object[][] registrationDetails(Method mirror) throws Exception {
+
+        String excelSheetName = mirror.getName();
+        String currentDir = System.getProperty("user.dir");
+        String path = currentDir + File.separator + "data" + File.separator + "scaledupit.xlsx";
+        FileInputStream excelFile = new FileInputStream(path);
+        Workbook wb = WorkbookFactory.create(excelFile);
+        Sheet sheetName = wb.getSheet(excelSheetName);
+
+        int totalRows = sheetName.getLastRowNum();
+        System.out.println(totalRows);
+
+        Row rowCells = sheetName.getRow(0);
+        int totalColumn = rowCells.getLastCellNum();
+
+        DataFormatter format = new DataFormatter();
+
+        String[][] testData = new String[totalRows][totalColumn];
+        for (int i = 1; i <= totalRows; i++) {
+            for (int j = 0; j < totalColumn; j++) {
+                testData[i - 1][j] = format.formatCellValue(sheetName.getRow(i).getCell(j));
+                System.out.print(testData[i - 1][j] + " ");
+            }
+        }
+        return testData;
+    }
 }
