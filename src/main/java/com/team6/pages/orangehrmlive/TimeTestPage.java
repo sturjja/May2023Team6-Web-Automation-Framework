@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
@@ -64,6 +65,9 @@ public class TimeTestPage extends CommonAPI {
     @FindBy(xpath = "//div[@class='oxd-toast-content oxd-toast-content--info']")
     WebElement ToasterMessage;
 
+      @FindBy(xpath = "//div[@role='listbox' and contains(@class, 'oxd-select-dropdown')]")
+    WebElement dropDown;
+
     HomepagePage hP = new HomepagePage(getDriver());
 
 
@@ -114,9 +118,8 @@ public class TimeTestPage extends CommonAPI {
     }
 
     public void employeeStatusDropdown() {
-        clickOn(employeeStatusDropdown);
-        waitFor(3);
-
+        Select select = new Select(employeeStatusDropdown);
+        select.selectByVisibleText("Freelance");
         log.info("Employee status selected from dropdown");
     }
 

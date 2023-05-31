@@ -84,7 +84,7 @@ public class PimPage extends CommonAPI {
     //methods
     public void clickOnPIM() {
         PIM.click();
-        waitFor(5);
+        waitFor(3);
         log.info("Click on PIM tab Success");
 
     }
@@ -96,7 +96,7 @@ public class PimPage extends CommonAPI {
 
     public void clickOnDelete() {
         clickOn(deleteSelected);
-        waitFor(5);
+        waitFor(3);
         log.info("Click on delete Success");
 
     }
@@ -135,7 +135,7 @@ public class PimPage extends CommonAPI {
 
     public void clickSaveButton() {
         saveButton.click();
-        waitFor(5);
+        waitFor(3);
         log.info("Click on save button Success");
     }
 

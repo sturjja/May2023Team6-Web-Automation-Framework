@@ -20,7 +20,7 @@ public class AdminPage extends CommonAPI {
     @FindBy(xpath = "//a[@class='oxd-main-menu-item active']")
     WebElement adminButton;
 
-    @FindBy(xpath = "//input[@class='oxd-input oxd-input--focus']")
+    @FindBy(xpath = "//body/div[@id='app']/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/div[1]/div[1]/div[2]/input[1]")
     WebElement userNameTextFieldAdmin;
 
     @FindBy(xpath = "//body/div[@id='app']/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/input[1]")
@@ -34,7 +34,7 @@ public class AdminPage extends CommonAPI {
     WebElement searchButton;
 
     //locator for the "No records found" message element
-    @FindBy(xpath = "//*[@id=\"resultTable\"]/tbody/tr/td")
+    @FindBy(xpath = "//body/div[@id='app']/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]")
     WebElement noRecordsFoundMessage;
 
     @FindBy(xpath = "(//div[@class='oxd-grid-item oxd-grid-item--gutters']//div[text()='-- Select --'])[1]")
@@ -102,7 +102,7 @@ public class AdminPage extends CommonAPI {
 
     public void clickResetButton() {
         resetButton.click();
-        waitFor(5);
+        waitFor(2);
         log.info("Click on reset button success");
 
     }
@@ -130,7 +130,7 @@ public class AdminPage extends CommonAPI {
 
     public void clickSearchButton() {
         clickOn(searchButton);
-        waitFor(3);
+        waitFor(2);
         log.info("Click on search button success");
 
     }
@@ -172,7 +172,7 @@ public class AdminPage extends CommonAPI {
     }
 
     public void enterOrganizaationName(String newName) {
-        clearTextField(orgNameField);
+        ClearText(orgNameField);
         orgNameField.sendKeys(newName);
         log.info("Enter new organization name Success");
     }
@@ -200,7 +200,6 @@ public class AdminPage extends CommonAPI {
 
     public void enableEdit() {
         clickOn(editButton);
-        waitFor(2);
         log.info("edit enabled Success");
 
     }

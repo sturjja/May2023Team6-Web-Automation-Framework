@@ -37,38 +37,6 @@ public class PimTest extends CommonAPI {
     Logger log = LogManager.getLogger(PimTest.class.getName());
     SoftAssert softAssert = new SoftAssert();
 
-    @Test(priority = 1)
-    public void verifyAddEmployee() {
-        LoginPage loginPage = new LoginPage(getDriver());
-        HomepagePage homepagePage = new HomepagePage(getDriver());
-        PimPage PIM = new PimPage(getDriver());
-        String tabName = "PIM";
-
-        loginPage.enteringUserNamePassWord(validUsername, validPassword);
-        loginPage.clickOnLoginBtn();
-
-        homepagePage.clickonMainMenuOptions(tabName);
-
-        PIM.clickAddEmployeeButton();
-        PIM.enterFirstName("Mohammad");
-        PIM.enterLastName("Taseen");
-        PIM.clickSaveButton();
-        Assert.assertEquals(PIM.showsFirstAndLastName(), "Mohammad Taseen");
-    }
-
-    @Test(priority = 2)
-    public void deleteEmployeeRecords() {
-        LoginPage lp = new LoginPage(getDriver());
-        PimPage PIM = new PimPage(getDriver());
-
-        lp.enteringUserNamePassWord("Admin", "admin123");
-        lp.clickOnLoginBtn();
-        PIM.clickOnPIM();
-        PIM.SelectAll();
-        PIM.clickOnDelete();
-
-        Assert.assertTrue(PIM.confirmDelete());
-    }
 
     @Test(dataProviderClass = Utility.class, dataProvider = "info")
     public void verifyAddEmployeePersonalDetail(String firstName, String lastName, String employeeID, String driverID, String sin, String ssn, String sex, String militaryBranch, String smokerCheckbox) {

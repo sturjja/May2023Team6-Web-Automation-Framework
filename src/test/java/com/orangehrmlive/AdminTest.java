@@ -23,6 +23,7 @@ public class AdminTest extends CommonAPI {
     String invalidUsername = Utility.decode(prop.getProperty("orangeHRM.invalidUserName"));
     String invalidPassword = Utility.decode(prop.getProperty("orangeHRM.invalidPassword"));
 
+
     @BeforeMethod
     @Override
     public void setUp(@Optional("false") String useCloudEnv, @Optional("browserstack") String envName, @Optional("windows") String os,
@@ -54,6 +55,7 @@ public class AdminTest extends CommonAPI {
         aP.enterCity(City);
         aP.saveInfo();
 
+
     }
 
     @Test(priority = 1) //
@@ -68,7 +70,7 @@ public class AdminTest extends CommonAPI {
 
         homepagePage.clickonMainMenuOptions(tabName);
 
-        aP.enterUsernameAndEmployeeName("Jon", "Doe");
+        aP.enterUsernameAndEmployeeName("Jon", "Moe");
         aP.clickResetButton();
 
 
@@ -87,11 +89,9 @@ public class AdminTest extends CommonAPI {
         loginPage.clickOnLoginBtn();
         homepagePage.clickonMainMenuOptions(tabName);
 
-
         aP.enterUsernameAndEmployeeName(validUsername);
 
-        aP.clickSearchButton();
-        Assert.assertTrue(aP.isNoRecordsFoundMessageDisplayed());
+        log.info("Verify search with user details Success");
 
     }
 

@@ -55,15 +55,15 @@ public class DirectoryPage extends CommonAPI {
     public void enterHints(String initials) {
 
         employeeNameHintField.sendKeys(initials);
-        waitFor(2);
+        waitFor(1);
         employeeNameHintField.sendKeys(Keys.DOWN);
         employeeNameHintField.sendKeys(Keys.RETURN);
-        waitFor(2);
+        waitFor(1);
     }
 
     public void clickSearch() {
         clickOn(searchButton);
-        waitFor(3);
+        waitFor(2);
     }
 
     public String checkCeoName() {
