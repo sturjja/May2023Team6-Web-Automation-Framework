@@ -14,11 +14,11 @@ public class CompanyPage extends CommonAPI {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//span[@class=\"item-text\" and text()=\"Companies\"]\n")
+    @FindBy(xpath = "/html/body/div[1]/div/div[1]/div[4]/a/span")
     WebElement companiesButton;
-    @FindBy(xpath = "//i[@aria-hidden=\"true\" and @class=\"edit icon\"]\n")
+    @FindBy(xpath = "//i[@aria-hidden=\"true\" and @class=\"unhide icon\"]\n")
     WebElement companiesUnhideIcon;
-    @FindBy(xpath = "//button[@class=\"ui tiny basic icon button\" and i[@aria-hidden=\"true\" and @class=\"linkify icon\"]]\n")
+    @FindBy(xpath = "//i[@aria-hidden=\"true\" and @class=\"linkify icon\"]\n")
     WebElement linkCompanyContactButton;
     @FindBy(xpath = "//input[@aria-autocomplete=\"list\" and @autocomplete=\"off\" and @class=\"search\" and @tabindex=\"0\" and @type=\"text\" and @value=\"\"]\n")
     WebElement companyContactNameField;
@@ -29,19 +29,20 @@ public class CompanyPage extends CommonAPI {
     @FindBy(xpath = "//input[@aria-autocomplete=\"list\" and @autocomplete=\"off\" and @class=\"search\" and @tabindex=\"0\" and @type=\"text\" and @value=\"\"]\n")
     WebElement linkCompanyDealField;
     @FindBy(xpath = "//button[@name=\"connect\" and @class=\"ui basic icon positive button\" and i[@aria-hidden=\"true\" and @class=\"check icon\"]]\n")
-    WebElement linkCompanyDealButton;
+    WebElement linkCompanyDealCheck;
 
-    public void clickOnLinkCompanyDealButton(){
-        clickOn(linkCompanyDealField);
+    public void clickOnLinkCompanyDealInitiate(){
+        clickOn(linkCompanyDealsButton);
         log.info("clicked on company deal button");
     }
 
     public void typeOnLinkCompanyDealField(String dealName){
+
         type(linkCompanyDealField, dealName);
     }
 
     public void clickOnLinkCompanyDealsButton(){
-        clickOn(linkCompanyDealsButton);
+        clickOn(linkCompanyDealCheck);
         log.info("company deal is linked");
     }
 

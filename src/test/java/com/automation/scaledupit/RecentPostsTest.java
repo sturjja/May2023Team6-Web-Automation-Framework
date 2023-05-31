@@ -40,7 +40,7 @@ public class RecentPostsTest extends CommonAPI {
         //scroll down the page
         postsPage.scrollDownPage();
         waitFor(3);
-        //click on account details button
+        //click on link to laptop post
         postsPage.clickLinkToLaptopPost();
         //check user is in correct place
         String expectedLaptopPostPageTitle = "Laptop – Automation";
@@ -72,7 +72,7 @@ public class RecentPostsTest extends CommonAPI {
         //scroll down the page
         postsPage.scrollDownPage();
         waitFor(3);
-        //click on account details button
+        //click on link to television post
         postsPage.clickLinkToTelevisionPost();
         //check user is in correct place
         String expectedTelevisionPostPageTitle = "Television – Automation";
@@ -104,7 +104,7 @@ public class RecentPostsTest extends CommonAPI {
         //scroll down the page
         postsPage.scrollDownPage();
         waitFor(3);
-        //click on account details button
+        //click on link to fun in shop post
         postsPage.clickLinkToFunInShopPost();
         //check user is in correct place
         String expectedFunInShopPostPageTitle = "Fun in Shop – Automation";
@@ -136,7 +136,7 @@ public class RecentPostsTest extends CommonAPI {
         //scroll down the page
         postsPage.scrollDownPage();
         waitFor(3);
-        //click on account details button
+        //click on link to winter is coming post
         postsPage.clickLinkToWinterIsComingPost();
         //check user is in correct place
         String expectedWinterIsComingPostPageTitle = "Winter is Coming – Automation";
@@ -168,7 +168,7 @@ public class RecentPostsTest extends CommonAPI {
         //scroll down the page
         postsPage.scrollDownPage();
         waitFor(3);
-        //click on account details button
+        //click on link to Christmas discount post
         postsPage.clickLinkToChristmasDiscountPost();
         //check user is in correct place
         String expectedChristmasDiscountPostPageTitle = "Christmas Discount – Automation";
@@ -200,7 +200,7 @@ public class RecentPostsTest extends CommonAPI {
         //scroll down the page
         postsPage.scrollDownPage();
         waitFor(3);
-        //click on account details button
+        //click on link to new arrival post
         postsPage.clickLinkToNewArrivalPost();
         //check user is in correct place
         String expectedNewArrivalPostPageTitle = "New Arrival – Automation";

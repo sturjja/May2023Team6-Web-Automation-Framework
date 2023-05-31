@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="scaledupit test">
 
-    <parameter name="useCloudEnv" value="true"></parameter>
+    <parameter name="useCloudEnv" value="false"></parameter>
     <parameter name="envName" value="browserstack"></parameter>
     <parameter name="os" value="windows"></parameter>
     <parameter name="osVersion" value="10"></parameter>
@@ -29,11 +29,6 @@
             <class name="com.automation.scaledupit.RecentPostsTest"></class>
         </classes>
     </test>
-    <test name="account details test">
-        <classes>
-            <class name="com.automation.scaledupit.AccountDetailsTest"></class>
-        </classes>
-    </test>
     <test name="login test">
         <classes>
             <class name="com.automation.scaledupit.LoginTest"></class>
@@ -42,6 +37,16 @@
     <test name="logout test">
         <classes>
             <class name="com.automation.scaledupit.LogoutTest"></class>
+        </classes>
+    </test>
+    <test name="account details test">
+        <classes>
+            <class name="com.automation.scaledupit.AccountDetailsTest"></class>
+        </classes>
+    </test>
+    <test name="registration test">
+        <classes>
+            <class name="com.automation.scaledupit.RegistrationTest"></class>
         </classes>
     </test>
 
