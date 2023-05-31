@@ -70,8 +70,8 @@ public class PimTest extends CommonAPI {
         Assert.assertTrue(PIM.confirmDelete());
     }
 
-    @Test(dataProvider = "columnData")
-    public void verifyAddEmployeePersonalDetails(String firstName, String lastName, String employeeID, String driverID, String sin, String ssn, String sex, String militaryBranch, String smokerCheckbox) {
+    @Test(dataProviderClass = Utility.class, dataProvider = "info")
+    public void verifyAddEmployeePersonalDetail(String firstName, String lastName, String employeeID, String driverID, String sin, String ssn, String sex, String militaryBranch, String smokerCheckbox) {
         LoginPage loginPage = new LoginPage(getDriver());
         HomepagePage homepagePage = new HomepagePage(getDriver());
         PimPage PIM = new PimPage(getDriver());
@@ -95,32 +95,9 @@ public class PimTest extends CommonAPI {
         PIM.selectGender(sex);
         PIM.enterMilitaryBranch(militaryBranch);
         PIM.smokeerCheckbox(smokerCheckbox);
+        waitFor(5);
         PIM.clickSaveInfo();
 
     }
-        @DataProvider(name = "columnData")
-        public static Object[][] getColumnDataFromExcel () {
-            String currentDir = System.getProperty("user.dir");
-            String path = currentDir + File.separator + "data" + File.separator + "orangehrm.xlsx";
-            ExcelReader excelReader = new ExcelReader(path);
-            String sheetName = "personalDetails";
-            int rowStart = 0;
-            int colNum = 0;
-            List<String> columnData = excelReader.getEntireColumnData(sheetName, rowStart, colNum);
-
-            Object[][] data = new Object[columnData.size()][1];
-            for (int i = 0; i < columnData.size(); i++) {
-                data[i][0] = columnData.get(i);
-            }
-
-            return data;
-
-        }
-
-        @Test(dataProvider = "columnData")
-        public void testing1(String data){
-
-            System.out.println("Data:" +data);
-        }
-    }
+}
 

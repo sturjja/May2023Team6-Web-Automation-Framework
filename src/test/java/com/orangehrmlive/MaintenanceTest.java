@@ -68,7 +68,9 @@ public class MaintenanceTest extends CommonAPI {
         mP.enterPassForMaintenance(invalidPassword);
         mP.clickConfirm();
 
-        Assert.assertTrue(mP.showDenyMessage());
+        boolean DenyMessage = mP.showDenyMessage();
+        Assert.assertTrue(DenyMessage);
+
         log.info("Deny access with incorrect credentials success ");
     }
 

@@ -17,7 +17,7 @@ public class LoginPage extends CommonAPI {
     //locators
     @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[2]/input")
     public //driver.findElement(By.xpath(""))
-    WebElement usernameField;
+            WebElement usernameField;
 
     @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[2]/div/div[2]/input")
     public WebElement passwordField;

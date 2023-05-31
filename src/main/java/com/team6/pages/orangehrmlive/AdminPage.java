@@ -56,8 +56,15 @@ public class AdminPage extends CommonAPI {
     @FindBy(xpath = "//body/div[@id='app']/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[2]/input[1]")
     WebElement orgPhoneField;
 
+
+    @FindBy(xpath = "//body/div[@id='app']/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[2]/div[1]/div[2]/input[1]")
+    WebElement orgFaxID;
+
     @FindBy(xpath = "//body/div[@id='app']/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[3]/div[1]/div[2]/input[1]")
     WebElement orgEmailField;
+
+    @FindBy(xpath = "//body/div[@id='app']/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[4]/div[1]/div[3]/div[1]/div[2]/input[1]")
+    WebElement orgCityName;
 
     @FindBy(xpath = "//span[@class='oxd-switch-input oxd-switch-input--active --label-left']")
     WebElement editButton;
@@ -150,7 +157,13 @@ public class AdminPage extends CommonAPI {
     public void organizationDropDown() {
         clickOn(orgDropDown);
         statusDropDown.sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
-        log.info("Enable selected from dropdown");
+        log.info("Click on Organization dropdown menu Success");
+
+    }
+
+    public void clickOnOrganization() {
+        clickOn(orgDropDown);
+        log.info("Click ");
 
     }
 
@@ -159,35 +172,79 @@ public class AdminPage extends CommonAPI {
     }
 
     public void enterOrganizaationName(String newName) {
-        orgNameField.clear();
-        waitFor(5);
-       // orgNameField.sendKeys(newName);
+        clearTextField(orgNameField);
+        orgNameField.sendKeys(newName);
+        log.info("Enter new organization name Success");
     }
 
     public void enterRegistrationNumber(String newNumber) {
         clearTextField(orgRegistrationNumField);
         orgEmailField.sendKeys(newNumber);
+        log.info("Enter new registration number Success");
+
     }
 
     public void enterTaxId(String newTaxID) {
         clearTextField(orgTaxIdField);
         orgEmailField.sendKeys(newTaxID);
+        log.info("Enter new Tax Id Success");
+
     }
 
-    public void clickOnOrganization() {
-        clickOn(orgDropDown);
-    }
 
     public void clickOngeneralInfo() {
         clickOn(generalInfo);
+        log.info("Click on general info Success");
+
     }
 
     public void enableEdit() {
         clickOn(editButton);
-        waitFor(5);
+        waitFor(2);
+        log.info("edit enabled Success");
+
     }
-    public void saveInfo(){
+
+    public void saveInfo() {
         clickOn(generalInfosaveButton);
+        log.info("Save info Success");
+
+    }
+
+
+    public void enterPhoneNumber(String number) {
+        ClearText(orgPhoneField);
+        orgPhoneField.sendKeys(number);
+    }
+
+    public void enterFaxID(String faxID) {
+        ClearText(orgFaxID);
+        orgFaxID.sendKeys(faxID);
+        log.info("Enter new Fax ID Success");
+
+    }
+
+
+    public void enterEmail(String email) {
+        ClearText(orgEmailField);
+        orgEmailField.sendKeys(email);
+        log.info("Enter new email Success");
+
+    }
+
+    public void enterCity(String city) {
+        ClearText(orgCityName);
+        orgCityName.sendKeys(city);
+        log.info("Enter new city name Success");
+
+    }
+
+
+    public void ClearText(WebElement element) {
+        int length = element.getAttribute("value").length();
+        for (int i = 0; i < length; i++) {
+            element.sendKeys(Keys.BACK_SPACE);
+        }
     }
 
 }

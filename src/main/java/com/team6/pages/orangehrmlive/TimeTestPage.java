@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -112,13 +113,11 @@ public class TimeTestPage extends CommonAPI {
         clickOn(AttendanceSummary);
     }
 
-    public void employeeStatusDropdown(){
-            clickOn(employeeStatusDropdown);
-            waitFor(3);
-            employeeStatusDropdown.sendKeys(Keys.ARROW_DOWN);
-            employeeStatusDropdown.sendKeys(Keys.ARROW_DOWN);
-            employeeStatusDropdown.sendKeys(Keys.ENTER);
-            log.info("Employee status selected from dropdown");
+    public void employeeStatusDropdown() {
+        clickOn(employeeStatusDropdown);
+        waitFor(3);
+
+        log.info("Employee status selected from dropdown");
     }
 
     public boolean checkForRecords() {

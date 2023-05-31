@@ -48,16 +48,16 @@ public class DirectoryTest extends CommonAPI {
         directoryPage.clickJobTitleDropDown();
 
 
-//
-//        String ActualName = directoryPage.checkCeoName();
-//        String ExpectedName = CEOname;
-//
-//        Assert.assertEquals(ActualName, ExpectedName);
-//        log.info("CEO info verification success");
+
+        String ActualName = directoryPage.checkCeoName();
+        String ExpectedName = CEOname;
+
+        Assert.assertEquals(ActualName, ExpectedName);
+        log.info("CEO info verification success");
     }
 
     @Test
-    public void checkCFOworkEmail() {
+    public void checkCurrentCfo() {
         LoginPage loginPage = new LoginPage(getDriver());
         loginPage.enteringUserNamePassWord(validUsername, validPassword);
         loginPage.clickOnLoginBtn();
@@ -78,11 +78,5 @@ public class DirectoryTest extends CommonAPI {
         Assert.assertTrue(ActualName.contains(ExpectedName));
         log.info("CTO name verification success");
 
-        String ActualEmail = directoryPage.checkCtoEmailAddress();
-        log.info("The Actual email Address is" + ActualEmail);
-
-
-//        Assert.assertTrue(ActualEmail.toLowerCase().contains(ctoEmail));
-//        log.info("CTO info verification success");
     }
 }

@@ -97,14 +97,14 @@ public class PimPage extends CommonAPI {
     public void clickOnDelete() {
         clickOn(deleteSelected);
         waitFor(5);
-        log.info("Click on delete success");
+        log.info("Click on delete Success");
 
     }
 
     public boolean confirmDelete() {
         waitFor(3);
         clickOn(confirmDeleteRecords);
-        log.info("Delete confirmation success");
+        log.info("Delete confirmation Success");
         return true;
     }
 
@@ -150,10 +150,13 @@ public class PimPage extends CommonAPI {
 
     public void enterDriversID(String driverID) {
         driversLicenseID.sendKeys(driverID);
+        log.info("Enter drivers ID Success");
     }
 
     public void enterMilitaryBranch(String branch) {
         militaryService.sendKeys(branch);
+        log.info("Enter military branch Success");
+
     }
 
     //Radio buttons
@@ -163,15 +166,21 @@ public class PimPage extends CommonAPI {
         } else if (sex.equalsIgnoreCase("Female")) {
             genderFemale.click();
         }
+        log.info("Select gender Success");
+
     }
 
     public void smokeerCheckbox(String YesNo) {
         if (YesNo.equalsIgnoreCase("Yes")) {
             smoker.click();
+            log.info("Smoker radiobutton Success");
+
         }
     }
     public void clickSaveInfo(){
         savePersonalInfo.click();
+        log.info("Save personal Info Success");
+
     }
 
     public void ClearText(WebElement element) {

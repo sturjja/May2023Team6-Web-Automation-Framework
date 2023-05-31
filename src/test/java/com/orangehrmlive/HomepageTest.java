@@ -52,6 +52,28 @@ public class HomepageTest extends CommonAPI {
 
     }
 
+    @Test(priority = 1)
+    public void navigateToDashboard() {
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomepagePage homepagePage = new HomepagePage(getDriver());
+
+        String tabName = "Dashboard";
+
+        loginPage.enteringUserNamePassWord(validUsername, validPassword);
+        loginPage.clickOnLoginBtn();
+
+        homepagePage.clickonMainMenuOptions(tabName);
+
+        String ActualTabName = homepagePage.menuTabConfirmation();
+        String ExpectedTabName = tabName.toLowerCase();
+
+        Assert.assertEquals(ActualTabName, ExpectedTabName);
+
+        log.info(tabName + " is clickable from menu -- Success");
+
+
+    }
+
     @Test(priority = 2)
     public void navigateToPIM() {
         LoginPage loginPage = new LoginPage(getDriver());

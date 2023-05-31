@@ -35,6 +35,18 @@ public class LeavePage extends CommonAPI {
     @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[2]/div[1]/span")
     WebElement noRecordsFound;
 
+    @FindBy(xpath = "//header/div[2]/nav[1]/ul[1]/li[4]/span[1]")
+    WebElement ReportsButton;
+
+    @FindBy(xpath = "//header/div[2]/nav[1]/ul[1]/li[4]/ul[1]/li[1]/a[1]")
+    WebElement leaveUsagesReport;
+
+    @FindBy(xpath = "//body/div[@id='app']/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/form[1]/div[3]/button[1]")
+    WebElement GenerateLeaveReport;
+
+    @FindBy(xpath = "//body/div[@id='app']/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]")
+    WebElement RecordsFoundText;
+
 
     public void clickOnLeave() {
         clickOn(Leave);
@@ -60,17 +72,26 @@ public class LeavePage extends CommonAPI {
     }
 
     public void checkAndApproveLeaveRequest() {
-        if (noApprovalsNeeded()) {
+        if (noApprovalsNeeded())
             log.info("No pending approval found");
-
-        } else selectPendingApprovals();
-        approve();
-        log.info("Approve Leave Requests Success");
+        else log.info("Approvals found");
     }
 
-    public boolean EmptyListIsDisplayed() {
-        log.info("Empty List Displayed Success");
-        return blankElement.isDisplayed();
+    public void clickOnReports(){
+        clickOn(ReportsButton);
     }
+    public void clickOnLeaveUsagesReport(){
+        clickOn(leaveUsagesReport);
+    }
+    public void clickOnGenerateReport(){
+        clickOn(GenerateLeaveReport);
+    }
+
+    public String getRecordsFoundMessage(){
+        return noRecordsFound.getText();
+    }
+
+
 
 }
+

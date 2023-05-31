@@ -32,13 +32,20 @@ public class DashboardTest extends CommonAPI {
 
     @Test(priority = 1)
     public void verifyLogout() {
-        LoginPage lp = new LoginPage(getDriver());
-        LoginPage loginpage = new LoginPage(getDriver());
-        loginpage.enteringUserNamePassWord(validUsername, validPassword);
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomepagePage homepagePage = new HomepagePage(getDriver());
+        String tabName = "Dashboard";
+
+        loginPage.enteringUserNamePassWord(validUsername, validPassword);
+        loginPage.clickOnLoginBtn();
+
+        homepagePage.clickonMainMenuOptions(tabName);
 
         HomepagePage hp = new HomepagePage(getDriver());
         hp.clickOnLogoutButton();
-        Assert.assertTrue(lp.checkPresenceOfLoginPageHeader());
+
+        Assert.assertTrue(loginPage.checkPresenceOfLoginPageHeader());
+
     }
 
     @Test(priority = 2)
@@ -56,12 +63,15 @@ public class DashboardTest extends CommonAPI {
     @Test(priority = 3)
     public void verifyLogoutNegative() {
         LoginPage loginPage = new LoginPage(getDriver());
-        HomepagePage hp = new HomepagePage(getDriver());
+        HomepagePage homepagePage = new HomepagePage(getDriver());
+
+        String tabName = "Dashboard";
 
         loginPage.enteringUserNamePassWord(validUsername, validPassword);
-
         loginPage.clickOnLoginBtn();
-        hp.clickOnLogoutButton();
+
+        homepagePage.clickonMainMenuOptions(tabName);
+        homepagePage.clickOnLogoutButton();
 
         // Check if the login page header is displayed
         boolean displayHeader = loginPage.checkPresenceOfLoginPageHeader();
@@ -89,18 +99,46 @@ public class DashboardTest extends CommonAPI {
 
     @Test(priority = 5)
     public void supportText() {
-        LoginPage lp = new LoginPage(getDriver());
-        DashboardPage dP = new DashboardPage(getDriver());
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomepagePage homepagePage = new HomepagePage(getDriver());
+        DashboardPage dashboardPage = new DashboardPage(getDriver());
+        String tabName = "Dashboard";
 
-        lp.enteringUserNamePassWord(validUsername, validPassword);
-        lp.clickOnLoginBtn();
-        dP.clickOnSupport();
+        loginPage.enteringUserNamePassWord(validUsername, validPassword);
+        loginPage.clickOnLoginBtn();
+
+        homepagePage.clickonMainMenuOptions(tabName);
+        loginPage.clickOnLoginBtn();
+        dashboardPage.clickOnSupport();
 
         String actualMessage = supportTextMessage;
-        String expectedMessage = dP.GetSupportText();
+        String expectedMessage = dashboardPage.GetSupportText();
 
         Assert.assertEquals(actualMessage, expectedMessage);
         log.info("Support Text Visible success");
 
     }
+
+    @Test
+    public void navigateToUserManual() {
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomepagePage homepagePage = new HomepagePage(getDriver());
+        DashboardPage dashboardPage = new DashboardPage(getDriver());
+        String tabName = "Dashboard";
+
+        loginPage.enteringUserNamePassWord(validUsername, validPassword);
+        loginPage.clickOnLoginBtn();
+
+        homepagePage.clickonMainMenuOptions(tabName);
+
+        dashboardPage.clickOnHelp();
+
+        String ActualText = getCurrentUrl();
+        String ExpectedText = "starter";
+        log.info(ActualText);
+
+        Assert.assertTrue(ActualText.contains(ExpectedText));
+    }
+
+
 }
