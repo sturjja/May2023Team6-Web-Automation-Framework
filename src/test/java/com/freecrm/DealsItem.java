@@ -22,7 +22,7 @@ public class DealsItem extends CommonAPI {
     String validEmail = prop.getProperty("freecrm.email");
     String validPassword = prop.getProperty("freecrm.password");
     String comission = excelReader.getDataFromCell("DealsItem", 0, 0);
-    String note = excelReader.getDataFromCell("DealsItem", 0, 1);
+    String note = excelReader.getDataFromCell("DealsItem", 1, 0);
 
 //-------------------------------------------------------------------------------------------------------------
 //*****************************(Test Case to assign commission to a deal)***************************************

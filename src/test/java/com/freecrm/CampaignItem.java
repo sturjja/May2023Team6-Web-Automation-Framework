@@ -4,21 +4,30 @@ import com.team6.base.CommonAPI;
 import com.team6.pages.freecrm.CampaignPage;
 import com.team6.pages.freecrm.HomePage;
 import com.team6.pages.freecrm.LoginPage;
+import com.team6.utility.ExcelReader;
 import com.team6.utility.Utility;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.File;
 import java.util.Properties;
 
 public class CampaignItem extends CommonAPI {
     Logger log = LogManager.getLogger(CampaignItem.class.getName());
     Properties prop = Utility.loadProperties();
+    String currentDir = System.getProperty("user.dir");
+    String path = currentDir+ File.separator+"data"+File.separator+"freecrm.xlsx";
+    ExcelReader excelReader = new ExcelReader(path);
 
-    String validEmail = prop.getProperty("freecrm.email");
-    String validPassword = prop.getProperty("freecrm.password");
-    String campaignName = "USA2027";
+    String validEmail = Utility.decode(prop.getProperty("freecrm.email"));
+    String validPassword = Utility.decode(prop.getProperty("freecrm.password"));
+    String campaignName = excelReader.getDataFromCell("CampaignItem", 0, 0);
+
+    //-------------------------------------------------------------------------------------------------------------
+//*****************************(Test Case to create a campaign in Campaign section)*********************************
+
     @Test
     public void createCampaign(){
         LoginPage loginPage = new LoginPage(getDriver());
@@ -47,6 +56,8 @@ public class CampaignItem extends CommonAPI {
 
 
     }
+    //-------------------------------------------------------------------------------------------------------------
+//*************************************(Test Case to edit a Campaign)*****************************************
     @Test
     public void editCampaign(){
         LoginPage loginPage = new LoginPage(getDriver());
@@ -76,6 +87,10 @@ public class CampaignItem extends CommonAPI {
         campaignPage.clickOnEditCampaignButton();
 
     }
+
+    //-------------------------------------------------------------------------------------------------------------
+//***********************************(Test Case to delete a Campaign)*****************************************
+
     @Test
     public void deleteCampaign(){
         LoginPage loginPage = new LoginPage(getDriver());

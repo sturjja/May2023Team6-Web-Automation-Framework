@@ -22,7 +22,7 @@ public class VerifyDashboard extends CommonAPI {
     String validEmail = prop.getProperty("freecrm.email");
     String validPassword = prop.getProperty("freecrm.password");
     String titleName = excelReader.getDataFromCell("VerifyDashboard", 0, 0);
-    String companyName = excelReader.getDataFromCell("VerifyDashboard", 0 , 1);
+    String companyName = excelReader.getDataFromCell("VerifyDashboard", 1 , 0);
 
  //-----------------------------------------------------------------------------------------------------------
  //****************************(Test Case to verify the visibility of the Dashboard)*************************

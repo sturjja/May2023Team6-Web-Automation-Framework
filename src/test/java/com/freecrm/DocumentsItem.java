@@ -26,8 +26,13 @@ public class DocumentsItem extends CommonAPI {
     String validEmail = prop.getProperty("freecrm.email");
     String validPassword = prop.getProperty("freecrm.password");
     String documentTitle = excelReader.getDataFromCell("DocumentItem", 0, 0);
-    String documentNote = excelReader.getDataFromCell("DocumentItem", 0, 1);
-    String folderName = excelReader.getDataFromCell("DocumentItem", 0, 2);
+    String documentNote = excelReader.getDataFromCell("DocumentItem", 1, 0);
+    String folderName = excelReader.getDataFromCell("DocumentItem", 2, 0);
+
+
+    //-----------------------------------------------------------------------------------------------------------
+    //****************************(Test Case to create a Document Functionality)*************************
+
     @Test(priority = 0)
     public void createDocument(){
         LoginPage loginPage = new LoginPage(getDriver());
@@ -62,6 +67,8 @@ public class DocumentsItem extends CommonAPI {
 
 
     }
+    //-----------------------------------------------------------------------------------------------------------
+    //****************************(Test Case to add notes to Document)****************************************
     @Test(priority = 1)
     public void addNotesToDocument(){
         LoginPage loginPage = new LoginPage(getDriver());
@@ -95,6 +102,8 @@ public class DocumentsItem extends CommonAPI {
 
 
     }
+    //-----------------------------------------------------------------------------------------------------------
+    //****************************(Test Case to Download contact from Document)******************************
     @Test(priority = 2)
     public void downloadContactDocument(){
         LoginPage loginPage = new LoginPage(getDriver());
@@ -123,6 +132,8 @@ public class DocumentsItem extends CommonAPI {
         documentsPage.clickOnDownloadContactDocumentButton();
 
     }
+    //-----------------------------------------------------------------------------------------------------------
+    //****************************(Test Case to create a Document Folder)**************************************
     @Test
     public void createDocumentFolder(){
         LoginPage loginPage = new LoginPage(getDriver());
