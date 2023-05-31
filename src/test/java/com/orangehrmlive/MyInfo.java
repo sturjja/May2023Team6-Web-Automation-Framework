@@ -36,9 +36,12 @@ public class MyInfo extends CommonAPI {
         lp.enteringUserNamePassWord();
         lp.clickOnLoginBtn();
         mI.clickOnMyInfo();
-        mI.enterFirstAndLastName("Domina","Burndead");
+        mI.enterFirstAndLastName("Domina", "Burndead");
         mI.clickOnSave();
-        Assert.assertEquals(mI.firstNameLastName(), "Domina Burndead");
+
+        String ActualText = mI.firstNameLastName();
+        String ExpectedText = "Domina Burndead";
+        Assert.assertEquals(ActualText, ExpectedText);
     }
 
     @Test(priority = 2)

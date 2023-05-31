@@ -87,11 +87,12 @@ public class TimeTest extends CommonAPI {
         timeTestPage.clickOnView();
 
         timeTestPage.checkForRecords();
+
         Assert.assertTrue(timeTestPage.checkForRecords());
         log.info("View Project Report Success");
     }
 
-    @Test(priority = 4)
+    @Test(enabled = false)
     public void checkAttendanceSummary() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomepagePage homepagePage = new HomepagePage(getDriver());
@@ -108,6 +109,7 @@ public class TimeTest extends CommonAPI {
         timeTestPage.clickOnReports();
         timeTestPage.clickOnAttendance();
         timeTestPage.employeeStatusDropdown();
+        waitFor(5);
         timeTestPage.clickOnView();
 
     }

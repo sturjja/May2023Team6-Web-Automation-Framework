@@ -112,11 +112,11 @@ public class MaintenancePage extends CommonAPI {
 
     public void clickSearch() {
         clickOn(searchButton);
-        waitFor(3);
+        waitFor(2);
     }
 
     public void downloadRecords() {
-        waitFor(3);
+        waitFor(2);
         clickOn(downloadButton);
     }
 
@@ -130,9 +130,9 @@ public class MaintenancePage extends CommonAPI {
 
     public void selectCandidateRoleByName(String jobTitile) {
         vacancyTextfield.sendKeys(jobTitile);
-        waitFor(3);
+        waitFor(2);
         vacancyTextfield.sendKeys(Keys.DOWN);
-        waitFor(3);
+        waitFor(2);
         vacancyTextfield.sendKeys(Keys.RETURN);
     }
 

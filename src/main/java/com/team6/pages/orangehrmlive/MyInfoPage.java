@@ -4,6 +4,7 @@ package com.team6.pages.orangehrmlive;
 import com.team6.base.CommonAPI;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,7 +19,7 @@ public class MyInfoPage extends CommonAPI {
     }
 
     //locators
-    @FindBy(css = "#app > div.oxd-layout > div.oxd-layout-navigation > aside > nav > div.oxd-sidepanel-body > ul > li:nth-child(6) > a")
+    @FindBy(xpath = "//body/div[@id='app']/div[1]/div[1]/aside[1]/nav[1]/div[2]/ul[1]/li[6]/a[1]")
     WebElement MyInfo;
 
     @FindBy(name = "firstName")
@@ -46,25 +47,30 @@ public class MyInfoPage extends CommonAPI {
 
     public void clickOnMyInfo() {
         clickOn(MyInfo);
-        waitFor(5);
+        waitFor(2);
         log.info("Click on My Info Success");
 
     }
 
     public void enterFirstAndLastName(String firstName, String lastName){
-        firstNameField.clear();
+        ClearText(firstNameField);
         firstNameField.sendKeys(firstName);
-        lastNameField.clear();
+        ClearText(lastNameField);
         lastNameField.sendKeys(lastName);
         log.info("First and last name enter Success");
 
     }
 
+    public void ClearText(WebElement element) {
+        int length = element.getAttribute("value").length();
+        for (int i = 0; i < length; i++) {
+            element.sendKeys(Keys.BACK_SPACE);
+        }
+    }
+
     public void clickOnSave() {
         saveButton.click();
-        waitFor(5);
-        getDriver().navigate().refresh();
-        waitFor(10);
+        clickOnMyInfo();
         log.info("Click on save Success");
     }
 
