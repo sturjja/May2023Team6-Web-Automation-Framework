@@ -22,15 +22,15 @@ public class AdminTest extends CommonAPI {
     String validPassword = Utility.decode(prop.getProperty("orangeHRM.password"));
     String invalidUsername = Utility.decode(prop.getProperty("orangeHRM.invalidUserName"));
     String invalidPassword = Utility.decode(prop.getProperty("orangeHRM.invalidPassword"));
-
-
-    @BeforeMethod
-    @Override
-    public void setUp(@Optional("false") String useCloudEnv, @Optional("browserstack") String envName, @Optional("windows") String os,
-                      @Optional("10") String osVersion, @Optional("chrome") String browserName, @Optional("110") String browserVersion,
-                      @Optional("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login") String url) throws MalformedURLException {
-        super.setUp(useCloudEnv, envName, os, osVersion, browserName, browserVersion, url);
-    }
+//
+//
+//    @BeforeMethod
+//    @Override
+//    public void setUp(@Optional("false") String useCloudEnv, @Optional("browserstack") String envName, @Optional("windows") String os,
+//                      @Optional("10") String osVersion, @Optional("chrome") String browserName, @Optional("110") String browserVersion,
+//                      @Optional("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login") String url) throws MalformedURLException {
+//        super.setUp(useCloudEnv, envName, os, osVersion, browserName, browserVersion, url);
+//    }
 
     @Test(dataProviderClass = Utility.class, dataProvider = "info", priority = 1) //
     public void editOrganizationInfo(String RegistrationNummber, String TaxID, String Phone, String Fax, String Email, String City) {
