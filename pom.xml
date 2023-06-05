@@ -112,8 +112,8 @@
           <suiteXmlFiles>
 <!--            <suiteXmlFile>src/test/resources/frontrunner.xml</suiteXmlFile>-->
 <!--            <suiteXmlFile>src/test/resources/runnermailchimp.xml</suiteXmlFile>-->
-            <suiteXmlFile>src/test/resources/runnerorangehrmlive.xml</suiteXmlFile>
-<!--            <suiteXmlFile>src/test/resources/runnerscaledupit.xml</suiteXmlFile>-->
+<!--             <suiteXmlFile>src/test/resources/runnerorangehrmlive.xml</suiteXmlFile> -->
+           <suiteXmlFile>src/test/resources/runnerscaledupit.xml</suiteXmlFile>
           </suiteXmlFiles>
         </configuration>
       </plugin>
