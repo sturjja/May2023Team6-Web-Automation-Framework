@@ -24,11 +24,11 @@ public class DashboardTest extends CommonAPI {
     String supportTextMessage = Utility.decode(prop.getProperty("orangeHRM.supportText"));
     Logger log = LogManager.getLogger(LeaveTest.class.getName());
 
-    @BeforeMethod
-    @Override
-    public void setUp(@Optional("false") String useCloudEnv, @Optional("browserstack") String envName, @Optional("windows") String os, @Optional("10") String osVersion, @Optional("chrome") String browserName, @Optional("110") String browserVersion, @Optional("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login") String url) throws MalformedURLException {
-        super.setUp(useCloudEnv, envName, os, osVersion, browserName, browserVersion, url);
-    }
+//    @BeforeMethod
+//    @Override
+//    public void setUp(@Optional("false") String useCloudEnv, @Optional("browserstack") String envName, @Optional("windows") String os, @Optional("10") String osVersion, @Optional("chrome") String browserName, @Optional("110") String browserVersion, @Optional("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login") String url) throws MalformedURLException {
+//        super.setUp(useCloudEnv, envName, os, osVersion, browserName, browserVersion, url);
+//    }
 
     @Test(priority = 1)
     public void verifyLogout() {

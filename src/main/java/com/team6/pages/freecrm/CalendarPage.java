@@ -26,7 +26,7 @@ public class CalendarPage extends CommonAPI {
     WebElement calendarEndField;
     @FindBy(xpath = "//button[contains(text(), 'Save')]")
     WebElement calendarSaveButton;
-    @FindBy(xpath = "//div[@class=\"rbc-event-content\" and @title=\"Test event\"]\n")
+    @FindBy(xpath = "//div[@class=\"rbc-event-content\" and @title=\"Test Event\"]\n")
     WebElement createdCalendar;
     @FindBy(xpath = "//i[@aria-hidden=\"true\" and @class=\"trash icon\"]\n")
     WebElement calendarDeleteButton;

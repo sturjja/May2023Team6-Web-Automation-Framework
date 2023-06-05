@@ -3,20 +3,25 @@ package com.freecrm;
 import com.team6.pages.freecrm.CalendarPage;
 import com.team6.pages.freecrm.HomePage;
 import com.team6.pages.freecrm.LoginPage;
+import com.team6.utility.ExcelReader;
 import com.team6.utility.Utility;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.team6.base.CommonAPI;
 
+import java.io.File;
 import java.util.Properties;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 public class CalenderItem extends CommonAPI {
     Properties prop = Utility.loadProperties();
+    String currentDir = System.getProperty("user.dir");
+    String path = currentDir+ File.separator+"data"+File.separator+"freecrm.xlsx";
+    ExcelReader excelReader = new ExcelReader(path);
     String validEmail = prop.getProperty("freecrm.email");
     String validPassword = prop.getProperty("freecrm.password");
-    String validCalendarTitle = "Test event";
+    String validCalendarTitle = "Test Event" ;
 
 //-------------------------------------------------------------------------------------------------------------
 //***************************(Test Case to create a new calendar)*********************************************
@@ -69,7 +74,6 @@ public class CalenderItem extends CommonAPI {
     @Test(priority = 1)
     public void deleteCalenderDate(){
         LoginPage loginPage = new LoginPage(getDriver());
-        HomePage homePage = new HomePage(getDriver());
         CalendarPage calendarPage = new CalendarPage(getDriver());
         String expectedTitle = "#1 Free CRM App for every business customer relationship management cloud";
         String actualTitle = getCurrentTitle();
@@ -89,7 +93,7 @@ public class CalenderItem extends CommonAPI {
 
         //user will click on calendar section button on the left column to enter calendar page
         calendarPage.clickOnCalendarButton();
-        waitFor(6);
+        waitFor(7);
         //user will click on the created calender from calendar table
         calendarPage.clickOnCreatedCalendar();
         waitFor(3);

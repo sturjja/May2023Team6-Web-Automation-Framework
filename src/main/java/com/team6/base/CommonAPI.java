@@ -160,7 +160,7 @@ public class CommonAPI {
                       @Optional("10") String osVersion, @Optional("chrome") String browserName, @Optional("110") String browserVersion,
                       @Optional("https://automation.scaledupit.com") String url) throws MalformedURLException {
         if (useCloudEnv.equalsIgnoreCase("true")){
-            getCloudDriver(envName,os,osVersion,browserName,browserVersion,"samiurturjja_uXPSKT","DcRHG1dHNfvnD4deAqPT");
+            getCloudDriver(envName,os,osVersion,browserName,browserVersion,browserstackUsername,browserstackPassword);
         } else if(useCloudEnv.equalsIgnoreCase("false")){
             getLocalDriver(browserName);
         }

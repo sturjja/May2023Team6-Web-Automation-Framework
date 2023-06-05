@@ -10,7 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends CommonAPI {
     Logger log = LogManager.getLogger(LoginPage.class.getName());
-    public LoginPage(WebDriver driver){
+
+    public LoginPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
@@ -37,45 +38,48 @@ public class LoginPage extends CommonAPI {
 
     //reusable methods
 
-    public void enteringUserNamePassWord(String userName, String passWord){
+    public void enteringUserNamePassWord(String userName, String passWord) {
         enterUsername(userName);
         enterPassword(passWord);
         log.info("Login Success");
     }
-    public void enteringUserNamePassWord(){
+
+    public void enteringUserNamePassWord() {
         enterUsername("Admin");
         enterPassword("admin123");
     }
 
-    public void enterUsername(String username){
+    public void enterUsername(String username) {
         type(usernameField, username);
         log.info("enter username success");
     }
-    public void enterPassword(String password){
+
+    public void enterPassword(String password) {
         type(passwordField, password);
         log.info("enter password success");
     }
 
 
-    public void clickOnLoginBtn(){
+    public void clickOnLoginBtn() {
         clickOn(loginBtn);
-        waitFor(10);
         log.info("click on login button Success");
     }
 
-    public String getErrorMessage(){
+    public String getErrorMessage() {
         String text = getElementText(errorMessage);
         log.info("get error message text success");
         return text;
     }
-    public boolean checkPresenceOfLoginPageHeader(){
+
+    public boolean checkPresenceOfLoginPageHeader() {
         boolean loginPageHeaderIsDisplayed = isVisible(loginPageHeader);
-        log.info("login page header presence "+loginPageHeaderIsDisplayed);
+        log.info("login page header presence " + loginPageHeaderIsDisplayed);
         return loginPageHeaderIsDisplayed;
     }
-    public String getLoginPageHeaderText(){
+
+    public String getLoginPageHeaderText() {
         String loginPageHeaderText = getElementText(loginPageHeader);
-        log.info("login page header text is "+ loginPageHeaderText);
+        log.info("login page header text is " + loginPageHeaderText);
         return loginPageHeaderText;
     }
 

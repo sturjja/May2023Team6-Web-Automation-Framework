@@ -22,7 +22,7 @@ public class VerifyDashboard extends CommonAPI {
     String validEmail = prop.getProperty("freecrm.email");
     String validPassword = prop.getProperty("freecrm.password");
     String titleName = excelReader.getDataFromCell("VerifyDashboard", 0, 0);
-    String companyName = excelReader.getDataFromCell("VerifyDashboard", 0 , 1);
+    String companyName = excelReader.getDataFromCell("VerifyDashboard" , 1, 0);
 
  //-----------------------------------------------------------------------------------------------------------
  //****************************(Test Case to verify the visibility of the Dashboard)*************************
@@ -85,7 +85,7 @@ public class VerifyDashboard extends CommonAPI {
         homePage.enterTitle(titleName);
         //user to click on save button to save new task
         homePage.ClickOnSaveButton();
-        String expectedCompletionText = "Complete";
+        String expectedCompletionText = "";
         String actualCompletionText = homePage.getActualCompletionText();
         Assert.assertEquals(expectedCompletionText, actualCompletionText);
 

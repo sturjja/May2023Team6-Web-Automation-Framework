@@ -60,9 +60,9 @@ public class LeavePage extends CommonAPI {
     }
 
     public void approve() {
-        waitFor(2);
+        waitFor(1);
         approveButton.click();
-        waitFor(2);
+        waitFor(1);
         confirmApprove.click();
         log.info("Confirming approve Success");
     }

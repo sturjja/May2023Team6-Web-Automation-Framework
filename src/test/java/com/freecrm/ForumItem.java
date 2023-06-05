@@ -22,9 +22,9 @@ public class ForumItem extends CommonAPI {
     Properties prop = Utility.loadProperties();
     String validEmail = prop.getProperty("freecrm.email");
     String validPassword = prop.getProperty("freecrm.password");
-    String validName = excelReader.getDataFromCell("ForumItem", 0, 0);
-    String simpleIntro = excelReader.getDataFromCell("ForumItem" , 0, 1);
-    String simpleOutro = excelReader.getDataFromCell("ForumItem" , 0 , 2);
+    String validName = excelReader.getDataFromCell("ForumItem", 0,0);
+    String simpleIntro = excelReader.getDataFromCell("ForumItem", 1, 0);
+    String simpleOutro = excelReader.getDataFromCell("ForumItem", 2, 0);
 
 //-------------------------------------------------------------------------------------------------------------
 //**********************************(Test Case to add notes to the forum)**************************************
@@ -56,6 +56,9 @@ public class ForumItem extends CommonAPI {
         //user will click on save button to save form
         forumPage.clickOnFormSaveButton();
     }
+
+    //-----------------------------------------------------------------------------------------------------------
+    //****************************(Test Case to add Form with only an Intro)*********************************
     @Test
     public void addFormsWithIntro(){
         LoginPage loginPage = new LoginPage(getDriver());
@@ -83,6 +86,9 @@ public class ForumItem extends CommonAPI {
         forumPage.clickOnFormSaveButton();
 
     }
+
+    //-----------------------------------------------------------------------------------------------------------
+    //****************************(Test Case to add Form with only an Outro)************************************
     @Test
     public void addFormsWithOutro(){
         LoginPage loginPage = new LoginPage(getDriver());
